@@ -5,6 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBBlocker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="DBBlocker" Height="465" Width="850"
+        MinHeight="465"
+        MinWidth="850">
+        
+    <Grid Background="DarkSlateGray">
+
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="215,309,5,5" Background="Blue"/>
+        <TabControl HorizontalAlignment="Stretch"  Margin="215,5,5,115" VerticalAlignment="Stretch" >
+            <TabItem Header="Query Constructor">
+                <Grid Background="ForestGreen"/>
+            </TabItem>
+            <TabItem Header="Database Viewer">
+                <Grid Background="Goldenrod"/>
+            </TabItem>
+        </TabControl>
+        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="205" Margin="5,5,0,5" Background="OrangeRed">
+            <StackPanel Height="376" Width="171"/>
+
+        </ScrollViewer>
+    </Grid>
 </Window>
