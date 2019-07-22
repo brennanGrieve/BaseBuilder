@@ -11,8 +11,8 @@
         WindowState="Maximized">
 
     <Grid Background="DarkSlateGray">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="215,309,5,5" Background="DarkSlateBlue"/>
-        <TabControl HorizontalAlignment="Stretch"  Margin="215,5,5,115" VerticalAlignment="Stretch" >
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="215,0,5,5" Background="DarkSlateBlue"/>
+        <TabControl HorizontalAlignment="Stretch"  Margin="215,5,5,125" VerticalAlignment="Stretch" >
             <TabItem Header="Query Constructor">
                 <Grid Background="ForestGreen">
                     <Button Content="Button" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="75"/>
