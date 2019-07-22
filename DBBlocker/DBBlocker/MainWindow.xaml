@@ -7,22 +7,23 @@
         mc:Ignorable="d"
         Title="DBBlocker" Height="465" Width="850"
         MinHeight="465"
-        MinWidth="850">
-        
-    <Grid Background="DarkSlateGray">
+        MinWidth="850"
+        WindowState="Maximized">
 
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="215,309,5,5" Background="Blue"/>
+    <Grid Background="DarkSlateGray">
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch"  Margin="215,309,5,5" Background="DarkSlateBlue"/>
         <TabControl HorizontalAlignment="Stretch"  Margin="215,5,5,115" VerticalAlignment="Stretch" >
             <TabItem Header="Query Constructor">
-                <Grid Background="ForestGreen"/>
+                <Grid Background="ForestGreen">
+                    <Button Content="Button" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="75"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Database Viewer">
                 <Grid Background="Goldenrod"/>
             </TabItem>
         </TabControl>
         <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="205" Margin="5,5,0,5" Background="OrangeRed">
-            <StackPanel Height="376" Width="171"/>
-
+            <StackPanel Height="Auto" Width="Auto"/>
         </ScrollViewer>
     </Grid>
 </Window>
