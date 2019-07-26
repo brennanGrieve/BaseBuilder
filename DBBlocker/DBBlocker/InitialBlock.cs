@@ -16,8 +16,8 @@ namespace DBBlocker
             get {
                 CombinedGeometry newShape = new CombinedGeometry
                 {
-                    Geometry1 = new EllipseGeometry(new Point(600, 150), 100, 100),
-                    Geometry2 = new RectangleGeometry(new Rect(0,0,600,300))
+                    Geometry1 = new EllipseGeometry(new Point(150, 37.5), 25, 25),
+                    Geometry2 = new RectangleGeometry(new Rect(0,0,150,75))
                 };
                 return newShape;
             }

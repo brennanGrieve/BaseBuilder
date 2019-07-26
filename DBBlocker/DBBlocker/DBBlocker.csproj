@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>iconcropped.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,31 +58,32 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FromBlock.xaml.cs">
+    <Compile Include="QueryBlocks\FromBlock.xaml.cs">
       <DependentUpon>FromBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GroupByBlock.xaml.cs">
+    <Compile Include="QueryBlocks\GroupByBlock.xaml.cs">
       <DependentUpon>GroupByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="InitialBlock.cs" />
-    <Compile Include="SelectBlockExtraFunction.xaml.cs">
+    <Compile Include="QueryBlock.cs" />
+    <Compile Include="QueryBlocks\SelectBlockExtraFunction.xaml.cs">
       <DependentUpon>SelectBlockExtraFunction.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SelectBlockTextBox.xaml.cs">
+    <Compile Include="QueryBlocks\SelectBlockTextBox.xaml.cs">
       <DependentUpon>SelectBlockTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SelectBlockWildCard.xaml.cs">
+    <Compile Include="QueryBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubBlock.cs" />
-    <Compile Include="whereBlock.xaml.cs">
+    <Compile Include="QueryBlocks\whereBlock.xaml.cs">
       <DependentUpon>whereBlock.xaml</DependentUpon>
     </Compile>
-    <Page Include="FromBlock.xaml">
+    <Page Include="QueryBlocks\FromBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GroupByBlock.xaml">
+    <Page Include="QueryBlocks\GroupByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -96,19 +100,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SelectBlockExtraFunction.xaml">
+    <Page Include="QueryBlocks\SelectBlockExtraFunction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SelectBlockTextBox.xaml">
+    <Page Include="QueryBlocks\SelectBlockTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SelectBlockWildCard.xaml">
+    <Page Include="QueryBlocks\SelectBlockWildCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="whereBlock.xaml">
+    <Page Include="QueryBlocks\whereBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -138,6 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iconcropped.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

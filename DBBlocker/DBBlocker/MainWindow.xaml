@@ -11,19 +11,23 @@
         WindowState="Maximized">
 
     <Grid Background="DarkSlateGray">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="215,0,5,5" Background="DarkSlateBlue"/>
-        <TabControl HorizontalAlignment="Stretch"  Margin="215,5,5,125" VerticalAlignment="Stretch" >
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="DarkSlateBlue"/>
+        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" >
             <TabItem Header="Query Constructor">
-                <Grid Background="ForestGreen">
-                    <Button Content="Button" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Width="75"/>
-                </Grid>
+                <Grid Background="ForestGreen"/>
             </TabItem>
             <TabItem Header="Database Viewer">
                 <Grid Background="Goldenrod"/>
             </TabItem>
         </TabControl>
-        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="205" Margin="5,5,0,5" Background="OrangeRed">
-            <StackPanel Height="Auto" Width="Auto"/>
+        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="220" Margin="5,30,0,5" Background="OrangeRed">
+            <StackPanel>
+                <local:SelectBlockWildCard Height="75" Width="175"/>
+                <local:SelectBlockTextBox Height="75" Width="175"/>
+                <local:SelectBlockExtraFunction Height="75" Width="175"/>
+                <local:FromBlock Height="75" Width="175"/>
+
+            </StackPanel>
         </ScrollViewer>
     </Grid>
 </Window>

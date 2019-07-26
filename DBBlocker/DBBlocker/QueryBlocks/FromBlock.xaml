@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DBBlocker"
-             mc:Ignorable="d" Height="300" Width="700">
+             mc:Ignorable="d" Height="75" Width="175">
     <Grid>
-        <local:SubBlock Fill="#FF2222E0"/>
-        <TextBlock HorizontalAlignment="Left" Height="100" Margin="110,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="294"><Run FontSize="72" Text="FROM"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="64" Margin="306,116,-31,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="344" FontSize="72"/>
+        <local:SubBlock Fill="#FF3636BB"/>
+        <TextBlock HorizontalAlignment="Left" Height="39" Margin="26,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Foreground="Black"><Run FontSize="20" Text="FROM"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="30" Margin="82,20,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="79" FontSize="20"/>
     </Grid>
 </UserControl>

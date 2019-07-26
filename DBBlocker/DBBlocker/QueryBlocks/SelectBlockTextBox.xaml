@@ -5,10 +5,10 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DBBlocker"
              mc:Ignorable="d" 
-            Height="300" Width="700">
+            Height="75" Width="175">
     <Grid>
-        <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
-        <TextBlock HorizontalAlignment="Center" Height="121" Margin="10,110,344,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" Foreground="Black"><Run FontSize="72" Text="SELECT"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="100" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="350" Margin="246,109,0,0" FontSize="72"/>
+        <local:InitialBlock Fill="#FFB21D1D" Stroke="Black" />
+        <TextBlock HorizontalAlignment="Center" Height="32" Margin="9,22,82,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Foreground="Black"><Run FontSize="20" Text="SELECT"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="86" Margin="75,21,0,0" FontSize="20"/>
     </Grid>
 </UserControl>

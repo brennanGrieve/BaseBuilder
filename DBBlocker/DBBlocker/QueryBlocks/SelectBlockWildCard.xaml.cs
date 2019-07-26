@@ -18,11 +18,14 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for SelectBlockWildCard.xaml
     /// </summary>
-    public partial class SelectBlockWildCard : UserControl
+    public partial class SelectBlockWildCard : UserControl, IQueryBlock
     {
         public SelectBlockWildCard()
         {
             InitializeComponent();
+        }
+        public String ExtractSQL() {
+            return "blah";
         }
     }
 }
