@@ -18,7 +18,7 @@ namespace DBBlocker
             _adornSize = adorn.RenderSize;
             _visBrush = new VisualBrush(adorn)
             {
-                Opacity = 0.6
+                Opacity = 1
             };
             IsHitTestVisible = false;
         }

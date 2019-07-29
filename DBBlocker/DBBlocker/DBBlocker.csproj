@@ -58,6 +58,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="QueryBlockBase.cs" />
+    <Compile Include="QueryBlocks\OnBlock.xaml.cs">
+      <DependentUpon>OnBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QueryBlocks\FromBlock.xaml.cs">
       <DependentUpon>FromBlock.xaml</DependentUpon>
     </Compile>
@@ -65,7 +69,10 @@
       <DependentUpon>GroupByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="InitialBlock.cs" />
-    <Compile Include="QueryBlock.cs" />
+    <Compile Include="IQueryBlock.cs" />
+    <Compile Include="QueryBlocks\InnerJoinBlock.xaml.cs">
+      <DependentUpon>InnerJoinBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QueryBlocks\SelectBlockExtraFunction.xaml.cs">
       <DependentUpon>SelectBlockExtraFunction.xaml</DependentUpon>
     </Compile>
@@ -75,10 +82,17 @@
     <Compile Include="QueryBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SortByBlock.xaml.cs">
+      <DependentUpon>SortByBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SubBlock.cs" />
     <Compile Include="QueryBlocks\whereBlock.xaml.cs">
       <DependentUpon>whereBlock.xaml</DependentUpon>
     </Compile>
+    <Page Include="QueryBlocks\OnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QueryBlocks\FromBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -100,6 +114,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="QueryBlocks\InnerJoinBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QueryBlocks\SelectBlockExtraFunction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\whereBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SortByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

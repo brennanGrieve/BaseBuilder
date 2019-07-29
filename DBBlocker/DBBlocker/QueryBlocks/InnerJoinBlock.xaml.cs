@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for SelectBlockTextBox.xaml
+    /// Interaction logic for InnerJoinBlock.xaml
     /// </summary>
-    public partial class SelectBlockTextBox : QueryBlockBase
+    public partial class InnerJoinBlock : UserControl
     {
-        public SelectBlockTextBox()
+        public InnerJoinBlock()
         {
             InitializeComponent();
         }

@@ -8,5 +8,16 @@
              Height="75" Width="175">
     <Grid>
         <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
+        <TextBlock HorizontalAlignment="Left" Margin="50,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"><Run Text="Select"/></TextBlock>
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" FontSize="18" Margin="3,23,0,0" Height="30">
+            <ComboBoxItem Content="Max("/>
+            <ComboBoxItem Content="Min("/>
+            <ComboBoxItem Content="Sum("/>
+            <ComboBoxItem Content="Count("/>
+            <ComboBoxItem Content="AVG("/>
+
+        </ComboBox>
+        <TextBox HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Top" Width="75" Margin="76,23,0,0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="155,23,0,0" TextWrapping="Wrap" Text=")" VerticalAlignment="Top" FontSize="18 "/>
     </Grid>
 </UserControl>

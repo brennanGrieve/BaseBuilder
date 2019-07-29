@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for SelectBlockTextBox.xaml
+    /// Interaction logic for SortByBlock.xaml
     /// </summary>
-    public partial class SelectBlockTextBox : QueryBlockBase
+    public partial class SortByBlock : UserControl
     {
-        public SelectBlockTextBox()
+        public SortByBlock()
         {
             InitializeComponent();
         }

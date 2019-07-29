@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DBBlocker.SelectBlockWildCard"
+﻿<local:QueryBlockBase x:Class="DBBlocker.SelectBlockWildCard"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,4 +9,4 @@
         <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
         <TextBlock HorizontalAlignment="Center" Height="68" Margin="29,23,51,-16" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Foreground="Black"><Run FontSize="20" Text="SELECT *"/></TextBlock>
     </Grid>
-</UserControl>
+</local:QueryBlockBase>

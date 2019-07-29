@@ -12,20 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Runtime.InteropServices;
+
 
 namespace DBBlocker
 {
     /// <summary>
     /// Interaction logic for SelectBlockWildCard.xaml
     /// </summary>
-    public partial class SelectBlockWildCard : UserControl, IQueryBlock
+    public partial class SelectBlockWildCard : QueryBlockBase, IQueryBlock
     {
-        public SelectBlockWildCard()
+
+
+        public SelectBlockWildCard():base()
         {
             InitializeComponent();
         }
         public String ExtractSQL() {
             return "blah";
         }
+        
+        
+
+        
     }
 }

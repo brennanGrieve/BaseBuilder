@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DBBlocker"
-             mc:Ignorable="d" Height="300" Width="700">
+             mc:Ignorable="d" Height="75" Width="175">
     <Grid>
         <local:SubBlock Fill="#FFA82BCD" Stroke="White"/>
+        <TextBlock HorizontalAlignment="Left" Margin="52,2,0,0" TextWrapping="Wrap" Text="WHERE" FontSize="18" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="26" Margin="26,26,0,0" TextWrapping="Wrap" Text="" FontSize="18" VerticalAlignment="Top" Width="132"/>
     </Grid>
 </UserControl>
