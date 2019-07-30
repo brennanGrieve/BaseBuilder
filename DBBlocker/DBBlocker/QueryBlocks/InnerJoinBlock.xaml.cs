@@ -18,11 +18,21 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for InnerJoinBlock.xaml
     /// </summary>
-    public partial class InnerJoinBlock : UserControl
+    public partial class InnerJoinBlock : QueryBlockBase
     {
         public InnerJoinBlock()
         {
             InitializeComponent();
+        }
+
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
         }
     }
 }

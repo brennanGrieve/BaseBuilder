@@ -9,6 +9,6 @@
     <Grid>
         <local:InitialBlock Fill="#FFB21D1D" Stroke="Black" />
         <TextBlock HorizontalAlignment="Center" Height="32" Margin="9,22,82,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="84" Foreground="Black"><Run FontSize="20" Text="SELECT"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="86" Margin="75,21,0,0" FontSize="20"/>
+        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="86" Margin="75,21,0,0" FontSize="20"/>
     </Grid>
 </local:QueryBlockBase>

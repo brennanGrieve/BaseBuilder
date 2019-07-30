@@ -16,18 +16,22 @@ using System.Runtime.InteropServices;
 
 namespace DBBlocker
 {
-    public class QueryBlockBase : UserControl
+    public abstract class QueryBlockBase : UserControl
     {
-
-
-        #region Constructor
 
         protected QueryBlockBase() { }
 
-        #endregion
-
-
         DragAdorner blockAdorner = null;
+
+
+
+        protected DataObject PackageData(QueryBlockBase toExtract)
+        {
+            DataObject blockData = new DataObject();
+            blockData.SetData(DataFormats.StringFormat, toExtract.ExtractSQL());
+            blockData.SetData("Object", this);
+            return blockData;
+        }
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -35,7 +39,9 @@ namespace DBBlocker
             if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DataObject blockData = new DataObject();
-                blockData.SetData(DataFormats.StringFormat, "blah");
+                //blockData.SetData(DataFormats.StringFormat, ExtractSQL());
+                blockData.SetData("Object", this);
+
                 blockAdorner = new DragAdorner(this, e.GetPosition(this));
 
                 /*
@@ -46,7 +52,7 @@ namespace DBBlocker
                 Visual container = (Visual)Application.Current.MainWindow.Content;
                 AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
 
-                DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy | DragDropEffects.Move);
+                DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
                 AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
             }
         }
@@ -64,35 +70,11 @@ namespace DBBlocker
             {
                 Mouse.SetCursor(Cursors.Cross);
             }
-            else if (e.Effects.HasFlag(DragDropEffects.Move))
-            {
-                Mouse.SetCursor(Cursors.Pen);
-            }
             else
             {
                 Mouse.SetCursor(Cursors.No);
             }
             e.Handled = true;
-        }
-
-        protected override void OnDrop(DragEventArgs e)
-        {
-            base.OnDrop(e);
-        }
-
-        protected override void OnDragOver(DragEventArgs e)
-        {
-            base.OnDragOver(e);
-        }
-
-        protected override void OnDragEnter(DragEventArgs e)
-        {
-            base.OnDragEnter(e);
-        }
-
-        protected override void OnDragLeave(DragEventArgs e)
-        {
-            base.OnDragLeave(e);
         }
 
 
@@ -113,5 +95,9 @@ namespace DBBlocker
             GetCursorPos(ref w32Mouse);
             return new Point(w32Mouse.X, w32Mouse.Y);
         }
+
+        public abstract string ExtractSQL();
+
+        public abstract void EnableInput();
     }
 }

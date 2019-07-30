@@ -69,12 +69,11 @@
       <DependentUpon>GroupByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="InitialBlock.cs" />
-    <Compile Include="IQueryBlock.cs" />
     <Compile Include="QueryBlocks\InnerJoinBlock.xaml.cs">
       <DependentUpon>InnerJoinBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\SelectBlockExtraFunction.xaml.cs">
-      <DependentUpon>SelectBlockExtraFunction.xaml</DependentUpon>
+    <Compile Include="QueryBlocks\SelectBlockAggregate.xaml.cs">
+      <DependentUpon>SelectBlockAggregate.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\SelectBlockTextBox.xaml.cs">
       <DependentUpon>SelectBlockTextBox.xaml</DependentUpon>
@@ -82,12 +81,12 @@
     <Compile Include="QueryBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SortByBlock.xaml.cs">
+    <Compile Include="QueryBlocks\SortByBlock.xaml.cs">
       <DependentUpon>SortByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="SubBlock.cs" />
-    <Compile Include="QueryBlocks\whereBlock.xaml.cs">
-      <DependentUpon>whereBlock.xaml</DependentUpon>
+    <Compile Include="QueryBlocks\WhereBlock.xaml.cs">
+      <DependentUpon>WhereBlock.xaml</DependentUpon>
     </Compile>
     <Page Include="QueryBlocks\OnBlock.xaml">
       <SubType>Designer</SubType>
@@ -118,7 +117,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\SelectBlockExtraFunction.xaml">
+    <Page Include="QueryBlocks\SelectBlockAggregate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,11 +129,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\whereBlock.xaml">
+    <Page Include="QueryBlocks\SortByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SortByBlock.xaml">
+    <Page Include="QueryBlocks\WhereBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

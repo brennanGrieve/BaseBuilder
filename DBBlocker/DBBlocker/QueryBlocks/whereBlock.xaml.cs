@@ -16,13 +16,23 @@ using System.Windows.Shapes;
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for whereBlock.xaml
+    /// Interaction logic for WhereBlock.xaml
     /// </summary>
-    public partial class whereBlock : UserControl
+    public partial class WhereBlock : QueryBlockBase
     {
-        public whereBlock()
+        public WhereBlock()
         {
             InitializeComponent();
+        }
+
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
         }
     }
 }

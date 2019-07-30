@@ -20,20 +20,24 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for SelectBlockWildCard.xaml
     /// </summary>
-    public partial class SelectBlockWildCard : QueryBlockBase, IQueryBlock
+    public partial class SelectBlockWildCard : QueryBlockBase
     {
+
 
 
         public SelectBlockWildCard():base()
         {
             InitializeComponent();
         }
-        public String ExtractSQL() {
-            return "blah";
-        }
-        
-        
 
-        
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

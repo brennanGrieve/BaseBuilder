@@ -18,11 +18,21 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for SelectBlockExtraFunction.xaml
     /// </summary>
-    public partial class SelectBlockExtraFunction : UserControl
+    public partial class SelectBlockAggregate : QueryBlockBase
     {
-        public SelectBlockExtraFunction()
+        public SelectBlockAggregate()
         {
             InitializeComponent();
+        }
+
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
         }
 
     }

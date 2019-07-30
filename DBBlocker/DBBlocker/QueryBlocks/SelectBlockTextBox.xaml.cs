@@ -24,5 +24,15 @@ namespace DBBlocker
         {
             InitializeComponent();
         }
+
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -18,11 +18,22 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for SortByBlock.xaml
     /// </summary>
-    public partial class SortByBlock : UserControl
+    public partial class SortByBlock : QueryBlockBase
     {
         public SortByBlock()
         {
             InitializeComponent();
+        }
+
+        public override void EnableInput()
+        {
+            inputBox.IsEnabled = true;
+            inputCBox.IsEnabled = true;
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
         }
     }
 }

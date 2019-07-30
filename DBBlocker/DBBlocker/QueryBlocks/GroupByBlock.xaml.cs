@@ -18,11 +18,21 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for GroupByBlock.xaml
     /// </summary>
-    public partial class GroupByBlock : UserControl
+    public partial class GroupByBlock : QueryBlockBase
     {
         public GroupByBlock()
         {
             InitializeComponent();
+        }
+
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
         }
     }
 }

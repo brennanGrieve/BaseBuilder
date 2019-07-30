@@ -7,6 +7,6 @@
              mc:Ignorable="d" Height="75" Width="175">
     <Grid>
         <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
-        <TextBlock HorizontalAlignment="Center" Height="68" Margin="29,23,51,-16" TextWrapping="Wrap" VerticalAlignment="Top" Width="95" Foreground="Black"><Run FontSize="20" Text="SELECT *"/></TextBlock>
+        <TextBlock Name="SelectWildCardText"  HorizontalAlignment="Center" Height="26" Margin="29,23,64,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="82" Foreground="Black"><Run FontSize="20" Text="SELECT *"/></TextBlock>
     </Grid>
 </local:QueryBlockBase>

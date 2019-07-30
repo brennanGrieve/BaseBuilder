@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DBBlocker.SortByBlock"
+﻿<local:QueryBlockBase x:Class="DBBlocker.SortByBlock"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,10 +9,10 @@
     <Grid>
         <local:SubBlock Fill="#FFD6D636" Stroke="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="51,-1,0,0" TextWrapping="Wrap" Text="SORT BY" FontSize="16" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="28" Margin="27,18,0,0" TextWrapping="Wrap" FontSize ="16" VerticalAlignment="Top" Width="136"/>
-        <ComboBox HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Height="28">
+        <TextBox Name = "inputBox" IsEnabled="False" HorizontalAlignment="Left" Height="28" Margin="27,18,0,0" TextWrapping="Wrap" FontSize ="16" VerticalAlignment="Top" Width="136"/>
+        <ComboBox  Name ="inputCBox" IsEnabled="False" HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Height="28">
             <ComboBoxItem Content="Ascending"/>
             <ComboBoxItem Content="Descending"/>
         </ComboBox>
     </Grid>
-</UserControl>
+</local:QueryBlockBase>

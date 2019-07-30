@@ -18,11 +18,21 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for FromBlock.xaml
     /// </summary>
-    public partial class FromBlock : UserControl
+    public partial class FromBlock : QueryBlockBase
     {
         public FromBlock()
         {
             InitializeComponent();
+        }
+
+        public override void EnableInput()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ExtractSQL()
+        {
+            throw new NotImplementedException();
         }
     }
 }

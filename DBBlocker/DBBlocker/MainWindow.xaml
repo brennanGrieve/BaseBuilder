@@ -14,7 +14,10 @@
         <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="DarkSlateBlue"/>
         <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" >
             <TabItem Header="Query Constructor">
-                <Grid Background="ForestGreen"/>
+                <Grid Background="ForestGreen" 
+                      DragOver="Designer_DragOver"
+                      Drop="Designer_Drop"
+                      AllowDrop="True"/>
             </TabItem>
             <TabItem Header="Database Viewer">
                 <Grid Background="Goldenrod"/>
@@ -24,9 +27,9 @@
             <StackPanel>
                 <local:SelectBlockWildCard Height="75" Width="175"/>
                 <local:SelectBlockTextBox Height="75" Width="175"/>
-                <local:SelectBlockExtraFunction Height="75" Width="175"/>
+                <local:SelectBlockAggregate Height="75" Width="175"/>
                 <local:FromBlock Height="75" Width="175"/>
-                <local:whereBlock Height="75" Width="175"/>
+                <local:WhereBlock Height="75" Width="175"/>
                 <local:InnerJoinBlock Height="75" Width="175"/>
                 <local:OnBlock Height="75" Width="175"/>
                 <local:SortByBlock Height="75" Width="175"/>
