@@ -20,6 +20,7 @@ namespace DBBlocker
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
@@ -34,6 +35,8 @@ namespace DBBlocker
                 e.Effects = DragDropEffects.Copy;
             }
         }
+
+
 
         private void Designer_Drop(object sender, DragEventArgs e)
         {
@@ -57,6 +60,7 @@ namespace DBBlocker
 
                         var newBlock = (QueryBlockBase)Activator.CreateInstance(blockType);
                         newBlock.EnableInput();
+                        newBlock.StartPoint = _element.StartPoint;
                         _panel.Children.Add(newBlock);
                             // set the value to return to the DoDragDrop call
                             e.Effects = DragDropEffects.Copy;

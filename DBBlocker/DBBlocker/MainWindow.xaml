@@ -12,15 +12,20 @@
 
     <Grid Name="MainGrid" Background="DarkSlateGray">
         <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="DarkSlateBlue"/>
-        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" >
+        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="ForestGreen" >
             <TabItem Header="Query Constructor">
-                <Grid Background="ForestGreen" 
+                <StackPanel Background="ForestGreen" 
+                      Margin="10,0,10,0"
                       DragOver="Designer_DragOver"
                       Drop="Designer_Drop"
-                      AllowDrop="True"/>
+                      AllowDrop="True"
+                      Orientation="Horizontal"
+                      FlowDirection="LeftToRight"
+                      >
+                </StackPanel>
             </TabItem>
             <TabItem Header="Database Viewer">
-                <Grid Background="Goldenrod"/>
+                <WrapPanel Background="Goldenrod"/>
             </TabItem>
         </TabControl>
         <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="220" Margin="5,30,0,5" Background="OrangeRed">
@@ -36,5 +41,6 @@
 
             </StackPanel>
         </ScrollViewer>
+        <Label Content="Toolbox" HorizontalAlignment="Left" Margin="10,-6,0,0" VerticalAlignment="Top" Height="36" Width="93" FontSize="23" HorizontalContentAlignment="Center" Foreground="#FFE2D7D7" Background="{x:Null}"/>
     </Grid>
 </Window>

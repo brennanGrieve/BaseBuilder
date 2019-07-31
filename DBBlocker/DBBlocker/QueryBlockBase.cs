@@ -23,7 +23,9 @@ namespace DBBlocker
 
         DragAdorner blockAdorner = null;
 
+        Point _startPoint;
 
+        public Point StartPoint { get => _startPoint; set => _startPoint = value; }
 
         protected DataObject PackageData(QueryBlockBase toExtract)
         {
@@ -33,27 +35,39 @@ namespace DBBlocker
             return blockData;
         }
 
-        protected override void OnMouseMove(MouseEventArgs e)
+
+        protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            base.OnMouseMove(e);
-            if (e.LeftButton == MouseButtonState.Pressed)
+            StartPoint = GetMousePosition();
+        }
+
+
+        protected override void OnPreviewMouseMove(MouseEventArgs e)
+        {
+
+            Point _currentPos = GetMousePosition();
+            if (Math.Abs(_currentPos.X - StartPoint.X) > 25 || Math.Abs(_currentPos.Y - StartPoint.Y) > 25)
             {
-                DataObject blockData = new DataObject();
-                //blockData.SetData(DataFormats.StringFormat, ExtractSQL());
-                blockData.SetData("Object", this);
+                base.OnMouseMove(e);
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
 
-                blockAdorner = new DragAdorner(this, e.GetPosition(this));
+                
+                    DataObject blockData = new DataObject();
+                    blockData.SetData("Object", this);
+                    blockAdorner = new DragAdorner(this, e.GetPosition(this));
 
-                /*
-                 * Force GetAdornerLayer to find the highest possible AdornerLayer to render adorners ontop of all
-                 * UIElements in the Visual Tree. Then use that layer to show the Block Adorner.
-                 */
+                    /*
+                     * Force GetAdornerLayer to find the highest possible AdornerLayer to render adorners ontop of all
+                     * UIElements in the Visual Tree. Then use that layer to show the Block Adorner.
+                     */
 
-                Visual container = (Visual)Application.Current.MainWindow.Content;
-                AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
+                    Visual container = (Visual)Application.Current.MainWindow.Content;
+                    AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
 
-                DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
-                AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
+                    DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
+                    AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
+                }
             }
         }
 
@@ -95,6 +109,7 @@ namespace DBBlocker
             GetCursorPos(ref w32Mouse);
             return new Point(w32Mouse.X, w32Mouse.Y);
         }
+
 
         public abstract string ExtractSQL();
 
