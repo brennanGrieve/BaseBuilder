@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,12 +56,12 @@ namespace DBBlocker
                         {
                         //Determine the type of block being dragged
                         Type blockType = _element.GetType();
-
+                         
                         //need to create new block from the old one to copy into the children of the new panel
 
                         var newBlock = (QueryBlockBase)Activator.CreateInstance(blockType);
-                        newBlock.EnableInput();
                         newBlock.StartPoint = _element.StartPoint;
+                        newBlock.EnableInput();
                         _panel.Children.Add(newBlock);
                             // set the value to return to the DoDragDrop call
                             e.Effects = DragDropEffects.Copy;

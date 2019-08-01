@@ -9,7 +9,7 @@
     <Grid>
         <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
         <TextBlock HorizontalAlignment="Left" Margin="50,-1,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"><Run Text="Select"/></TextBlock>
-        <ComboBox IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" FontSize="18" Margin="3,23,0,0" Height="30">
+        <ComboBox IsEnabled="False" HorizontalAlignment="Left" SelectedValuePath="Content" SelectedIndex="0" VerticalAlignment="Top" Width="73" FontSize="18" Margin="3,23,0,0" Height="30">
             <ComboBoxItem Content="Max("/>
             <ComboBoxItem Content="Min("/>
             <ComboBoxItem Content="Sum("/>

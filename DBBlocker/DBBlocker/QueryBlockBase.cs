@@ -18,6 +18,8 @@ namespace DBBlocker
 {
     public abstract class QueryBlockBase : UserControl
     {
+        protected Grid contentGrid;
+
 
         protected QueryBlockBase() { }
 
@@ -110,9 +112,41 @@ namespace DBBlocker
             return new Point(w32Mouse.X, w32Mouse.Y);
         }
 
+        /*
+         * Code to fetch all string data from relevant UIElement objects 
+         * (TextBlock, Combobox.SelectedItem, TextBox) will go here.
+         * Iteration based on method found for EnableInput.
+         * @return String blockSQL - This block's component of the whole query to be concatenated
+         * with the data stored in other blocks.
+         */
 
-        public abstract string ExtractSQL();
+        public string ExtractSQL() {
+            String blockSQL = "foo";
+            foreach (UIElement element in contentGrid.Children)
+            {
+                if (element is TextBlock || element is TextBox || element is ComboBox)
+                { 
+                    //check the structure of the above elements. they may not be uniform, thus should be their own
+                    //blocks. try using a switch case if they arent.
+                }
+            }
+            return blockSQL;
+        }
 
-        public abstract void EnableInput();
+        /* 
+         * Set a useable reference to this block's grid by casting the return from the Content property
+         * This will be re-used by ExtractSQL, as it will always be called AFTER EnableInput whenever
+         * it is possible for it to be called and thus the timing is safe.
+         * Afterward, iterate through all the UIElement children of the grid and enable them all.
+         */
+
+        public void EnableInput()
+        {
+            contentGrid = (Grid)Content;
+            foreach (UIElement ef in contentGrid.Children)
+            {
+                ef.IsEnabled = true;
+            }
+        }
     }
 }

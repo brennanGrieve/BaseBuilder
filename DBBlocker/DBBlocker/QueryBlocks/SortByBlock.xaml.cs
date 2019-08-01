@@ -24,16 +24,5 @@ namespace DBBlocker
         {
             InitializeComponent();
         }
-
-        public override void EnableInput()
-        {
-            inputBox.IsEnabled = true;
-            inputCBox.IsEnabled = true;
-        }
-
-        public override string ExtractSQL()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
