@@ -35,7 +35,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>iconcropped.ico</ApplicationIcon>
+    <ApplicationIcon>iconCropped.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -58,7 +58,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="QueryBlockBase.cs" />
+    <Compile Include="DesignerConstraintHelper.cs" />
+    <Compile Include="DesignerPanel.cs" />
+    <Compile Include="QueryBlocks\DDLBlocks\InsertBlockTextBox.xaml.cs">
+      <DependentUpon>InsertBlockTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\FromNestBlock.xaml.cs">
+      <DependentUpon>FromNestBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BlockLogic\InitialBlockBase.cs" />
+    <Compile Include="Shapes\NestableBlock.cs" />
+    <Compile Include="BlockLogic\QueryBlockBase.cs" />
     <Compile Include="QueryBlocks\OnBlock.xaml.cs">
       <DependentUpon>OnBlock.xaml</DependentUpon>
     </Compile>
@@ -68,26 +78,34 @@
     <Compile Include="QueryBlocks\GroupByBlock.xaml.cs">
       <DependentUpon>GroupByBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="InitialBlock.cs" />
+    <Compile Include="Shapes\InitialBlock.cs" />
     <Compile Include="QueryBlocks\InnerJoinBlock.xaml.cs">
       <DependentUpon>InnerJoinBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\SelectBlockAggregate.xaml.cs">
+    <Compile Include="QueryBlocks\DMLBlocks\SelectBlockAggregate.xaml.cs">
       <DependentUpon>SelectBlockAggregate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\SelectBlockTextBox.xaml.cs">
+    <Compile Include="QueryBlocks\DMLBlocks\SelectBlockTextBox.xaml.cs">
       <DependentUpon>SelectBlockTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\SelectBlockWildCard.xaml.cs">
+    <Compile Include="QueryBlocks\DMLBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\SortByBlock.xaml.cs">
       <DependentUpon>SortByBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SubBlock.cs" />
+    <Compile Include="Shapes\SubBlock.cs" />
     <Compile Include="QueryBlocks\WhereBlock.xaml.cs">
       <DependentUpon>WhereBlock.xaml</DependentUpon>
     </Compile>
+    <Page Include="QueryBlocks\DDLBlocks\InsertBlockTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\FromNestBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QueryBlocks\OnBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -117,15 +135,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\SelectBlockAggregate.xaml">
+    <Page Include="QueryBlocks\DMLBlocks\SelectBlockAggregate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\SelectBlockTextBox.xaml">
+    <Page Include="QueryBlocks\DMLBlocks\SelectBlockTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\SelectBlockWildCard.xaml">
+    <Page Include="QueryBlocks\DMLBlocks\SelectBlockWildCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,7 +183,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="iconcropped.ico" />
+    <Resource Include="iconCropped.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

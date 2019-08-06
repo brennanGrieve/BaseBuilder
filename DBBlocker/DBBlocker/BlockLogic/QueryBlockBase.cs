@@ -29,13 +29,6 @@ namespace DBBlocker
 
         public Point StartPoint { get => _startPoint; set => _startPoint = value; }
 
-        protected DataObject PackageData(QueryBlockBase toExtract)
-        {
-            DataObject blockData = new DataObject();
-            blockData.SetData(DataFormats.StringFormat, toExtract.ExtractSQL());
-            blockData.SetData("Object", this);
-            return blockData;
-        }
 
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -56,7 +49,8 @@ namespace DBBlocker
 
                 
                     DataObject blockData = new DataObject();
-                    blockData.SetData("Object", this);
+                    blockData.SetData("QueryBlockBase", this);
+                    blockData.SetData("Panel", Parent);
                     blockAdorner = new DragAdorner(this, e.GetPosition(this));
 
                     /*

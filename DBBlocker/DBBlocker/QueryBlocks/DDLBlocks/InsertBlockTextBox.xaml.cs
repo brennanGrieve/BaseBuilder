@@ -12,20 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Runtime.InteropServices;
-
 
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for SelectBlockWildCard.xaml
+    /// Interaction logic for InsertBlockTextBox.xaml
     /// </summary>
-    public partial class SelectBlockWildCard : QueryBlockBase
+    public partial class InsertBlockTextBox : UserControl
     {
-
-
-
-        public SelectBlockWildCard():base()
+        public InsertBlockTextBox()
         {
             InitializeComponent();
         }

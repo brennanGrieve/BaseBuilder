@@ -14,7 +14,8 @@
         <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="DarkSlateBlue"/>
         <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="ForestGreen" >
             <TabItem Header="Query Constructor">
-                <StackPanel Background="ForestGreen" 
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
+                    <local:DesignerPanel Background="ForestGreen" 
                       Margin="10,0,10,0"
                       DragOver="Designer_DragOver"
                       Drop="Designer_Drop"
@@ -22,22 +23,24 @@
                       Orientation="Horizontal"
                       FlowDirection="LeftToRight"
                       >
-                </StackPanel>
+                </local:DesignerPanel>
+                </ScrollViewer>
             </TabItem>
             <TabItem Header="Database Viewer">
                 <WrapPanel Background="Goldenrod"/>
             </TabItem>
         </TabControl>
         <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="220" Margin="5,30,0,5" Background="OrangeRed">
-            <StackPanel>
-                <local:SelectBlockWildCard Height="75" Width="175"/>
-                <local:SelectBlockTextBox Height="75" Width="175"/>
-                <local:SelectBlockAggregate Height="75" Width="175"/>
-                <local:FromBlock Height="75" Width="175"/>
-                <local:WhereBlock Height="75" Width="175"/>
-                <local:InnerJoinBlock Height="75" Width="175"/>
-                <local:OnBlock Height="75" Width="175"/>
-                <local:SortByBlock Height="75" Width="175"/>
+            <StackPanel AllowDrop="True" Drop="Toolbox_Drop">
+                <local:SelectBlockWildCard Height="95" Width="175"/>
+                <local:SelectBlockTextBox Height="95" Width="175"/>
+                <local:SelectBlockAggregate Height="95" Width="175"/>
+                <local:FromBlock Height="95" Width="175"/>
+                <local:FromNestBlock Height="125" Width="175"/>
+                <local:WhereBlock Height="85" Width="175"/>
+                <local:InnerJoinBlock Height="95" Width="175"/>
+                <local:OnBlock Height="105" Width="175"/>
+                <local:SortByBlock Height="95" Width="175"/>
 
             </StackPanel>
         </ScrollViewer>
