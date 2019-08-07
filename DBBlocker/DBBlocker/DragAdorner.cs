@@ -6,10 +6,8 @@ namespace DBBlocker
 {
     public class DragAdorner : Adorner
     {
-
         private Point _offset;
         private Point _location;
-        //Removed : Redundant _eventOffset field
         private VisualBrush _visBrush;
         private Size _adornSize;
 
@@ -28,14 +26,11 @@ namespace DBBlocker
         public void UpdatePosition(Point newlocation, Point eLocation)
         {
             _location = newlocation;
-
             AdornerLayer adorn = (AdornerLayer)Parent;
-
             if (adorn != null)
             {
                 adorn.Update(AdornedElement);
             }
-
             //Generate offsets to prevent the relative position of the application window -> screen 
             //and element -> application window from causing issues with how the Adorner tracks the mouse.
             //The static values being added to the offset are to handle the offset created by the margins on UI elements.
@@ -53,7 +48,6 @@ namespace DBBlocker
 
         protected override void OnRender(DrawingContext dc)
         {
-
             var p = _location;
             p.Offset(-_offset.X, -_offset.Y);
             dc.DrawRectangle(_visBrush, null, new Rect(p, _adornSize));

@@ -23,11 +23,15 @@ namespace DBBlocker
 
         protected QueryBlockBase() { }
 
-        DragAdorner blockAdorner = null;
+        private DragAdorner blockAdorner = null;
 
         Point _startPoint;
 
         public Point StartPoint { get => _startPoint; set => _startPoint = value; }
+
+        private bool isFirst = false;
+
+        public bool IsFirstBlock { get => isFirst; set => isFirst = value; }
 
 
 
