@@ -6,8 +6,5 @@ using System.Threading.Tasks;
 
 namespace DBBlocker
 {
-    public abstract class InitialBlockBase : QueryBlockBase
-    {
-
-    }
+    public abstract class InitialBlockBase : QueryBlockBase{}
 }

@@ -58,7 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="DesignerConstraintHelper.cs" />
+    <Compile Include="DragDropConstraintHelper.cs" />
     <Compile Include="DesignerPanel.cs" />
     <Compile Include="QueryBlocks\DDLBlocks\InsertBlockTextBox.xaml.cs">
       <DependentUpon>InsertBlockTextBox.xaml</DependentUpon>
