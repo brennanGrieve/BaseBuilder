@@ -37,7 +37,7 @@ namespace DBBlocker
             }
         }
 
-        private void Toolbox_Drop(object sender, DragEventArgs e)
+        private void ToolAndTrash_Drop(object sender, DragEventArgs e)
         {
             if(e.Handled == false)
             {
@@ -45,7 +45,7 @@ namespace DBBlocker
                 Panel originalParent = (Panel)e.Data.GetData("Panel");       
                 if(_eleBlock != null)
                 {
-                    DragDropConstraintHelper.ProcessToolBoxDragDrop(originalParent, _eleBlock);
+                    DragDropConstraintHelper.ProcessToolAndTrashDragDrop(originalParent, _eleBlock);
                 }
             }
         }

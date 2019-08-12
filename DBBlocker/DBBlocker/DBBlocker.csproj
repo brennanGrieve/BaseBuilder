@@ -125,6 +125,9 @@
     <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
       <DependentUpon>TruncateBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TrashCan.xaml.cs">
+      <DependentUpon>TrashCan.xaml</DependentUpon>
+    </Compile>
     <Page Include="DropColumnBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -215,6 +218,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrashCan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

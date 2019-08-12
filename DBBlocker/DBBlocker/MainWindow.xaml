@@ -17,6 +17,7 @@
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
                         <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Execute" Height="50" Width="75" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click"/>
+                        <local:Trashcan Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,5" AllowDrop="True" Drop="ToolAndTrash_Drop"/>
                         <local:DesignerPanel Background="ForestGreen" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"
@@ -33,7 +34,7 @@
                 <WrapPanel Background="Goldenrod" Margin="-2, -2, -2, -2"/>
             </TabItem>
         </TabControl>
-        <TabControl AllowDrop="True" Drop="Toolbox_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="OrangeRed" Margin="0,30,0,0">
+        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="OrangeRed" Margin="0,30,0,0">
             <TabItem Header="DML">
                 <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" Background="OrangeRed">
                     <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
