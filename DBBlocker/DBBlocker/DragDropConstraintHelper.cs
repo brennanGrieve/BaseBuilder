@@ -13,22 +13,24 @@ namespace DBBlocker
 
         DragDropConstraintHelper() { }
 
+        /**
+         * public static void ProcessToolAndTrashDragDrop
+         * Implements proper constraints on deletion by dragging blocks into the Toolbox or Trash, then performs the
+         * appropriate deletion operation.
+         * @param[in] originalParent - The Parent of the block being dragged
+         * @param[in] _eleBlock - The block being dragged
+         */
+
 
         public static void ProcessToolAndTrashDragDrop(Panel originalParent, QueryBlockBase _eleBlock)
         {
             if (originalParent is DesignerPanel)
             {
-                /** 
-                 * When a nestable FROM block is removed, all blocks afterward should be removed.
-                 * Iterate through each, and once the nested from block is found begin removing it and all
-                 *subsequent blocks.
-                 */
                 if (_eleBlock.GetType().BaseType.Name == "InitialBlockBase")
                 {
                     queryStarted = false;
                     if (_eleBlock.IsFirstBlock)
                     {
-                        //remove all blocks from the query then return as there is nothing left to do
                         originalParent.Children.RemoveRange(0, originalParent.Children.Count);
                         return;
                     }
@@ -37,13 +39,8 @@ namespace DBBlocker
                 {
                     queryStarted = true;
                     int index = originalParent.Children.IndexOf(_eleBlock);
-                    index++;
-                    if (originalParent.Children.Count > index)
-                    {
-                        originalParent.Children.RemoveAt(index);
-                    }
+                    originalParent.Children.RemoveRange(index, originalParent.Children.Count - index);
                 }
-
                 originalParent.Children.Remove(_eleBlock);
             }
         }
@@ -56,7 +53,7 @@ namespace DBBlocker
          * @param[in] _element - The QueryBlockBase type UIElement that is the target of the drag/drop operation
          **/
 
-        public static void ProcessDesignerDragDrop(Panel _panel, QueryBlockBase _element)
+        public static void ProcessDesignerDragDrop(Panel _panel, Panel originalParent, QueryBlockBase _element)
         {
             Type blockType = _element.GetType();
             var newBlock = (QueryBlockBase)Activator.CreateInstance(blockType);
@@ -67,31 +64,29 @@ namespace DBBlocker
             {
                 if (isInitial)
                 {
-                    if(_panel.Children.Count == 0) { newBlock.IsFirstBlock = true; }
-                    int foo = _panel.Children.Count;
+                    if (_panel.Children.Count == 0) { newBlock.IsFirstBlock = true; }
                     queryStarted = true;
                     _panel.Children.Add(newBlock);
                 }
+                else { System.Windows.MessageBox.Show("Please use a Red block (Select/Update/Add Etc.) to begin a Query.", "Invalid Block Type", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning); }
             }
             else if (queryStarted)
             {
-                if (!isInitial)
+                if (originalParent is DesignerPanel == false)
                 {
-                    if (queryStarted)
+                    if (!isInitial)
                     {
-                        if (newBlock.GetType().Name == "FromNestBlock")
+                        if (queryStarted)
                         {
-                            queryStarted = false;
+                            if (newBlock.GetType().Name == "FromNestBlock")
+                            {
+                                queryStarted = false;
+                            }
+                            _panel.Children.Add(newBlock);
                         }
-                        _panel.Children.Add(newBlock);
                     }
+                    else { System.Windows.MessageBox.Show("Red blocks can only be used to commence a Query or SubQuery.", "Invalid Block Type", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning); }
                 }
-            }
-
-            if (_panel is DesignerPanel && !isInitial)
-            {
-                //Do not allow blocks to duplicate themselves by dragging from Designer to Designer
-                _panel.Children.Remove(_element);
             }
         }
     }

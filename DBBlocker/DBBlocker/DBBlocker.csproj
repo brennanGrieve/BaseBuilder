@@ -88,6 +88,9 @@
       <DependentUpon>FromNestBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlockLogic\InitialBlockBase.cs" />
+    <Compile Include="Shapes\RunGraphic.xaml.cs">
+      <DependentUpon>RunGraphic.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shapes\NestableBlock.cs" />
     <Compile Include="BlockLogic\QueryBlockBase.cs" />
     <Compile Include="QueryBlocks\OnBlock.xaml.cs">
@@ -125,8 +128,8 @@
     <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
       <DependentUpon>TruncateBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrashCan.xaml.cs">
-      <DependentUpon>TrashCan.xaml</DependentUpon>
+    <Compile Include="Shapes\TrashCanGraphic.xaml.cs">
+      <DependentUpon>TrashCanGraphic.xaml</DependentUpon>
     </Compile>
     <Page Include="DropColumnBlock.xaml">
       <SubType>Designer</SubType>
@@ -221,7 +224,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrashCan.xaml">
+    <Page Include="Shapes\RunGraphic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shapes\TrashCanGraphic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,6 +262,5 @@
   <ItemGroup>
     <Resource Include="iconCropped.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
