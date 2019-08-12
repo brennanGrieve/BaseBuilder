@@ -45,13 +45,11 @@ namespace DBBlocker
         {
 
             Point _currentPos = GetMousePosition();
-            if (Math.Abs(_currentPos.X - StartPoint.X) > 25 || Math.Abs(_currentPos.Y - StartPoint.Y) > 25)
+            if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
             {
                 base.OnMouseMove(e);
                 if (e.LeftButton == MouseButtonState.Pressed)
                 {
-
-                
                     DataObject blockData = new DataObject();
                     blockData.SetData("QueryBlockBase", this);
                     blockData.SetData("Panel", Parent);
@@ -119,14 +117,22 @@ namespace DBBlocker
          */
 
         public string ExtractSQL() {
-            String blockSQL = "foo";
+            String blockSQL = "";
             foreach (UIElement element in contentGrid.Children)
             {
-                if (element is TextBlock || element is TextBox || element is ComboBox)
-                { 
-                    //check the structure of the above elements. they may not be uniform, thus should be their own
-                    //blocks. try using a switch case if they arent.
+                if (element is TextBlock tbEle)
+                {
+                    blockSQL += tbEle.Text + " ";
                 }
+                if (element is TextBox tboxEle)
+                {
+                    blockSQL += tboxEle.Text + " ";
+                }
+                if(element is ComboBox cbEle)
+                {
+                    blockSQL += cbEle.SelectedValue + " ";
+                }
+                
             }
             return blockSQL;
         }

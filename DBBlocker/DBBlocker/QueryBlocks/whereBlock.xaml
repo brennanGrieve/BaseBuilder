@@ -5,11 +5,11 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DBBlocker"
              mc:Ignorable="d" 
-             Height="75" Width="150">
+             Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
         <local:SubBlock Fill="#FF910CCF" Stroke="Black"/>
-        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="55,0,0,0"><Run Text="Where" FontSize="18"/></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="28,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="137" IsEnabled="False"/>
+        <TextBlock HorizontalAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" Margin="55,0,0,0" Text="WHERE" FontSize="16"></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="32" Margin="30,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" IsEnabled="False"/>
 
     </Grid>
 </local:QueryBlockBase>

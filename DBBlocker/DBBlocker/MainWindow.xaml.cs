@@ -37,16 +37,15 @@ namespace DBBlocker
             }
         }
 
-        private void Toolbox_Drop(object sender, DragEventArgs e)
+        private void ToolAndTrash_Drop(object sender, DragEventArgs e)
         {
             if(e.Handled == false)
             {
-                Panel _senderPanel = (Panel)sender;
                 QueryBlockBase _eleBlock = (QueryBlockBase)e.Data.GetData("QueryBlockBase");
                 Panel originalParent = (Panel)e.Data.GetData("Panel");       
-                if(_senderPanel != null && _eleBlock != null)
+                if(_eleBlock != null)
                 {
-                    DragDropConstraintHelper.ProcessToolBoxDragDrop(originalParent, _eleBlock);
+                    DragDropConstraintHelper.ProcessToolAndTrashDragDrop(originalParent, _eleBlock);
                 }
             }
         }
@@ -67,6 +66,19 @@ namespace DBBlocker
                     } 
                 }
             }
+        }
+
+        private void ExecuteBtn_Click(object sender, RoutedEventArgs e)
+        {
+            String executableSQL = "";
+            Button executer = (Button)sender;
+            Grid designerGrid = (Grid)executer.Parent;
+            DesignerPanel designer = (DesignerPanel)designerGrid.Children[1];
+            foreach(QueryBlockBase block in designer.Children)
+            {
+                executableSQL += block.ExtractSQL();
+            }
+            executableSQL += ";";
         }
     }
 }

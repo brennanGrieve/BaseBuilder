@@ -15,35 +15,53 @@
         <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="ForestGreen" >
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
-                    <local:DesignerPanel Background="ForestGreen" 
-                      Margin="10,0,10,0"
-                      DragOver="Designer_DragOver"
-                      Drop="Designer_Drop"
-                      AllowDrop="True"
-                      Orientation="Horizontal"
-                      FlowDirection="LeftToRight"
-                      >
-                </local:DesignerPanel>
+                    <Grid>
+                        <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Execute" Height="50" Width="75" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click"/>
+                        <local:Trashcan Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,5" AllowDrop="True" Drop="ToolAndTrash_Drop"/>
+                        <local:DesignerPanel Background="ForestGreen" 
+                          Margin="10,0,10,0"
+                          DragOver="Designer_DragOver"
+                          Drop="Designer_Drop"
+                          AllowDrop="True"
+                          Orientation="Horizontal"
+                          FlowDirection="LeftToRight"
+                          >
+                        </local:DesignerPanel>
+                    </Grid>
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Database Viewer">
-                <WrapPanel Background="Goldenrod"/>
+                <WrapPanel Background="Goldenrod" Margin="-2, -2, -2, -2"/>
             </TabItem>
         </TabControl>
-        <ScrollViewer HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="220" Margin="5,30,0,5" Background="OrangeRed">
-            <StackPanel AllowDrop="True" Drop="Toolbox_Drop">
-                <local:SelectBlockWildCard Height="95" Width="175"/>
-                <local:SelectBlockTextBox Height="95" Width="175"/>
-                <local:SelectBlockAggregate Height="95" Width="175"/>
-                <local:FromBlock Height="95" Width="175"/>
-                <local:FromNestBlock Height="125" Width="175"/>
-                <local:WhereBlock Height="85" Width="175"/>
-                <local:InnerJoinBlock Height="95" Width="175"/>
-                <local:OnBlock Height="105" Width="175"/>
-                <local:SortByBlock Height="95" Width="175"/>
-
-            </StackPanel>
-        </ScrollViewer>
+        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="OrangeRed" Margin="0,30,0,0">
+            <TabItem Header="DML">
+                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" Background="OrangeRed">
+                    <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
+                        <local:SelectBlockWildCard/>
+                        <local:SelectBlockTextBox/>
+                        <local:SelectBlockAggregate/>
+                        <local:FromBlock/>
+                        <local:FromNestBlock/>
+                        <local:WhereBlock/>
+                        <local:InnerJoinBlock/>
+                        <local:OnBlock/>
+                        <local:SortByBlock/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="DDL">
+                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" Background="OrangeRed">
+                    <StackPanel Margin="0,0,25,0">
+                        <local:CreateTableBlock />
+                        <local:AlterTableBlock />
+                        <local:DropTableBlock />
+                        <local:AddBlock />
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+        </TabControl>
         <Label Content="Toolbox" HorizontalAlignment="Left" Margin="10,-6,0,0" VerticalAlignment="Top" Height="36" Width="93" FontSize="23" HorizontalContentAlignment="Center" Foreground="#FFE2D7D7" Background="{x:Null}"/>
     </Grid>
 </Window>

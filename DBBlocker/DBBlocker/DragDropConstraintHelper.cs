@@ -14,7 +14,7 @@ namespace DBBlocker
         DragDropConstraintHelper() { }
 
 
-        public static void ProcessToolBoxDragDrop(Panel originalParent, QueryBlockBase _eleBlock)
+        public static void ProcessToolAndTrashDragDrop(Panel originalParent, QueryBlockBase _eleBlock)
         {
             if (originalParent is DesignerPanel)
             {

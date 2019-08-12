@@ -58,9 +58,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DropColumnBlock.xaml.cs">
+      <DependentUpon>DropColumnBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\AddBlock.xaml.cs">
+      <DependentUpon>AddBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\ModifyBlock.xaml.cs">
+      <DependentUpon>ModifyBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\AlterTableBlock.xaml.cs">
+      <DependentUpon>AlterTableBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\CreateTableBlock.xaml.cs">
+      <DependentUpon>CreateTableBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\DropTableBlock.xaml.cs">
+      <DependentUpon>DropTableBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DMLBlocks\DeleteBlock.xaml.cs">
+      <DependentUpon>DeleteBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DragDropConstraintHelper.cs" />
     <Compile Include="DesignerPanel.cs" />
-    <Compile Include="QueryBlocks\DDLBlocks\InsertBlockTextBox.xaml.cs">
+    <Compile Include="QueryBlocks\DMLBlocks\InsertBlockTextBox.xaml.cs">
       <DependentUpon>InsertBlockTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\FromNestBlock.xaml.cs">
@@ -82,13 +103,13 @@
     <Compile Include="QueryBlocks\InnerJoinBlock.xaml.cs">
       <DependentUpon>InnerJoinBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\DMLBlocks\SelectBlockAggregate.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\SelectBlockAggregate.xaml.cs">
       <DependentUpon>SelectBlockAggregate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\DMLBlocks\SelectBlockTextBox.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\SelectBlockTextBox.xaml.cs">
       <DependentUpon>SelectBlockTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\DMLBlocks\SelectBlockWildCard.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\SortByBlock.xaml.cs">
@@ -98,7 +119,44 @@
     <Compile Include="QueryBlocks\WhereBlock.xaml.cs">
       <DependentUpon>WhereBlock.xaml</DependentUpon>
     </Compile>
-    <Page Include="QueryBlocks\DDLBlocks\InsertBlockTextBox.xaml">
+    <Compile Include="QueryBlocks\DMLBlocks\UpdateBlock.xaml.cs">
+      <DependentUpon>UpdateBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
+      <DependentUpon>TruncateBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TrashCan.xaml.cs">
+      <DependentUpon>TrashCan.xaml</DependentUpon>
+    </Compile>
+    <Page Include="DropColumnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\AddBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\ModifyBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\AlterTableBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\CreateTableBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\DropTableBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DMLBlocks\DeleteBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DMLBlocks\InsertBlockTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,15 +193,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\DMLBlocks\SelectBlockAggregate.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\SelectBlockAggregate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\DMLBlocks\SelectBlockTextBox.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\SelectBlockTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\DMLBlocks\SelectBlockWildCard.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\SelectBlockWildCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +210,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\WhereBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DMLBlocks\UpdateBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrashCan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
