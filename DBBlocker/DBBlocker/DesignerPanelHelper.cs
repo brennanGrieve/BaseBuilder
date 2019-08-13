@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DBBlocker
 {
-    class DragDropConstraintHelper
+    class DesignerPanelHelper
     {
         public static bool queryStarted;
 
-        DragDropConstraintHelper() { }
+        DesignerPanelHelper() { }
 
         /**
          * public static void ProcessToolAndTrashDragDrop
@@ -22,7 +23,7 @@ namespace DBBlocker
          */
 
 
-        public static void ProcessToolAndTrashDragDrop(Panel originalParent, QueryBlockBase _eleBlock)
+        public static void ProcessDeleteDragDrop(Panel originalParent, QueryBlockBase _eleBlock)
         {
             if (originalParent is DesignerPanel)
             {

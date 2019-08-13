@@ -45,7 +45,7 @@ namespace DBBlocker
                 Panel originalParent = (Panel)e.Data.GetData("Panel");       
                 if(_eleBlock != null)
                 {
-                    DragDropConstraintHelper.ProcessToolAndTrashDragDrop(originalParent, _eleBlock);
+                    DesignerPanelHelper.ProcessDeleteDragDrop(originalParent, _eleBlock);
                 }
             }
         }
@@ -62,7 +62,7 @@ namespace DBBlocker
                 {
                     if (e.AllowedEffects.HasFlag(DragDropEffects.Copy))
                     {
-                        DragDropConstraintHelper.ProcessDesignerDragDrop(_panel, originalParent, _element);
+                        DesignerPanelHelper.ProcessDesignerDragDrop(_panel, originalParent, _element);
                         e.Effects = DragDropEffects.Copy;
                     } 
                 }
@@ -72,10 +72,10 @@ namespace DBBlocker
         private void ExecuteBtn_Click(object sender, RoutedEventArgs e)
         {
             string executableSQL = "";
-            Button executer = (Button)sender;
-            Grid designerGrid = (Grid)executer.Parent;
+            Button ele = (Button)sender;
+            Grid designerGrid = (Grid)ele.Parent;
             DesignerPanel designer = (DesignerPanel)designerGrid.Children[2];
-            foreach(QueryBlockBase block in designer.Children)
+            foreach (QueryBlockBase block in designer.Children)
             {
                 executableSQL += block.ExtractSQL();
             }
@@ -88,18 +88,23 @@ namespace DBBlocker
 
         private void Trash_Click(object sender, RoutedEventArgs e)
         {
+            Button ele = (Button)sender;
+            Grid designerGrid = (Grid)ele.Parent;
+            DesignerPanel designer = (DesignerPanel)designerGrid.Children[2];
             if (!Properties.Settings.Default.SuppressDeleteWarning)
             {
                 DeletePrompt prompt = new DeletePrompt();
                 prompt.ShowDialog();
                 if (prompt.result == true)
                 {
-                    Button ele = (Button)sender;
-                    Grid designerGrid = (Grid)ele.Parent;
-                    DesignerPanel designer = (DesignerPanel)designerGrid.Children[2];
                     designer.Children.RemoveRange(0, designer.Children.Count);
-                    DragDropConstraintHelper.queryStarted = false;
+                    DesignerPanelHelper.queryStarted = false;
                 }
+            }
+            else
+            {
+                designer.Children.RemoveRange(0, designer.Children.Count);
+                DesignerPanelHelper.queryStarted = false;
             }
         }
     }
