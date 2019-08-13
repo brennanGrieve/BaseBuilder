@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,6 +59,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeletePrompt.xaml.cs">
+      <DependentUpon>DeletePrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DropColumnBlock.xaml.cs">
       <DependentUpon>DropColumnBlock.xaml</DependentUpon>
     </Compile>
@@ -88,9 +92,6 @@
       <DependentUpon>FromNestBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlockLogic\InitialBlockBase.cs" />
-    <Compile Include="Shapes\RunGraphic.xaml.cs">
-      <DependentUpon>RunGraphic.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Shapes\NestableBlock.cs" />
     <Compile Include="BlockLogic\QueryBlockBase.cs" />
     <Compile Include="QueryBlocks\OnBlock.xaml.cs">
@@ -128,10 +129,15 @@
     <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
       <DependentUpon>TruncateBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Shapes\TrashCanGraphic.xaml.cs">
-      <DependentUpon>TrashCanGraphic.xaml</DependentUpon>
-    </Compile>
+    <Page Include="DeletePrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DropColumnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shapes\Graphics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -221,14 +227,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Shapes\RunGraphic.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Shapes\TrashCanGraphic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

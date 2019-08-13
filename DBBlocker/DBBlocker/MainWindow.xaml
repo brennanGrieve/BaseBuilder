@@ -16,12 +16,9 @@
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
-                        <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Black" Background="Black">
-                            <local:RunGraphic/>
-                        </Button>
-                        <Button Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Black" BorderBrush="Black" Click="Trash_Click">
-                            <local:Trashcan/>
-                        </Button>
+                        <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Black"  Background="Black" Content="{StaticResource RunGraphic}"/>
+
+                        <Button Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Black" BorderBrush="Black" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}"/>
                         <local:DesignerPanel Background="ForestGreen" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"

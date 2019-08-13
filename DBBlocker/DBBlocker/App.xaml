@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:DBBlocker"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Shapes\Graphics.xaml"/>
     </Application.Resources>
 </Application>

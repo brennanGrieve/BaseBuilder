@@ -88,14 +88,18 @@ namespace DBBlocker
 
         private void Trash_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult decision = MessageBox.Show("Do you want to remove all blocks on the Designer? You can remove them one at a time by dragging them into the Bin or Toolbox.", "Clear All", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (decision == MessageBoxResult.Yes)
+            if (!Properties.Settings.Default.SuppressDeleteWarning)
             {
-                Button ele = (Button)sender;
-                Grid designerGrid = (Grid)ele.Parent;
-                DesignerPanel designer = (DesignerPanel)designerGrid.Children[2];
-                designer.Children.RemoveRange(0, designer.Children.Count);
-                DragDropConstraintHelper.queryStarted = false;
+                DeletePrompt prompt = new DeletePrompt();
+                prompt.ShowDialog();
+                if (prompt.result == true)
+                {
+                    Button ele = (Button)sender;
+                    Grid designerGrid = (Grid)ele.Parent;
+                    DesignerPanel designer = (DesignerPanel)designerGrid.Children[2];
+                    designer.Children.RemoveRange(0, designer.Children.Count);
+                    DragDropConstraintHelper.queryStarted = false;
+                }
             }
         }
     }

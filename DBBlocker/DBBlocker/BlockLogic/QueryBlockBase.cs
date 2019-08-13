@@ -46,11 +46,10 @@ namespace DBBlocker
             if (e.Handled == false)
             {
                 Point _currentPos = GetMousePosition();
-                if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
+                if (e.LeftButton == MouseButtonState.Pressed)
                 {
-                    base.OnMouseMove(e);
-                    if (e.LeftButton == MouseButtonState.Pressed)
-                    {
+                    if (Math.Abs(_currentPos.X - StartPoint.X) > 10 || Math.Abs(_currentPos.Y - StartPoint.Y) > 10)
+                    {                 
                         DataObject blockData = new DataObject();
                         blockData.SetData("QueryBlockBase", this);
                         blockData.SetData("Panel", Parent);
@@ -66,10 +65,17 @@ namespace DBBlocker
 
                         DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
                         AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
+                        e.Handled = true;
                     }
                 }
             }
         }
+
+       /* protected override void OnMouseEnter(MouseEventArgs e)
+        {
+            base.OnMouseEnter(e);
+            StartPoint = GetMousePosition();
+        }*/
 
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
@@ -92,6 +98,7 @@ namespace DBBlocker
                 e.Handled = true;
             }
         }
+
 
 
         [DllImport("user32.dll")]
