@@ -43,28 +43,30 @@ namespace DBBlocker
 
         protected override void OnPreviewMouseMove(MouseEventArgs e)
         {
-
-            Point _currentPos = GetMousePosition();
-            if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
+            if (e.Handled == false)
             {
-                base.OnMouseMove(e);
-                if (e.LeftButton == MouseButtonState.Pressed)
+                Point _currentPos = GetMousePosition();
+                if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
                 {
-                    DataObject blockData = new DataObject();
-                    blockData.SetData("QueryBlockBase", this);
-                    blockData.SetData("Panel", Parent);
-                    blockAdorner = new DragAdorner(this, e.GetPosition(this));
+                    base.OnMouseMove(e);
+                    if (e.LeftButton == MouseButtonState.Pressed)
+                    {
+                        DataObject blockData = new DataObject();
+                        blockData.SetData("QueryBlockBase", this);
+                        blockData.SetData("Panel", Parent);
+                        blockAdorner = new DragAdorner(this, e.GetPosition(this));
 
-                    /*
-                     * Force GetAdornerLayer to find the highest possible AdornerLayer to render adorners ontop of all
-                     * UIElements in the Visual Tree. Then use that layer to show the Block Adorner.
-                     */
+                        /*
+                         * Force GetAdornerLayer to find the highest possible AdornerLayer to render adorners ontop of all
+                         * UIElements in the Visual Tree. Then use that layer to show the Block Adorner.
+                         */
 
-                    Visual container = (Visual)Application.Current.MainWindow.Content;
-                    AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
+                        Visual container = (Visual)Application.Current.MainWindow.Content;
+                        AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
 
-                    DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
-                    AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
+                        DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
+                        AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
+                    }
                 }
             }
         }
@@ -72,21 +74,23 @@ namespace DBBlocker
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
             base.OnGiveFeedback(e);
+            if (e.Handled == false)
+            {
+                if (blockAdorner != null)
+                {
+                    blockAdorner.UpdatePosition(GetMousePosition(), this.TranslatePoint(new Point(0, 0), Application.Current.MainWindow));
+                }
 
-            if (blockAdorner != null)
-            {
-                blockAdorner.UpdatePosition(GetMousePosition(), this.TranslatePoint(new Point(0, 0), Application.Current.MainWindow));
+                if (e.Effects.HasFlag(DragDropEffects.Copy))
+                {
+                    Mouse.SetCursor(Cursors.Cross);
+                }
+                else
+                {
+                    Mouse.SetCursor(Cursors.No);
+                }
+                e.Handled = true;
             }
-
-            if (e.Effects.HasFlag(DragDropEffects.Copy))
-            {
-                Mouse.SetCursor(Cursors.Cross);
-            }
-            else
-            {
-                Mouse.SetCursor(Cursors.No);
-            }
-            e.Handled = true;
         }
 
 
