@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Media;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DBBlocker
 {
@@ -81,6 +69,7 @@ namespace DBBlocker
             }
             if(executableSQL == "")
             {
+                
                 MessageBox.Show("Please Build a Query using the blocks from the toolbox before running.", "Invalid Run", MessageBoxButton.OK, MessageBoxImage.Warning );
             }
             executableSQL += ";";

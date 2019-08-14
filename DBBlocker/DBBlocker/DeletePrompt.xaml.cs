@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
+﻿using System.Drawing;
 using System.Media;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Interop;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace DBBlocker
 {
@@ -41,12 +30,12 @@ namespace DBBlocker
         {
             Properties.Settings.Default.SuppressDeleteWarning = ShowAgainBox.IsChecked ?? false;
             result = true;
-            this.Close();
+            Close();
         }
         private void No_Button_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.SuppressDeleteWarning = ShowAgainBox.IsChecked ?? false;
-            this.Close();
+            Close();
         }
     }
 }

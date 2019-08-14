@@ -1,51 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Runtime.InteropServices;
 
 namespace DBBlocker
 {
     public abstract class QueryBlockBase : UserControl
     {
         protected Grid contentGrid;
-
-
         protected QueryBlockBase() { }
-
         private DragAdorner blockAdorner = null;
-
         Point _startPoint;
-
-        public Point StartPoint { get => _startPoint; set => _startPoint = value; }
-
         private bool isFirst = false;
-
+        public Point StartPoint { get => _startPoint; set => _startPoint = value; }
         public bool IsFirstBlock { get => isFirst; set => isFirst = value; }
 
 
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            StartPoint = GetMousePosition();
+            StartPoint = NativeMethods.GetMousePosition();
         }
 
 
-        protected override void OnPreviewMouseMove(MouseEventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
         {
             if (e.Handled == false)
             {
-                Point _currentPos = GetMousePosition();
+                e.Handled = true;
+                Point _currentPos = NativeMethods.GetMousePosition();
                 if (e.LeftButton == MouseButtonState.Pressed)
                 {
                     if (Math.Abs(_currentPos.X - StartPoint.X) > 10 || Math.Abs(_currentPos.Y - StartPoint.Y) > 10)
@@ -62,20 +47,18 @@ namespace DBBlocker
 
                         Visual container = (Visual)Application.Current.MainWindow.Content;
                         AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
-
                         DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
                         AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
-                        e.Handled = true;
                     }
                 }
             }
         }
 
-       /* protected override void OnMouseEnter(MouseEventArgs e)
+        protected override void OnMouseEnter(MouseEventArgs e)
         {
             base.OnMouseEnter(e);
-            StartPoint = GetMousePosition();
-        }*/
+            StartPoint = NativeMethods.GetMousePosition();
+        }
 
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
@@ -84,7 +67,7 @@ namespace DBBlocker
             {
                 if (blockAdorner != null)
                 {
-                    blockAdorner.UpdatePosition(GetMousePosition(), this.TranslatePoint(new Point(0, 0), Application.Current.MainWindow));
+                    blockAdorner.UpdatePosition(NativeMethods.GetMousePosition(), this.TranslatePoint(new Point(0, 0), Application.Current.MainWindow));
                 }
 
                 if (e.Effects.HasFlag(DragDropEffects.Copy))
@@ -101,23 +84,9 @@ namespace DBBlocker
 
 
 
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool GetCursorPos(ref Win32Point pt);
+        
 
-        [StructLayout(LayoutKind.Sequential)]
-        internal struct Win32Point
-        {
-            public Int32 X;
-            public Int32 Y;
-        };
 
-        public static Point GetMousePosition()
-        {
-            Win32Point w32Mouse = new Win32Point();
-            GetCursorPos(ref w32Mouse);
-            return new Point(w32Mouse.X, w32Mouse.Y);
-        }
 
         /*
          * Code to fetch all string data from relevant UIElement objects 

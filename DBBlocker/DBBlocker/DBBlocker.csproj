@@ -65,6 +65,7 @@
     <Compile Include="DropColumnBlock.xaml.cs">
       <DependentUpon>DropColumnBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="QueryBlocks\DDLBlocks\AddBlock.xaml.cs">
       <DependentUpon>AddBlock.xaml</DependentUpon>
     </Compile>
