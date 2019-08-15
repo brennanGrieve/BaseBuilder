@@ -1,24 +1,22 @@
 ﻿<Window x:Class="DBBlocker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBBlocker"
-        mc:Ignorable="d"
         Title="DBBlocker" Height="465" Width="850"
         MinHeight="465"
         MinWidth="850"
-        WindowState="Maximized">
+        WindowState="Maximized"  
+    >
 
-    <Grid Name="MainGrid" Background="DarkSlateGray">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="DarkSlateBlue"/>
-        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="ForestGreen" >
+    <Grid Name="MainGrid" Background="#252525">
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="#252525"/>
+        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="#373737" BorderBrush="#3f3f46" >
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
-                        <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Content="Execute" Height="50" Width="75" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click"/>
-                        <local:Trashcan Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,5" AllowDrop="True" Drop="ToolAndTrash_Drop"/>
-                        <local:DesignerPanel Background="ForestGreen" 
+                        <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}"/>
+                        <Button Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}"/>
+                        <local:DesignerPanel x:Name="Designer" Background="#373737" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"
                           Drop="Designer_Drop"
@@ -34,9 +32,9 @@
                 <WrapPanel Background="Goldenrod" Margin="-2, -2, -2, -2"/>
             </TabItem>
         </TabControl>
-        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="OrangeRed" Margin="0,30,0,0">
-            <TabItem Header="DML">
-                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" Background="OrangeRed">
+        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#002652" BorderBrush="#3f3f46" Margin="0,30,0,0">
+            <TabItem Header="DQL"  BorderBrush="Transparent">
+                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
                     <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
                         <local:SelectBlockWildCard/>
                         <local:SelectBlockTextBox/>
@@ -50,14 +48,20 @@
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
+            <TabItem Header="DML"  BorderBrush="Transparent">
+                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" >
+                    <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
+                        
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
             <TabItem Header="DDL">
-                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" Background="OrangeRed">
+                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
                     <StackPanel Margin="0,0,25,0">
                         <local:CreateTableBlock />
                         <local:AlterTableBlock />
                         <local:DropTableBlock />
                         <local:AddBlock />
-                        
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

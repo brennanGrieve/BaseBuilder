@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
 namespace DBBlocker
@@ -45,7 +35,7 @@ namespace DBBlocker
                 Panel originalParent = (Panel)e.Data.GetData("Panel");       
                 if(_eleBlock != null)
                 {
-                    DragDropConstraintHelper.ProcessToolAndTrashDragDrop(originalParent, _eleBlock);
+                    DesignerPanelHelper.ProcessDeleteDragDrop(originalParent, _eleBlock);
                 }
             }
         }
@@ -57,11 +47,12 @@ namespace DBBlocker
             {
                 Panel _panel = (Panel)sender;
                 QueryBlockBase _element = (QueryBlockBase)e.Data.GetData("QueryBlockBase");
+                Panel originalParent = (Panel)e.Data.GetData("Panel");
                 if (_panel != null && _element != null)
                 {
                     if (e.AllowedEffects.HasFlag(DragDropEffects.Copy))
                     {
-                        DragDropConstraintHelper.ProcessDesignerDragDrop(_panel, _element);
+                        DesignerPanelHelper.ProcessDesignerDragDrop(_panel, originalParent, _element);
                         e.Effects = DragDropEffects.Copy;
                     } 
                 }
@@ -70,15 +61,79 @@ namespace DBBlocker
 
         private void ExecuteBtn_Click(object sender, RoutedEventArgs e)
         {
-            String executableSQL = "";
-            Button executer = (Button)sender;
-            Grid designerGrid = (Grid)executer.Parent;
-            DesignerPanel designer = (DesignerPanel)designerGrid.Children[1];
-            foreach(QueryBlockBase block in designer.Children)
+            Button ele = (Button)sender;
+            PlayRippleAnim(ele, "RunRipple");
+            string executableSQL = "";
+            DesignerPanel designer = (DesignerPanel)LogicalTreeHelper.FindLogicalNode(ele.Parent, "Designer");
+            foreach (QueryBlockBase block in designer.Children)
             {
                 executableSQL += block.ExtractSQL();
             }
+            if(executableSQL == "")
+            {
+                
+                MessageBox.Show("Please Build a Query using the blocks from the toolbox before running.", "Invalid Run", MessageBoxButton.OK, MessageBoxImage.Warning );
+            }
             executableSQL += ";";
+        }
+
+        private void Trash_Click(object sender, RoutedEventArgs e)
+        {
+            Button ele = (Button)sender;
+            PlayRippleAnim(ele, "TrashRipple");
+            DesignerPanel designer = (DesignerPanel)LogicalTreeHelper.FindLogicalNode(ele.Parent, "Designer");
+            if (!Properties.Settings.Default.SuppressDeleteWarning)
+            {
+                DeletePrompt prompt = new DeletePrompt();
+                prompt.ShowDialog();
+                if (prompt.result == true)
+                {
+                    designer.Children.RemoveRange(0, designer.Children.Count);
+                    DesignerPanelHelper.queryStarted = false;
+                }
+            }
+            else
+            {
+                designer.Children.RemoveRange(0, designer.Children.Count);
+                DesignerPanelHelper.queryStarted = false;
+            }
+        }
+
+
+        protected void PlayRippleAnim(Button toAnimate, string target)
+        {
+            Grid buttonGrid = (Grid)toAnimate.Content;
+            Ellipse toAnim = (Ellipse)LogicalTreeHelper.FindLogicalNode(toAnimate, target);
+            toAnim.BeginAnimation(HeightProperty, new DoubleAnimation()
+            {
+                From = 0,
+                To = 70,
+                FillBehavior = FillBehavior.Stop,
+                Duration = new Duration(TimeSpan.FromSeconds(0.4))
+
+            });
+            toAnim.BeginAnimation(WidthProperty, new DoubleAnimation()
+            {
+                From = 0,
+                To = 90,
+                FillBehavior = FillBehavior.Stop,
+
+                Duration = new Duration(TimeSpan.FromSeconds(0.4))
+            });
+            toAnim.BeginAnimation(OpacityProperty, new DoubleAnimation()
+            {
+                To = 0,
+                FillBehavior = FillBehavior.Stop,
+                Duration = new Duration(TimeSpan.FromSeconds(0.4))
+            });
+            toAnim.Height = 0;
+            toAnim.Width = 0;
+            toAnim.Opacity = 1;
+        }
+
+        private void CustomBtn_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

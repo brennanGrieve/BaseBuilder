@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,9 +59,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DeletePrompt.xaml.cs">
+      <DependentUpon>DeletePrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DropColumnBlock.xaml.cs">
       <DependentUpon>DropColumnBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="QueryBlocks\DDLBlocks\AddBlock.xaml.cs">
       <DependentUpon>AddBlock.xaml</DependentUpon>
     </Compile>
@@ -79,28 +84,28 @@
     <Compile Include="QueryBlocks\DMLBlocks\DeleteBlock.xaml.cs">
       <DependentUpon>DeleteBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DragDropConstraintHelper.cs" />
+    <Compile Include="DesignerPanelHelper.cs" />
     <Compile Include="DesignerPanel.cs" />
     <Compile Include="QueryBlocks\DMLBlocks\InsertBlockTextBox.xaml.cs">
       <DependentUpon>InsertBlockTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\FromNestBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\FromNestBlock.xaml.cs">
       <DependentUpon>FromNestBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlockLogic\InitialBlockBase.cs" />
     <Compile Include="Shapes\NestableBlock.cs" />
     <Compile Include="BlockLogic\QueryBlockBase.cs" />
-    <Compile Include="QueryBlocks\OnBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\OnBlock.xaml.cs">
       <DependentUpon>OnBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\FromBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\FromBlock.xaml.cs">
       <DependentUpon>FromBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\GroupByBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\GroupByBlock.xaml.cs">
       <DependentUpon>GroupByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shapes\InitialBlock.cs" />
-    <Compile Include="QueryBlocks\InnerJoinBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\InnerJoinBlock.xaml.cs">
       <DependentUpon>InnerJoinBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DQLBlocks\SelectBlockAggregate.xaml.cs">
@@ -112,11 +117,11 @@
     <Compile Include="QueryBlocks\DQLBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\SortByBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\SortByBlock.xaml.cs">
       <DependentUpon>SortByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shapes\SubBlock.cs" />
-    <Compile Include="QueryBlocks\WhereBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\WhereBlock.xaml.cs">
       <DependentUpon>WhereBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DMLBlocks\UpdateBlock.xaml.cs">
@@ -125,10 +130,15 @@
     <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
       <DependentUpon>TruncateBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrashCan.xaml.cs">
-      <DependentUpon>TrashCan.xaml</DependentUpon>
-    </Compile>
+    <Page Include="DeletePrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DropColumnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Shapes\Graphics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -160,19 +170,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\FromNestBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\FromNestBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\OnBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\OnBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\FromBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\FromBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\GroupByBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\GroupByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -189,7 +199,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="QueryBlocks\InnerJoinBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\InnerJoinBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -205,11 +215,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\SortByBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\SortByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\WhereBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\WhereBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,10 +228,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="TrashCan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,6 +261,5 @@
   <ItemGroup>
     <Resource Include="iconCropped.ico" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
