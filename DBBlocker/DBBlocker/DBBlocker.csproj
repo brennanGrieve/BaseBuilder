@@ -89,23 +89,23 @@
     <Compile Include="QueryBlocks\DMLBlocks\InsertBlockTextBox.xaml.cs">
       <DependentUpon>InsertBlockTextBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\FromNestBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\FromNestBlock.xaml.cs">
       <DependentUpon>FromNestBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlockLogic\InitialBlockBase.cs" />
     <Compile Include="Shapes\NestableBlock.cs" />
     <Compile Include="BlockLogic\QueryBlockBase.cs" />
-    <Compile Include="QueryBlocks\OnBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\OnBlock.xaml.cs">
       <DependentUpon>OnBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\FromBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\FromBlock.xaml.cs">
       <DependentUpon>FromBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\GroupByBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\GroupByBlock.xaml.cs">
       <DependentUpon>GroupByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shapes\InitialBlock.cs" />
-    <Compile Include="QueryBlocks\InnerJoinBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\InnerJoinBlock.xaml.cs">
       <DependentUpon>InnerJoinBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DQLBlocks\SelectBlockAggregate.xaml.cs">
@@ -117,11 +117,11 @@
     <Compile Include="QueryBlocks\DQLBlocks\SelectBlockWildCard.xaml.cs">
       <DependentUpon>SelectBlockWildCard.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\SortByBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\SortByBlock.xaml.cs">
       <DependentUpon>SortByBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shapes\SubBlock.cs" />
-    <Compile Include="QueryBlocks\WhereBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DQLBlocks\WhereBlock.xaml.cs">
       <DependentUpon>WhereBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DMLBlocks\UpdateBlock.xaml.cs">
@@ -170,19 +170,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\FromNestBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\FromNestBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\OnBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\OnBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\FromBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\FromBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\GroupByBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\GroupByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,7 +199,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="QueryBlocks\InnerJoinBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\InnerJoinBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,11 +215,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\SortByBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\SortByBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\WhereBlock.xaml">
+    <Page Include="QueryBlocks\DQLBlocks\WhereBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
