@@ -73,8 +73,11 @@ namespace DBBlocker
             {
                 
                 MessageBox.Show("Please Build a Query using the blocks from the toolbox before running.", "Invalid Run", MessageBoxButton.OK, MessageBoxImage.Warning );
+                return;
             }
             executableSQL += ";";
+            if (executableSQL.StartsWith("SELECT")) { DatabaseHelper.RunReaderSQL(executableSQL); }
+            else{ DatabaseHelper.RunSQL(executableSQL); }
         }
 
         private void Trash_Click(object sender, RoutedEventArgs e)
