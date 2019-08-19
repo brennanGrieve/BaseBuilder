@@ -92,19 +92,31 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="QueryBlocks\CommonBlocks\CloseBracketBlock.xaml.cs">
+      <DependentUpon>CloseBracketBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\CommonBlocks\ColumnOrValueBlock.xaml.cs">
+      <DependentUpon>ColumnOrValueBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\ConstraintBlock.xaml.cs">
+      <DependentUpon>ConstraintBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="QueryBlocks\DDLBlocks\ColumnBlock.xaml.cs">
+      <DependentUpon>ColumnBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseHelper.cs" />
     <Compile Include="DeletePrompt.xaml.cs">
       <DependentUpon>DeletePrompt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DropColumnBlock.xaml.cs">
+    <Compile Include="QueryBlocks\DDLBlocks\DropColumnBlock.xaml.cs">
       <DependentUpon>DropColumnBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="NativeMethods.cs" />
     <Compile Include="QueryBlocks\DDLBlocks\AddBlock.xaml.cs">
       <DependentUpon>AddBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\DDLBlocks\ModifyBlock.xaml.cs">
-      <DependentUpon>ModifyBlock.xaml</DependentUpon>
+    <Compile Include="QueryBlocks\DDLBlocks\AlterColumnBlock.xaml.cs">
+      <DependentUpon>AlterColumnBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DDLBlocks\AlterTableBlock.xaml.cs">
       <DependentUpon>AlterTableBlock.xaml</DependentUpon>
@@ -120,13 +132,16 @@
     </Compile>
     <Compile Include="DesignerPanelHelper.cs" />
     <Compile Include="DesignerPanel.cs" />
-    <Compile Include="QueryBlocks\DMLBlocks\InsertBlockTextBox.xaml.cs">
-      <DependentUpon>InsertBlockTextBox.xaml</DependentUpon>
+    <Compile Include="QueryBlocks\DMLBlocks\InsertBlockBox.xaml.cs">
+      <DependentUpon>InsertBlockBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DQLBlocks\FromNestBlock.xaml.cs">
       <DependentUpon>FromNestBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="BlockLogic\InitialBlockBase.cs" />
+    <Compile Include="QueryBlocks\DMLBlocks\SetBlock.xaml.cs">
+      <DependentUpon>SetBlock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Shapes\NestableBlock.cs" />
     <Compile Include="BlockLogic\QueryBlockBase.cs" />
     <Compile Include="QueryBlocks\DQLBlocks\OnBlock.xaml.cs">
@@ -164,11 +179,34 @@
     <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
       <DependentUpon>TruncateBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QueryBlocks\DMLBlocks\ValuesBlock.xaml.cs">
+      <DependentUpon>ValuesBlock.xaml</DependentUpon>
+    </Compile>
+    <Page Include="QueryBlocks\CommonBlocks\CloseBracketBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\CommonBlocks\ColumnOrValueBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\ConstraintBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DDLBlocks\ColumnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DeletePrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DropColumnBlock.xaml">
+    <Page Include="QueryBlocks\DDLBlocks\DropColumnBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QueryBlocks\DMLBlocks\SetBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -180,7 +218,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\DDLBlocks\ModifyBlock.xaml">
+    <Page Include="QueryBlocks\DDLBlocks\AlterColumnBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -200,7 +238,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\DMLBlocks\InsertBlockTextBox.xaml">
+    <Page Include="QueryBlocks\DMLBlocks\InsertBlockBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -265,6 +303,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="QueryBlocks\DMLBlocks\ValuesBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -308,6 +350,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.111.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
