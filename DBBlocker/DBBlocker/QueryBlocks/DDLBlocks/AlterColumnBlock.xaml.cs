@@ -18,7 +18,7 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for ModifyBlock.xaml
     /// </summary>
-    public partial class AlterColumnBlock : UserControl
+    public partial class AlterColumnBlock : QueryBlockBase
     {
         public AlterColumnBlock()
         {

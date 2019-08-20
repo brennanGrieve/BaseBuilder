@@ -5,7 +5,7 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for AlterTableBlock.xaml
     /// </summary>
-    public partial class AlterTableBlock : UserControl
+    public partial class AlterTableBlock : InitialBlockBase
     {
         public AlterTableBlock()
         {

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for SetBlock.xaml
+    /// Interaction logic for IntoBlock.xaml
     /// </summary>
-    public partial class SetBlock : QueryBlockBase
+    public partial class IntoBlock : QueryBlockBase
     {
-        public SetBlock()
+        public IntoBlock()
         {
             InitializeComponent();
         }

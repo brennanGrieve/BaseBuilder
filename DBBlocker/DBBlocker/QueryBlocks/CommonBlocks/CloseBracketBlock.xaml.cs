@@ -18,7 +18,7 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for CloseBracketBlock.xaml
     /// </summary>
-    public partial class CloseBracketBlock : UserControl
+    public partial class CloseBracketBlock : QueryBlockBase
     {
         public CloseBracketBlock()
         {

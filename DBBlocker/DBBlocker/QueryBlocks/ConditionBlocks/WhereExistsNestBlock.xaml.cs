@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for SetBlock.xaml
+    /// Interaction logic for WhereExistsBlock.xaml
     /// </summary>
-    public partial class SetBlock : QueryBlockBase
+    public partial class WhereExistsNestBlock : QueryBlockBase
     {
-        public SetBlock()
+        public WhereExistsNestBlock()
         {
             InitializeComponent();
         }

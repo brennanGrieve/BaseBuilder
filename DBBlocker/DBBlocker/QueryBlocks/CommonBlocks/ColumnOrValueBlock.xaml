@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DBBlocker.ColumnOrValueBlock"
+﻿<local:QueryBlockBase x:Class="DBBlocker.ColumnOrValueBlock"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,4 +9,4 @@
         <local:SubBlock Fill="#FFD6D636" Stroke="Black"/>
         <TextBox IsEnabled="False" Text="Column/Value" HorizontalAlignment="Left" Height="32" Margin="30,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="16"/>
     </Grid>
-</UserControl>
+</local:QueryBlockBase>

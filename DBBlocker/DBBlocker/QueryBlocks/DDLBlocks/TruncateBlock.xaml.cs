@@ -18,7 +18,7 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for TruncateBlock.xaml
     /// </summary>
-    public partial class TruncateBlock : UserControl
+    public partial class TruncateBlock : InitialBlockBase
     {
         public TruncateBlock()
         {

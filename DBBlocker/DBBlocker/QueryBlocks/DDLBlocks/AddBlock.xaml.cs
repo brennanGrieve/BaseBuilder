@@ -18,7 +18,7 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for AddBlock.xaml
     /// </summary>
-    public partial class AddBlock : UserControl
+    public partial class AddBlock : InitialBlockBase
     {
         public AddBlock()
         {

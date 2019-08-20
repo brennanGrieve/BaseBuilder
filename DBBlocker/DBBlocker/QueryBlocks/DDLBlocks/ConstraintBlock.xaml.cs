@@ -18,7 +18,7 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for ConstraintBlock.xaml
     /// </summary>
-    public partial class ConstraintBlock : UserControl
+    public partial class ConstraintBlock : QueryBlockBase
     {
         public ConstraintBlock()
         {
