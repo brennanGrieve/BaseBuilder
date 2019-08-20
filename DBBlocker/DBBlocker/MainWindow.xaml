@@ -29,11 +29,11 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Database Viewer">
-                <WrapPanel Background="Goldenrod" Margin="-2, -2, -2, -2"/>
+                <WrapPanel Background="#373737" Margin="-2, -2, -2, -2"/>
             </TabItem>
         </TabControl>
         <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#002652" BorderBrush="#3f3f46" Margin="0,30,0,0">
-            <TabItem Header="DQL"  BorderBrush="Transparent">
+            <TabItem Header="Common"  BorderBrush="Transparent">
                 <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
                     <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
                         <local:SelectBlockWildCard/>
@@ -41,7 +41,7 @@
                         <local:SelectBlockAggregate/>
                         <local:FromBlock/>
                         <local:FromNestBlock/>
-                        <local:WhereBlock/>
+                        <local:InNestBlock/>
                         <local:InnerJoinBlock/>
                         <local:OnBlock/>
                         <local:SortByBlock/>
@@ -51,7 +51,12 @@
             <TabItem Header="DML"  BorderBrush="Transparent">
                 <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220" >
                     <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
-                        
+                        <local:InsertBlockBox/>
+                        <local:UpdateBlock/>
+                        <local:DeleteBlock/>
+                        <local:ValuesBlock/>
+                        <local:SetBlock/>
+                        <local:IntoBlock/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
@@ -62,6 +67,25 @@
                         <local:AlterTableBlock />
                         <local:DropTableBlock />
                         <local:AddBlock />
+                        <local:DropColumnBlock/>
+                        <local:AlterColumnBlock/>
+                        <local:TruncateBlock/>
+                        <local:ColumnBlock/>
+                        <local:AddConstraintBlock/>
+                        <local:ConstraintBlock/>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="Conditions">
+                <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
+                    <StackPanel Margin="0,0,25,0">
+                        <local:WhereBlock/>
+                        <local:WhereExistsNestBlock/>
+                        <local:WhereNotBlock/>
+                        <local:BetweenBlock/>
+                        <local:LikeBlock/>
+                        <local:AndBlock/>
+                        <local:OrBlock/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>

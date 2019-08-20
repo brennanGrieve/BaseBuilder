@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="DBBlocker.TruncateBlock"
+﻿<local:InitialBlockBase x:Class="DBBlocker.TruncateBlock"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -10,4 +10,4 @@
         <TextBlock HorizontalAlignment="Center" Margin="-25,0,0,0" FontWeight="Bold" TextWrapping="Wrap"  FontSize ="16" Text="TRUNCATE TABLE" VerticalAlignment="Top"/>
         <TextBox IsEnabled="False" FontSize="20" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Margin="5,21,0,0"/>
     </Grid>
-</UserControl>
+</local:InitialBlockBase>

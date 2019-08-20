@@ -5,9 +5,9 @@ namespace DBBlocker
     /// <summary>
     /// Interaction logic for InsertBlockTextBox.xaml
     /// </summary>
-    public partial class InsertBlockTextBox : UserControl
+    public partial class InsertBlockBox : InitialBlockBase
     {
-        public InsertBlockTextBox()
+        public InsertBlockBox()
         {
             InitializeComponent();
         }

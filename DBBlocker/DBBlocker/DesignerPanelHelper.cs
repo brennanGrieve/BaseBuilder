@@ -31,7 +31,9 @@ namespace DBBlocker
                         return;
                     }
                 }
-                if (_eleBlock.GetType().Name == "FromNestBlock")
+
+                //Refactor the following using inheritence/polymorphism
+                if (_eleBlock.GetType().Name.EndsWith("NestBlock"))
                 {
                     queryStarted = true;
                     int index = originalParent.Children.IndexOf(_eleBlock);
@@ -74,7 +76,7 @@ namespace DBBlocker
                     {
                         if (queryStarted)
                         {
-                            if (newBlock.GetType().Name == "FromNestBlock")
+                            if (newBlock.GetType().Name.EndsWith("NestBlock"))
                             {
                                 queryStarted = false;
                             }
