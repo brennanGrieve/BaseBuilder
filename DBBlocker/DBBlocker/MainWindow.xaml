@@ -5,34 +5,33 @@
         Title="DBBlocker" Height="465" Width="850"
         MinHeight="465"
         MinWidth="850"
-        WindowState="Maximized"  
-    >
+        WindowState="Maximized">
 
-    <Grid Name="MainGrid" Background="#252525">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="#252525"/>
-        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="#373737" BorderBrush="#3f3f46" >
+
+    <Grid Name="MainGrid" Background="{StaticResource DarkGreyBrush}">
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="115" Margin="230,0,5,5" Background="{StaticResource LightGreyBrush}"/>
+        <TabControl HorizontalAlignment="Stretch"  Margin="230,5,5,125" VerticalAlignment="Stretch" Background="{StaticResource LightGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
                         <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}"/>
                         <Button Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}"/>
-                        <local:DesignerPanel x:Name="Designer" Background="#373737" 
+                        <local:DesignerPanel x:Name="Designer" Background="{StaticResource LightGreyBrush}" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"
                           Drop="Designer_Drop"
                           AllowDrop="True"
                           Orientation="Horizontal"
-                          FlowDirection="LeftToRight"
-                          >
+                          FlowDirection="LeftToRight">
                         </local:DesignerPanel>
                     </Grid>
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Database Viewer">
-                <WrapPanel Background="#373737" Margin="-2, -2, -2, -2"/>
+                <WrapPanel Background="{StaticResource LightGreyBrush}" Margin="-2, -2, -2, -2"/>
             </TabItem>
         </TabControl>
-        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="#002652" BorderBrush="#3f3f46" Margin="0,30,0,0">
+        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{StaticResource NavyBlueBrush}" BorderBrush="{StaticResource  BorderBrush}" Margin="0,30,0,0">
             <TabItem Header="Common"  BorderBrush="Transparent">
                 <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
                     <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
@@ -90,6 +89,6 @@
                 </ScrollViewer>
             </TabItem>
         </TabControl>
-        <Label Content="Toolbox" HorizontalAlignment="Left" Margin="10,-6,0,0" VerticalAlignment="Top" Height="36" Width="93" FontSize="23" HorizontalContentAlignment="Center" Foreground="#FFE2D7D7" Background="{x:Null}"/>
+        <Label Content="Toolbox" HorizontalAlignment="Left" Margin="10,-6,0,0" VerticalAlignment="Top" Height="36" Width="93" FontSize="23" HorizontalContentAlignment="Center" Foreground="{StaticResource MutedWhiteBrush}" Background="{x:Null}"/>
     </Grid>
 </Window>
