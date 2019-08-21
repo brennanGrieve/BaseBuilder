@@ -22,8 +22,7 @@
                           Drop="Designer_Drop"
                           AllowDrop="True"
                           Orientation="Horizontal"
-                          FlowDirection="LeftToRight">
-                        </local:DesignerPanel>
+                          FlowDirection="LeftToRight"/>
                     </Grid>
                 </ScrollViewer>
             </TabItem>
