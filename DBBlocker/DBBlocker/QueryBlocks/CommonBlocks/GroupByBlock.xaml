@@ -5,7 +5,7 @@
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
         <local:SubBlock Fill="#FF3C8F1D" Stroke="Black"></local:SubBlock>
-        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Margin="-10,0,0,0" TextWrapping="Wrap" Text="GROUP BY" FontSize ="16" VerticalAlignment="Top" Height="28" Width="90"/>
+        <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-10,0,0,0" TextWrapping="Wrap" Text="GROUP BY" FontSize ="16" VerticalAlignment="Top" Height="28" Width="90"/>
         <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="32" Margin="30,21,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top" Width="130"/>
     </Grid>
 </local:QueryBlockBase>

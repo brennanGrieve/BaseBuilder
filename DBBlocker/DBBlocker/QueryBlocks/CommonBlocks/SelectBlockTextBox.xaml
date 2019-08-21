@@ -5,7 +5,7 @@
             Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
         <local:InitialBlock Fill="#FFB21D1D" Stroke="Black" />
-        <TextBlock Height="18" Margin="49,0,71,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="16" Text="SELECT" FontWeight="Bold"/>
+        <TextBlock  Height="18" Margin="49,0,71,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="Black" FontSize="16" Text="SELECT" FontWeight="Bold"/>
         <TextBox IsEnabled="False"  HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="*" VerticalAlignment="Top" Width="155" Margin="5,21,0,0" FontSize="20"/>
     </Grid>
 </local:InitialBlockBase>
