@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Fill="#FFA03884" Stroke="Black"/>
+        <local:SubBlock Fill="{StaticResource PlumBlockFill}" Stroke="Black"/>
         <ComboBox IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="28,26,0,0" SelectedIndex="0">
             <ComboBoxItem Content="PRIMARY KEY"/>
             <ComboBoxItem Content="FOREIGN KEY"/>

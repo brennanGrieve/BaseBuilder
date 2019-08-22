@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Fill="#FFA03884" Stroke="Black"/>
+        <local:SubBlock Fill="{StaticResource PlumBlockFill}" Stroke="Black"/>
         <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-5,-3,0,0" TextWrapping="Wrap" FontSize="16" Text="BETWEEN" VerticalAlignment="Top"/>
         <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="19" Margin="28,16,0,0" TextWrapping="Wrap" FontSize="12" VerticalAlignment="Top" Width="120" Text="[VALUE_1]"/>
         <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-5,32,0,0" TextWrapping="Wrap" FontSize="16" Text="AND" VerticalAlignment="Top"/>

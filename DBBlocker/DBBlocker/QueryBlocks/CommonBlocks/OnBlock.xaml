@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Fill="#FFA03884" Stroke="Black"/>
+        <local:SubBlock Fill="{StaticResource PlumBlockFill}" Stroke="Black"/>
         <TextBlock Foreground="Black" HorizontalAlignment="Left" FontWeight="Bold" Margin="74,-1,0,0" TextWrapping="Wrap" FontSize="16" Text="ON" VerticalAlignment="Top"/>
         <TextBox Foreground="Black" IsEnabled="False" HorizontalAlignment="Left" Height="32" Margin="30,21,0,0" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Width="130"/>
     </Grid>

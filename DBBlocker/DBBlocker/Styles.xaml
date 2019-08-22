@@ -4,7 +4,12 @@
                     x:Class="StyleDictionary">
 
     <SolidColorBrush x:Key="LightGreyBrush" Color="#373737"/>
-
+    <SolidColorBrush x:Key="InitialBlockFill" Color="#FFB21D1D"/>
+    <SolidColorBrush x:Key="DeepBlueBlockFill" Color="#FF3636BB"/>
+    <SolidColorBrush x:Key="GreenBlockFill" Color="#FF3FA229"/>
+    <SolidColorBrush x:Key="PlumBlockFill" Color="#FFA03884"/>
+    <SolidColorBrush x:Key="VioletBlockFill" Color="#FF910CCF"/>
+    <SolidColorBrush x:Key="LemonBlockFill" Color="#FFD6D636"/>
     <SolidColorBrush x:Key="BorderBrush" Color="#3f3f46" />
 
     <SolidColorBrush x:Key="TabSelectedBrush" Color="#416fba" />
