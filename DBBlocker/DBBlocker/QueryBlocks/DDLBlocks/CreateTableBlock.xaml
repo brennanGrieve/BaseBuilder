@@ -6,9 +6,9 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
-        <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-25,0,0,0" TextWrapping="Wrap" FontSize="16" Text="CREATE TABLE" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left"  Margin="3,21,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top" Height="32" Width="155"/>
-        <TextBlock Foreground="Black" HorizontalAlignment="Left" Margin="158,12,0,0" TextWrapping="Wrap" Text="(" FontSize="32" VerticalAlignment="Top"/>
+        <local:InitialBlock Fill="{StaticResource InitialBlockFill}" Stroke="Black"/>
+        <local:SingleBoxBlockTextBlock Text="CREATE TABLE" Margin="-25,0,0,0"/>
+        <local:SingleBoxInitialBlockTextBox/>
+        <TextBlock Foreground="Black" HorizontalAlignment="Left" Margin="155,12,0,0" TextWrapping="Wrap" Text="(" FontSize="32" VerticalAlignment="Top"/>
     </Grid>
 </local:InitialBlockBase>

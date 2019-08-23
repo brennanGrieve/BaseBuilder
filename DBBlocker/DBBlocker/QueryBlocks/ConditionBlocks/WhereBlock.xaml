@@ -4,9 +4,8 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Fill="#FF910CCF" Stroke="Black"/>
-        <TextBlock Foreground="Black" HorizontalAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" VerticalAlignment="Top" Margin="55,0,0,0" Text="WHERE" FontSize="16"></TextBlock>
-        <TextBox HorizontalAlignment="Left" Height="32" Margin="30,21,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="130" IsEnabled="False"/>
-
+        <local:SubBlock Fill="{StaticResource VioletBlockFill}" Stroke="Black"/>
+        <local:SingleBoxBlockTextBlock Text="WHERE"/>
+        <local:SingleBoxBlockTextBox/>
     </Grid>
 </local:QueryBlockBase>

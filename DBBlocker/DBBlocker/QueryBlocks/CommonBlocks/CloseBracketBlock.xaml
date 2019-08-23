@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Fill="#FF3636BB" Stroke="Black"/>
+        <local:SubBlock Fill="{StaticResource DeepBlueBlockFill}" Stroke="Black"/>
         <TextBlock Name="SelectWildCardText" Margin="76,-21,-9,21" FontWeight="Bold" Height="76" TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Black" FontSize="60" Text=")" Width="108"/>
     </Grid>
 </local:QueryBlockBase>

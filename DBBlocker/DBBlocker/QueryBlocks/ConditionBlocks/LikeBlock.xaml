@@ -6,9 +6,8 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Fill="#FF3C8F1D" Stroke="Black"></local:SubBlock>
-        <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-10,0,0,0" TextWrapping="Wrap" Text="LIKE" FontSize="16" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Width="135" Margin="30,21,0,0"/>
-
+        <local:SubBlock Fill="{StaticResource GreenBlockFill}" Stroke="Black"></local:SubBlock>
+        <local:SingleBoxBlockTextBlock Text="LIKE"/>
+        <local:SingleBoxBlockTextBox/>
     </Grid>
 </local:QueryBlockBase>

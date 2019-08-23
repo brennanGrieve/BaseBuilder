@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Stroke="Black" Fill="#FF3FA229"/>
-        <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-10,0,0,0" TextWrapping="Wrap" FontSize="14" Text="ADD CONSTRAINT" TextAlignment="Center" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="32" Margin="30,21,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontSize="20"/>
+        <local:SubBlock Stroke="Black" Fill="{StaticResource GreenBlockFill}"/>
+        <local:SingleBoxBlockTextBlock Text="ADD CONSTRAINT" FontSize="14"/>
+        <local:SingleBoxBlockTextBox/>
     </Grid>
 </local:QueryBlockBase>

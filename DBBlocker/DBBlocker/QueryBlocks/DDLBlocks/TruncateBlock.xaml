@@ -6,8 +6,8 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:InitialBlock Fill="#FFB21D1D" Stroke="Black"/>
-        <TextBlock Foreground="Black" HorizontalAlignment="Center" Margin="-25,0,0,0" FontWeight="Bold" TextWrapping="Wrap"  FontSize ="16" Text="TRUNCATE TABLE" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" FontSize="20" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Margin="5,21,0,0"/>
+        <local:InitialBlock Fill="{StaticResource InitialBlockFill}" Stroke="Black"/>
+        <local:SingleBoxBlockTextBlock Text="TRUNCATE TABLE"/>
+        <local:SingleBoxInitialBlockTextBox/>
     </Grid>
 </local:InitialBlockBase>
