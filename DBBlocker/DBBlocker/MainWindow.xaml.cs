@@ -138,5 +138,10 @@ namespace DBBlocker
         {
             e.Handled = true;
         }
+
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
