@@ -212,6 +212,9 @@
     <Compile Include="QueryBlocks\ConditionBlocks\WhereNotBlock.xaml.cs">
       <DependentUpon>WhereNotBlock.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBlock.cs" />
+    <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBox.cs" />
+    <Compile Include="ControlCategoryClasses\SingleBoxInitialBlockTextBox.cs" />
     <Page Include="QueryBlocks\DDLBlocks\AddConstraintBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

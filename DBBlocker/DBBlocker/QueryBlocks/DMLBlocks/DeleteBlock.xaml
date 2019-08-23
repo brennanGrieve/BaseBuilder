@@ -5,7 +5,7 @@
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
         <local:InitialBlock Fill="{StaticResource InitialBlockFill}" Stroke="Black"/>
-        <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-25,0,0,0" TextWrapping="Wrap"  FontSize ="16" Text="DELETE FROM" VerticalAlignment="Top"/>
-        <TextBox  IsEnabled="False" FontSize="20" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155" Margin="5,21,0,0"/>
+        <local:SingleBoxBlockTextBlock Text="DELETE FROM"/>
+        <local:SingleBoxInitialBlockTextBox/>
     </Grid>
 </local:InitialBlockBase>

@@ -7,7 +7,7 @@
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
         <local:InitialBlock Fill="{StaticResource InitialBlockFill}" Stroke="Black"/>
-        <TextBlock Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center" Margin="-25,0,0,0" TextWrapping="Wrap" FontSize="16" Text="ALTER TABLE" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left"  Margin="5,21,0,0" TextWrapping="Wrap" Text="" FontSize="20" VerticalAlignment="Top" Height="32" Width="155"/>
+        <local:SingleBoxBlockTextBlock Text="ALTER TABLE"/>
+        <local:SingleBoxInitialBlockTextBox/>
     </Grid>
 </local:InitialBlockBase>
