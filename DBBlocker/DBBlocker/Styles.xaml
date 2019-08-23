@@ -3,6 +3,9 @@
                     xmlns:local="clr-namespace:DBBlocker"
                     x:Class="StyleDictionary">
 
+
+    <!--#region ColorDefinitions-->
+
     <SolidColorBrush x:Key="LightGreyBrush" Color="#373737"/>
     <SolidColorBrush x:Key="InitialBlockFill" Color="#FFB21D1D"/>
     <SolidColorBrush x:Key="DeepBlueBlockFill" Color="#FF3636BB"/>
@@ -11,16 +14,16 @@
     <SolidColorBrush x:Key="VioletBlockFill" Color="#FF910CCF"/>
     <SolidColorBrush x:Key="LemonBlockFill" Color="#FFD6D636"/>
     <SolidColorBrush x:Key="BorderBrush" Color="#3f3f46" />
-
     <SolidColorBrush x:Key="TabSelectedBrush" Color="#416fba" />
-
+    <SolidColorBrush x:Key="MenuItemFill" Color="#0f0f0f"/>
+    <Color x:Key="SelectedColor" R="65" G="111" B="186" />
     <SolidColorBrush x:Key="DarkGreyBrush" Color="#252525"/>
-
     <SolidColorBrush x:Key="MutedWhiteBrush" Color="#FFE2D7D7"/>
-
     <SolidColorBrush x:Key="NavyBlueBrush" Color="#002652"/>
-
     <SolidColorBrush x:Key="ScrollBarBrush" Color="#888" />
+
+    <!--#endregion-->
+
 
     <Style TargetType="{x:Type local:SingleBoxBlockTextBox}">
         <Setter Property="Margin" Value="30,25,0,0"/>
@@ -54,7 +57,106 @@
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="16"/>
     </Style>
-    
+
+    <Style TargetType="Menu">
+        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource MutedWhiteBrush}"/>
+    </Style>
+
+    <Style TargetType="MenuItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type MenuItem}">
+                    <Border x:Name="Border">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" SharedSizeGroup="MenuTextColumnGroup"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0" Visibility="Hidden" Margin="4,0,6,0" x:Name="CheckPanel" VerticalAlignment="Center">
+                                <Path x:Name="CheckMark"
+                                      Width="7"
+                                      Height="7"
+                                      Visibility="Hidden"
+                                      SnapsToDevicePixels="False"
+                                      StrokeThickness="2"
+                                      Data="M 0 0 L 7 7 M 0 7 L 7 0">
+                                    <Path.Stroke>
+                                        <SolidColorBrush Color="{StaticResource SelectedColor}"/>
+                                    </Path.Stroke>
+                                </Path>
+                            </Grid>
+                            <ContentPresenter Grid.Column="1"
+                                          Margin="{TemplateBinding Padding}"
+                                          x:Name="HeaderHost"
+                                          RecognizesAccessKey="True"
+                                          ContentSource="Header"/>
+
+                            <Grid Grid.Column="3" x:Name="ArrowPanel" VerticalAlignment="Center">
+                                <Path x:Name="ArrowPanelPath" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Center" Fill="{TemplateBinding Foreground}" Data="M0,0 L0,8 L4,4"/>
+                            </Grid>
+                            <Popup IsOpen="{Binding Path=IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" x:Name="SubMenuPopup" Focusable="false" PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}">
+                                <Border x:Name="SubMenuBorder" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1">
+                                    <Grid x:Name="SubMenu" Grid.IsSharedSizeScope="True" Background="{StaticResource MenuItemFill}">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle"/>
+                                    </Grid>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </Border>
+
+                    <!-- These triggers re-configure the four arrangements of MenuItem to show different levels of menu via Role -->
+                    <ControlTemplate.Triggers>
+                        <!-- Role = TopLevelHeader : this is the root menu item in a menu; the Popup expands down -->
+                        <Trigger Property="Role" Value="TopLevelHeader">
+                            <Setter Property="Padding" Value="6,1,6,1"/>
+                            <Setter Property="Placement" Value="Bottom" TargetName="SubMenuPopup"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="CheckPanel"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+                        </Trigger>
+
+                        <!-- Role = TopLevelItem :  this is a child menu item from the top level without any child items-->
+                        <Trigger Property="Role" Value="TopLevelItem">
+                            <Setter Property="Padding" Value="7,1,7,1"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+                        </Trigger>
+
+                        <!-- Role = SubMenuHeader : this is a child menu item which does not have children -->
+                        <Trigger Property="Role" Value="SubmenuHeader">
+                            <Setter Property="DockPanel.Dock" Value="Top"/>
+                            <Setter Property="Padding" Value="10,3,16,3"/>
+                        </Trigger>
+
+                        <!-- Role = SubMenuItem : this is a child menu item which has children-->
+                        <Trigger Property="Role" Value="SubmenuItem">
+                            <Setter Property="DockPanel.Dock" Value="Top"/>
+                            <Setter Property="Padding" Value="10,3,16,3"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ArrowPanel"/>
+                        </Trigger>
+                        <Trigger Property="IsSuspendingPopupAnimation" Value="true">
+                            <Setter Property="PopupAnimation" Value="None" TargetName="SubMenuPopup"/>
+                        </Trigger>
+
+
+
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Visibility" Value="Visible" TargetName="CheckPanel"/>
+                        </Trigger>
+
+                        <Trigger Property="IsHighlighted" Value="true">
+                            <Setter Property="Background" Value="#416fba" TargetName="Border"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
     <Style TargetType="{x:Type TabItem}">
         <Setter Property="Template">
             <Setter.Value>
