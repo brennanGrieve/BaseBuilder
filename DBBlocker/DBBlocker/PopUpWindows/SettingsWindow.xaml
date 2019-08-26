@@ -1,0 +1,36 @@
+﻿<Window x:Class="DBBlocker.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBBlocker"
+        xmlns:properties="clr-namespace:DBBlocker.Properties"
+        mc:Ignorable="d"
+        Title="User Settings" Height="400" Width="250"
+        Background="{StaticResource DarkGreyBrush}"
+        ResizeMode="NoResize">
+    <Grid>
+        <ScrollViewer Margin="0,0,0,40">
+                <Grid>
+                <StackPanel Name="SettingsPanel">
+                    <Label>
+                        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
+                            <Label Content="Suppress Clear-All Warnings"/>
+                            <CheckBox Name="ClearAllBox" Margin="0,4,0,0" IsChecked="{Binding SuppressDeleteWarning, Mode=TwoWay, Source={x:Static properties:Settings.Default}, UpdateSourceTrigger=Explicit}"/>
+                        </StackPanel>
+                    </Label>
+                    <Label Content="blah"/>
+                    <Separator/>
+                    <Label Content="blah"/>
+
+
+     
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10">
+            <Button Content="Cancel" Height="20" Width="70" Click="CancelBtn_Click"/>
+            <Button Content="Save" Height="20" Width="70" Click="SaveBtn_Click"/>
+        </StackPanel>
+    </Grid>
+</Window> 

@@ -7,62 +7,62 @@ using System.Data.SQLite;
 
 namespace DBBlocker
 {
-    class DatabaseHelper
+    abstract class DatabaseHelper
     {
-        protected static SQLiteConnection sandBoxDB;
+            protected static SQLiteConnection sandBoxDB;
 
-        protected static void InitDB()
-        {
-            sandBoxDB = new SQLiteConnection("Data Source= sandbox.db;Version=3;New=True;Compress=True");
-            try
+            protected static void InitDB()
             {
-                sandBoxDB.Open();
+                sandBoxDB = new SQLiteConnection("Data Source= sandbox.db;Version=3;New=True;Compress=True");
+                try
+                {
+                    sandBoxDB.Open();
+                }
+                catch(Exception ex)
+                {
+                    throw ex;       
+                }
+                //CreateTestTables();
             }
-            catch(Exception ex)
+
+            public static void RunSQL(string query)
             {
-                throw ex;       
+                InitDB();
+                SQLiteCommand toRun;
+                toRun = sandBoxDB.CreateCommand();
+                toRun.CommandText = query;
+                toRun.ExecuteNonQuery();
             }
-            //CreateTestTables();
-        }
 
-        public static void RunSQL(string query)
-        {
-            InitDB();
-            SQLiteCommand toRun;
-            toRun = sandBoxDB.CreateCommand();
-            toRun.CommandText = query;
-            toRun.ExecuteNonQuery();
-        }
-
-        public static void RunReaderSQL(string query)
-        {
-            InitDB();
-            SQLiteCommand toRun;
-            SQLiteDataReader reader;
-            toRun = sandBoxDB.CreateCommand();
-            toRun.CommandText = query;
-            reader = toRun.ExecuteReader();
-            while (reader.Read())
+            public static void RunReaderSQL(string query)
             {
-                //the data from the reader must be displayed. Data binding is the best solution.
+                InitDB();
+                SQLiteCommand toRun;
+                SQLiteDataReader reader;
+                toRun = sandBoxDB.CreateCommand();
+                toRun.CommandText = query;
+                reader = toRun.ExecuteReader();
+                while (reader.Read())
+                {
+                    //the data from the reader must be displayed. Data binding is the best solution.
+                }
+                sandBoxDB.Close();
             }
-            sandBoxDB.Close();
-        }
 
-        // This method is purely a test. It will not be used.
+            // This method is purely a test. It will not be used.
 
-        static void CreateTestTables()
-        {
+            static void CreateTestTables()
+            {
 
-            SQLiteCommand toRun;
-            string Createsql = "CREATE TABLE Test1 (tcol1 VARCHAR(20), tcol2 INT)";
-            string Createsql1 = "CREATE TABLE Test2 (tcol1 VARCHAR(20), tcol2 INT)";
-            toRun = sandBoxDB.CreateCommand();
-            toRun.CommandText = Createsql;
-            toRun.ExecuteNonQuery();
-            toRun.CommandText = Createsql1;
-            toRun.ExecuteNonQuery();
+                SQLiteCommand toRun;
+                string Createsql = "CREATE TABLE Test1 (tcol1 VARCHAR(20), tcol2 INT)";
+                string Createsql1 = "CREATE TABLE Test2 (tcol1 VARCHAR(20), tcol2 INT)";
+                toRun = sandBoxDB.CreateCommand();
+                toRun.CommandText = Createsql;
+                toRun.ExecuteNonQuery();
+                toRun.CommandText = Createsql1;
+                toRun.ExecuteNonQuery();
 
-        }
+            }
     }
 }

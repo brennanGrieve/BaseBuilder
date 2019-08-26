@@ -6,8 +6,6 @@
         MinHeight="465"
         MinWidth="850"
         WindowState="Maximized">
-
-
     <Grid Name="MainGrid" Background="{StaticResource DarkGreyBrush}">
         <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="100" Margin="230,0,5,5" Background="{StaticResource LightGreyBrush}"/>
         <Menu Height="18" VerticalAlignment="Top">
@@ -17,15 +15,20 @@
                 </MenuItem>
                 <MenuItem Header="Exit" Click="MenuExit_Click"/>
             </MenuItem>
-            <MenuItem Header="Settings"/>
-            <MenuItem Header="Help"/>
+            <MenuItem Header="Settings">
+                <MenuItem Header="User Settings" Click="MenuUserSettings_Click"/>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About Databases"/>
+                <MenuItem Header="Tutorial Mode"/>
+            </MenuItem>
         </Menu>
         <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,110" VerticalAlignment="Stretch" Background="{StaticResource LightGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
-                        <Button Name="ExecuteBtn" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}"/>
-                        <Button Panel.ZIndex="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}"/>
+                        <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}"/>
+                        <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}"/>
                         <local:DesignerPanel x:Name="Designer" Background="{StaticResource LightGreyBrush}" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"
@@ -53,6 +56,8 @@
                         <local:InnerJoinBlock/>
                         <local:OnBlock/>
                         <local:SortByBlock/>
+                        <local:ColumnOrValueBlock/>
+                        <local:CloseBracketBlock/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
