@@ -143,5 +143,11 @@ namespace DBBlocker
         {
             Close();
         }
+
+        private void MenuUserSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsWindow settings = new SettingsWindow();
+            settings.ShowDialog();
+        }
     }
 }

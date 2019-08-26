@@ -92,6 +92,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PopUpWindows\AboutDatabasesWindow.xaml.cs">
+      <DependentUpon>AboutDatabasesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="QueryBlocks\DDLBlocks\AddConstraintBlock.xaml.cs">
       <DependentUpon>AddConstraintBlock.xaml</DependentUpon>
     </Compile>
@@ -129,7 +132,7 @@
       <DependentUpon>ColumnBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="DeletePrompt.xaml.cs">
+    <Compile Include="PopUpWindows\DeletePrompt.xaml.cs">
       <DependentUpon>DeletePrompt.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\DDLBlocks\DropColumnBlock.xaml.cs">
@@ -165,6 +168,9 @@
     <Compile Include="QueryBlocks\BlockLogic\InitialBlockBase.cs" />
     <Compile Include="QueryBlocks\DMLBlocks\SetBlock.xaml.cs">
       <DependentUpon>SetBlock.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PopUpWindows\SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Shapes\NestableBlock.cs" />
     <Compile Include="QueryBlocks\BlockLogic\QueryBlockBase.cs" />
@@ -215,6 +221,10 @@
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBlock.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBox.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxInitialBlockTextBox.cs" />
+    <Page Include="PopUpWindows\AboutDatabasesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="QueryBlocks\DDLBlocks\AddConstraintBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -263,7 +273,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeletePrompt.xaml">
+    <Page Include="PopUpWindows\DeletePrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -272,6 +282,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\DMLBlocks\SetBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopUpWindows\SettingsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
