@@ -221,6 +221,10 @@
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBlock.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBox.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxInitialBlockTextBox.cs" />
+    <Page Include="DataBindings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PopUpWindows\AboutDatabasesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

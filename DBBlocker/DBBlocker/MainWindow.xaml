@@ -7,7 +7,9 @@
         MinWidth="850"
         WindowState="Maximized">
     <Grid Name="MainGrid" Background="{StaticResource DarkGreyBrush}">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="100" Margin="230,0,5,5" Background="{StaticResource LightGreyBrush}"/>
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="100" Margin="230,0,5,5" Background="{StaticResource MenuItemFill}">
+            <TextBlock FontSize="14" Foreground="{StaticResource MutedWhiteBrush}" DataContext="{DynamicResource Output}" Text="{Binding}"/>
+        </StackPanel>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="foo">
