@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SQLite;
+using System.Windows.Controls;
+using System.Windows;
 
 namespace DBBlocker
 {
@@ -31,8 +33,15 @@ namespace DBBlocker
                 SQLiteCommand toRun;
                 toRun = sandBoxDB.CreateCommand();
                 toRun.CommandText = query;
+            try
+            {
                 toRun.ExecuteNonQuery();
             }
+            catch(Exception ex)
+            {
+                Application.Current.Resources["Output"] = ex.Message;
+            }
+        }
 
             public static void RunReaderSQL(string query)
             {
@@ -41,12 +50,20 @@ namespace DBBlocker
                 SQLiteDataReader reader;
                 toRun = sandBoxDB.CreateCommand();
                 toRun.CommandText = query;
-                reader = toRun.ExecuteReader();
-                while (reader.Read())
+                try
                 {
-                    //the data from the reader must be displayed. Data binding is the best solution.
+                    reader = toRun.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //the data from the reader must be displayed. Data binding is the best solution.
+                    }
                 }
-                sandBoxDB.Close();
+                catch(Exception ex)
+                {
+                    Application.Current.Resources["Output"] = ex.Message;
+
+            }
+            sandBoxDB.Close();
             }
 
             // This method is purely a test. It will not be used.
