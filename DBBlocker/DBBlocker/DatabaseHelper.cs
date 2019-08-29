@@ -63,8 +63,6 @@ namespace DBBlocker
             }
             catch (Exception ex)
             {
-                    grid.Items.Clear();
-                    grid.Columns.Clear();
                     Application.Current.Resources["Output"] = ex.Message;
                     Application.Current.Resources["DataGridEnabled"] = false;
                     Application.Current.Resources["GridVis"] = Visibility.Hidden;
