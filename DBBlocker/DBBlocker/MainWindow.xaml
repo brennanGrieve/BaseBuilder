@@ -7,9 +7,15 @@
         MinWidth="850"
         WindowState="Maximized">
     <Grid Name="MainGrid" Background="{StaticResource DarkGreyBrush}">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource MenuItemFill}">
-            <DataGrid x:Name="OutputView" IsReadOnly="True" Visibility="{DynamicResource GridVis}" AutoGenerateColumns="False" IsEnabled="{DynamicResource DataGridEnabled}"/>
-        </StackPanel>
+       
+        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource MenuItemFill}">
+            <ScrollViewer>
+                <Grid>
+                    <TextBlock FontSize="14" Foreground="{StaticResource MutedWhiteBrush}" DataContext="{DynamicResource Output}" Text="{Binding}"/>
+                    <DataGrid x:Name="OutputView" IsReadOnly="True" Visibility="{DynamicResource GridVis}" AutoGenerateColumns="False" IsEnabled="{DynamicResource DataGridEnabled}"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="File">
                 <MenuItem Header="foo">

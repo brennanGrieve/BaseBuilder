@@ -48,14 +48,14 @@ namespace DBBlocker
                 SQLiteDataReader reader;
                 toRun = sandBoxDB.CreateCommand();
                 toRun.CommandText = query;
-
+                DataGrid grid = (DataGrid)LogicalTreeHelper.FindLogicalNode(Application.Current.MainWindow, "OutputView");
             try
             {
                 reader = toRun.ExecuteReader();
-                DataGrid grid = (DataGrid)LogicalTreeHelper.FindLogicalNode(Application.Current.MainWindow, "OutputView");
                 grid.Items.Clear();
                 grid.Columns.Clear();
                 List<Row> newData = new List<Row>();
+                newData.Clear();
                 while (reader.Read())
                 {
                     Row newRow = new Row();
@@ -88,9 +88,12 @@ namespace DBBlocker
                 Application.Current.Resources["GridVis"] = Visibility.Visible;
             }
             catch (Exception ex)
-                {
+            {
+                    grid.Items.Clear();
+                    grid.Columns.Clear();
                     Application.Current.Resources["Output"] = ex.Message;
-
+                    Application.Current.Resources["DataGridEnabled"] = false;
+                    Application.Current.Resources["GridVis"] = Visibility.Hidden;
             }
             sandBoxDB.Close();
             }
