@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections;
+using System.Data;
+using System.Data.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
@@ -11,7 +14,6 @@ namespace DBBlocker
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
@@ -61,9 +63,11 @@ namespace DBBlocker
 
         private void ExecuteBtn_Click(object sender, RoutedEventArgs e)
         {
+            OutputView.Items.Refresh();
             Button ele = (Button)sender;
             PlayRippleAnim(ele, "RunRipple");
             string executableSQL = "";
+            
             DesignerPanel designer = (DesignerPanel)LogicalTreeHelper.FindLogicalNode(ele.Parent, "Designer");
             foreach (QueryBlockBase block in designer.Children)
             {

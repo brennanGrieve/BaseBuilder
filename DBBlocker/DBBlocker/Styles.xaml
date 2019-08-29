@@ -24,6 +24,33 @@
 
     <!--#endregion-->
 
+    <Style TargetType="{x:Type DataGrid}">
+        <Setter Property="GridLinesVisibility" Value="None"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridCell}">
+        <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MutedWhiteBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="Background" Value="{StaticResource MenuItemFill}"/>
+        <Setter Property="Foreground" Value="{StaticResource MutedWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MutedWhiteBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridRowHeader}">
+        <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource MutedWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MutedWhiteBrush}"/>
+    </Style>
+
+    <Style TargetType="{x:Type DataGridRow}">
+        <Setter Property="Background" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource MutedWhiteBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource MutedWhiteBrush}"/>
+    </Style>
+
 
     <Style TargetType="{x:Type local:SingleBoxBlockTextBox}">
         <Setter Property="Margin" Value="30,25,0,0"/>

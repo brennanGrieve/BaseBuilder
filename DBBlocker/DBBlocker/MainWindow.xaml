@@ -7,8 +7,8 @@
         MinWidth="850"
         WindowState="Maximized">
     <Grid Name="MainGrid" Background="{StaticResource DarkGreyBrush}">
-        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="100" Margin="230,0,5,5" Background="{StaticResource MenuItemFill}">
-            <TextBlock FontSize="14" Foreground="{StaticResource MutedWhiteBrush}" DataContext="{DynamicResource Output}" Text="{Binding}"/>
+        <StackPanel HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource MenuItemFill}">
+            <DataGrid x:Name="OutputView" IsReadOnly="True" Visibility="{DynamicResource GridVis}" AutoGenerateColumns="False" IsEnabled="{DynamicResource DataGridEnabled}"/>
         </StackPanel>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="File">
@@ -25,7 +25,7 @@
                 <MenuItem Header="Tutorial Mode"/>
             </MenuItem>
         </Menu>
-        <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,110" VerticalAlignment="Stretch" Background="{StaticResource LightGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
+        <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,145" VerticalAlignment="Stretch" Background="{StaticResource LightGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
@@ -42,7 +42,8 @@
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Database Viewer">
-                <WrapPanel Background="{StaticResource LightGreyBrush}" Margin="-2,-4,-2,0"/>
+                <WrapPanel Background="{StaticResource LightGreyBrush}" Margin="-2,-4,-2,0">
+                </WrapPanel>
             </TabItem>
         </TabControl>
         <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{StaticResource NavyBlueBrush}" BorderBrush="{StaticResource  BorderBrush}" Margin="0,40,0,0">

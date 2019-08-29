@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Data;
 
 namespace DBBlocker
 {
@@ -24,7 +22,6 @@ namespace DBBlocker
                 {
                     throw ex;       
                 }
-                //CreateTestTables();
             }
 
             public static void RunSQL(string query)
@@ -36,6 +33,7 @@ namespace DBBlocker
             try
             {
                 toRun.ExecuteNonQuery();
+                Application.Current.Resources["Output"] = "Command successful.";
             }
             catch(Exception ex)
             {
@@ -50,36 +48,51 @@ namespace DBBlocker
                 SQLiteDataReader reader;
                 toRun = sandBoxDB.CreateCommand();
                 toRun.CommandText = query;
-                try
+
+            try
+            {
+                reader = toRun.ExecuteReader();
+                DataGrid grid = (DataGrid)LogicalTreeHelper.FindLogicalNode(Application.Current.MainWindow, "OutputView");
+                grid.Items.Clear();
+                grid.Columns.Clear();
+                List<Row> newData = new List<Row>();
+                while (reader.Read())
                 {
-                    reader = toRun.ExecuteReader();
-                    while (reader.Read())
+                    Row newRow = new Row();
+                    newRow.RowData = new object[reader.FieldCount];
+                    for (int i = 0; i < reader.FieldCount; i++)
                     {
-                        //the data from the reader must be displayed. Data binding is the best solution.
+                        newRow.RowData[i] = reader.GetValue(i);
                     }
+                    newData.Add(newRow);
                 }
-                catch(Exception ex)
+
+                //Create the Columns and bind them to the data
+
+                for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                    DataGridTextColumn newCol = new DataGridTextColumn
+                    {
+                        Header = reader.GetName(i),
+                        Binding = new Binding("CurrentRowItem")
+                    };
+                    grid.Columns.Add(newCol);
+                    }
+
+                foreach(var item in newData)
+                {
+                    grid.Items.Add(item);
+                }          
+                Application.Current.Resources["Output"] = "";
+                Application.Current.Resources["DataGridEnabled"] = true;
+                Application.Current.Resources["GridVis"] = Visibility.Visible;
+            }
+            catch (Exception ex)
                 {
                     Application.Current.Resources["Output"] = ex.Message;
 
             }
             sandBoxDB.Close();
-            }
-
-            // This method is purely a test. It will not be used.
-
-            static void CreateTestTables()
-            {
-
-                SQLiteCommand toRun;
-                string Createsql = "CREATE TABLE Test1 (tcol1 VARCHAR(20), tcol2 INT)";
-                string Createsql1 = "CREATE TABLE Test2 (tcol1 VARCHAR(20), tcol2 INT)";
-                toRun = sandBoxDB.CreateCommand();
-                toRun.CommandText = Createsql;
-                toRun.ExecuteNonQuery();
-                toRun.CommandText = Createsql1;
-                toRun.ExecuteNonQuery();
-
             }
     }
 }
