@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Data;
+using System.Data;
 
 namespace DBBlocker
 {
@@ -51,38 +52,11 @@ namespace DBBlocker
                 DataGrid grid = (DataGrid)LogicalTreeHelper.FindLogicalNode(Application.Current.MainWindow, "OutputView");
             try
             {
+                DataTable table = (DataTable)Application.Current.Resources["Test"];
+                table = new DataTable();
                 reader = toRun.ExecuteReader();
-                grid.Items.Clear();
-                grid.Columns.Clear();
-                List<Row> newData = new List<Row>();
-                newData.Clear();
-                while (reader.Read())
-                {
-                    Row newRow = new Row();
-                    newRow.RowData = new object[reader.FieldCount];
-                    for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                        newRow.RowData[i] = reader.GetValue(i);
-                    }
-                    newData.Add(newRow);
-                }
-
-                //Create the Columns and bind them to the data
-
-                for (int i = 0; i < reader.FieldCount; i++)
-                    {
-                    DataGridTextColumn newCol = new DataGridTextColumn
-                    {
-                        Header = reader.GetName(i),
-                        Binding = new Binding("CurrentRowItem")
-                    };
-                    grid.Columns.Add(newCol);
-                    }
-
-                foreach(var item in newData)
-                {
-                    grid.Items.Add(item);
-                }          
+                table.Load(reader);
+                grid.ItemsSource = table.DefaultView;     
                 Application.Current.Resources["Output"] = "";
                 Application.Current.Resources["DataGridEnabled"] = true;
                 Application.Current.Resources["GridVis"] = Visibility.Visible;

@@ -7,5 +7,4 @@
     <x:Static x:Key="Output" Member="sys:String.Empty"></x:Static>
     <sys:Boolean x:Key="DataGridEnabled">False</sys:Boolean>
     <Visibility x:Key="GridVis">Hidden</Visibility>
-    <data:DataTable x:Key="test"/>
 </ResourceDictionary>

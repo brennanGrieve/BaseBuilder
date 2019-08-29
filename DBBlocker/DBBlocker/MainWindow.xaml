@@ -12,7 +12,7 @@
             <ScrollViewer>
                 <Grid>
                     <TextBlock FontSize="14" Foreground="{StaticResource MutedWhiteBrush}" DataContext="{DynamicResource Output}" Text="{Binding}"/>
-                    <DataGrid x:Name="OutputView" IsReadOnly="True" Visibility="{DynamicResource GridVis}" AutoGenerateColumns="False" IsEnabled="{DynamicResource DataGridEnabled}"/>
+                    <DataGrid x:Name="OutputView" IsReadOnly="True" Visibility="{DynamicResource GridVis}" AutoGenerateColumns="True" IsEnabled="{DynamicResource DataGridEnabled}" />
                 </Grid>
             </ScrollViewer>
         </Grid>
