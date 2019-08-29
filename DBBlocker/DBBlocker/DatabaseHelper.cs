@@ -52,8 +52,7 @@ namespace DBBlocker
                 DataGrid grid = (DataGrid)LogicalTreeHelper.FindLogicalNode(Application.Current.MainWindow, "OutputView");
             try
             {
-                DataTable table = (DataTable)Application.Current.Resources["Test"];
-                table = new DataTable();
+                DataTable table = new DataTable();
                 reader = toRun.ExecuteReader();
                 table.Load(reader);
                 grid.ItemsSource = table.DefaultView;     
