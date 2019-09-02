@@ -76,7 +76,9 @@ namespace DBBlocker
             if(executableSQL == "")
             {
                 
-                MessageBox.Show("Please Build a Query using the blocks from the toolbox before running.", "Invalid Run", MessageBoxButton.OK, MessageBoxImage.Warning );
+                Application.Current.Resources["ErrorOutput"] = "Please Build a Query using the blocks from the toolbox before running.";
+                ErrorPopUp newPopUp = new ErrorPopUp();
+                newPopUp.ShowDialog();
                 return;
             }
             executableSQL += ";";

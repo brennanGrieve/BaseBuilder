@@ -94,6 +94,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="PopUpWindows\ErrorPopUp.xaml.cs">
+      <DependentUpon>ErrorPopUp.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PopUpWindows\AboutDatabasesWindow.xaml.cs">
       <DependentUpon>AboutDatabasesWindow.xaml</DependentUpon>
     </Compile>
@@ -225,6 +228,10 @@
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBox.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxInitialBlockTextBox.cs" />
     <Page Include="DataBindings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PopUpWindows\ErrorPopUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

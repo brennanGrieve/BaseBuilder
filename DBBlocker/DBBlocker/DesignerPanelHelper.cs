@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace DBBlocker
@@ -66,7 +67,12 @@ namespace DBBlocker
                     queryStarted = true;
                     _panel.Children.Add(newBlock);
                 }
-                else { System.Windows.MessageBox.Show("Please use a Red block (Select/Update/Add Etc.) to begin a Query.", "Invalid Block Type", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning); }
+                else
+                {
+                    Application.Current.Resources["ErrorOutput"] = "Please use a Red block (Select/Update/Add Etc.) to begin a Query.";
+                    ErrorPopUp newInitialBlockError = new ErrorPopUp();
+                    newInitialBlockError.ShowDialog();
+                }
             }
             else if (queryStarted)
             {
@@ -83,7 +89,11 @@ namespace DBBlocker
                             _panel.Children.Add(newBlock);
                         }
                     }
-                    else { System.Windows.MessageBox.Show("Red blocks can only be used to commence a Query or SubQuery.", "Invalid Block Type", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Warning); }
+                    else {
+                        Application.Current.Resources["ErrorOutput"] = "Red blocks can only be used to commence a Query or SubQuery.";
+                        ErrorPopUp newInvalidInitialBlockError = new ErrorPopUp();
+                        newInvalidInitialBlockError.ShowDialog();
+                    }
                 }
             }
         }
