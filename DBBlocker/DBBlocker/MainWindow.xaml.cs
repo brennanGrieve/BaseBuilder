@@ -116,7 +116,7 @@ namespace DBBlocker
             toAnim.BeginAnimation(HeightProperty, new DoubleAnimation()
             {
                 From = 0,
-                To = 70,
+                To = 50,
                 FillBehavior = FillBehavior.Stop,
                 Duration = new Duration(TimeSpan.FromSeconds(0.4))
 
@@ -124,7 +124,7 @@ namespace DBBlocker
             toAnim.BeginAnimation(WidthProperty, new DoubleAnimation()
             {
                 From = 0,
-                To = 90,
+                To = 60,
                 FillBehavior = FillBehavior.Stop,
 
                 Duration = new Duration(TimeSpan.FromSeconds(0.4))

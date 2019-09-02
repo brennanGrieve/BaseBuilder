@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:DBBlocker"
              Height="95" Width="150">
     <Grid Margin="0,0,-25,0">
-        <local:SubBlock Stroke="Black" Fill="{StaticResource GreenBlockFill}"/>
+        <local:SubBlock Stroke="Black" Fill="{StaticResource DeepBlueBlockFill}"/>
         <local:SingleBoxBlockTextBlock Text="ADD CONSTRAINT" FontSize="14"/>
         <local:SingleBoxBlockTextBox/>
     </Grid>

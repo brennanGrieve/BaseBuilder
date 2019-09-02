@@ -4,19 +4,19 @@
                     x:Class="GraphicsDictionary">
 
     <Grid  x:Key ="RunGraphic"  Height="50" Width="60">
-        <Border  Background="#FF3FA229" BorderBrush="White" BorderThickness="2"  Height="50" Width="60"/>
+        <Border  Background="#1dad30" BorderBrush="#FFE2D7D7" BorderThickness="2"  Height="50" Width="60" CornerRadius="1"/>
         <Ellipse Name="RunRipple" Height="0" Width="0" Stroke="White" StrokeThickness="5"/>
-            <Path Stroke="White" StrokeThickness="10" StrokeEndLineCap="Triangle">
+        <Path Stroke="#FFE2D7D7" StrokeThickness="10" StrokeEndLineCap="Triangle">
                 <Path.Data>
                     <LineGeometry StartPoint= "10,25" EndPoint="35, 25"/>
                 </Path.Data>
             </Path>
-            <Path Stroke="White" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
+        <Path Stroke="#FFE2D7D7" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
                 <Path.Data>
                     <LineGeometry StartPoint="35,10" EndPoint="50, 25"/>
                 </Path.Data>
             </Path>
-            <Path Stroke="White" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
+        <Path Stroke="#FFE2D7D7" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
                 <Path.Data>
                     <LineGeometry StartPoint="35,40" EndPoint="50, 25" />
                 </Path.Data>
@@ -25,7 +25,7 @@
 
     <Grid x:Key="TrashCanGraphic" Height="50" Width="60">
         <Ellipse Name="TrashRipple" Height="0" Width="0" Stroke="Black" StrokeThickness="5" Panel.ZIndex="1"/>
-        <Border BorderThickness="2" BorderBrush="Black" Background="#d61313" Height="50" Width="60"/>
+        <Border BorderThickness="2" BorderBrush="Black" Background="#d42f2f" Height="50" Width="60" CornerRadius="1"/>
         <Path Stroke="Black" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round">
             <Path.Data>
                 <LineGeometry StartPoint="10,10" EndPoint="20,40"/>
