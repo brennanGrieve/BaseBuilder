@@ -34,10 +34,12 @@ namespace DBBlocker
             try
             {
                 toRun.ExecuteNonQuery();
+                Application.Current.Resources["GridVis"] = Visibility.Hidden;
                 Application.Current.Resources["Output"] = "Command successful.";
             }
             catch(Exception ex)
             {
+                Application.Current.Resources["GridVis"] = Visibility.Hidden;
                 Application.Current.Resources["Output"] = ex.Message;
             }
         }
