@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Data.SQLite;
 using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Data;
+using System.Data;
 
 namespace DBBlocker
 {
@@ -24,7 +23,6 @@ namespace DBBlocker
                 {
                     throw ex;       
                 }
-                //CreateTestTables();
             }
 
             public static void RunSQL(string query)
@@ -36,9 +34,12 @@ namespace DBBlocker
             try
             {
                 toRun.ExecuteNonQuery();
+                Application.Current.Resources["GridVis"] = Visibility.Hidden;
+                Application.Current.Resources["Output"] = "Command successful.";
             }
             catch(Exception ex)
             {
+                Application.Current.Resources["GridVis"] = Visibility.Hidden;
                 Application.Current.Resources["Output"] = ex.Message;
             }
         }
@@ -50,36 +51,24 @@ namespace DBBlocker
                 SQLiteDataReader reader;
                 toRun = sandBoxDB.CreateCommand();
                 toRun.CommandText = query;
-                try
-                {
-                    reader = toRun.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        //the data from the reader must be displayed. Data binding is the best solution.
-                    }
-                }
-                catch(Exception ex)
-                {
+                DataGrid grid = (DataGrid)LogicalTreeHelper.FindLogicalNode(Application.Current.MainWindow, "OutputView");
+            try
+            {
+                DataTable table = new DataTable();
+                reader = toRun.ExecuteReader();
+                table.Load(reader);
+                grid.ItemsSource = table.DefaultView;     
+                Application.Current.Resources["Output"] = "";
+                Application.Current.Resources["DataGridEnabled"] = true;
+                Application.Current.Resources["GridVis"] = Visibility.Visible;
+            }
+            catch (Exception ex)
+            {
                     Application.Current.Resources["Output"] = ex.Message;
-
+                    Application.Current.Resources["DataGridEnabled"] = false;
+                    Application.Current.Resources["GridVis"] = Visibility.Hidden;
             }
             sandBoxDB.Close();
-            }
-
-            // This method is purely a test. It will not be used.
-
-            static void CreateTestTables()
-            {
-
-                SQLiteCommand toRun;
-                string Createsql = "CREATE TABLE Test1 (tcol1 VARCHAR(20), tcol2 INT)";
-                string Createsql1 = "CREATE TABLE Test2 (tcol1 VARCHAR(20), tcol2 INT)";
-                toRun = sandBoxDB.CreateCommand();
-                toRun.CommandText = Createsql;
-                toRun.ExecuteNonQuery();
-                toRun.CommandText = Createsql1;
-                toRun.ExecuteNonQuery();
-
             }
     }
 }

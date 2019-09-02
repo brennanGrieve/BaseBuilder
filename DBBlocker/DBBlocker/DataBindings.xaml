@@ -2,8 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:DBBlocker"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
->
+                    xmlns:data="clr-namespace:System.Data;assembly=System.Data">
 
     <x:Static x:Key="Output" Member="sys:String.Empty"></x:Static>
-
+    <sys:Boolean x:Key="DataGridEnabled">False</sys:Boolean>
+    <Visibility x:Key="GridVis">Hidden</Visibility>
 </ResourceDictionary>
