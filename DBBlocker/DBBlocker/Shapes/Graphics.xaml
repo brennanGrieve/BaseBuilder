@@ -3,54 +3,54 @@
                     xmlns:local="clr-namespace:DBBlocker"
                     x:Class="GraphicsDictionary">
 
-    <Grid  x:Key ="RunGraphic"  Height="70" Width="90">
-        <Border  Background="#FF3FA229" BorderBrush="White" BorderThickness="2"  Height="70" Width="90"/>
+    <Grid  x:Key ="RunGraphic"  Height="50" Width="60">
+        <Border  Background="#1dad30" BorderBrush="#FFE2D7D7" BorderThickness="2"  Height="50" Width="60" CornerRadius="1"/>
         <Ellipse Name="RunRipple" Height="0" Width="0" Stroke="White" StrokeThickness="5"/>
-            <Path Stroke="White" StrokeThickness="20" StrokeEndLineCap="Triangle">
+        <Path Stroke="#FFE2D7D7" StrokeThickness="10" StrokeEndLineCap="Triangle">
                 <Path.Data>
-                    <LineGeometry StartPoint= "10,35" EndPoint="50, 35"/>
+                    <LineGeometry StartPoint= "10,25" EndPoint="35, 25"/>
                 </Path.Data>
             </Path>
-            <Path Stroke="White" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
+        <Path Stroke="#FFE2D7D7" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
                 <Path.Data>
-                    <LineGeometry StartPoint="55,15" EndPoint="75, 35"/>
+                    <LineGeometry StartPoint="35,10" EndPoint="50, 25"/>
                 </Path.Data>
             </Path>
-            <Path Stroke="White" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
+        <Path Stroke="#FFE2D7D7" StrokeThickness="10" StrokeEndLineCap="Triangle" StrokeStartLineCap="Triangle">
                 <Path.Data>
-                    <LineGeometry StartPoint="55,55" EndPoint="75, 35" />
+                    <LineGeometry StartPoint="35,40" EndPoint="50, 25" />
                 </Path.Data>
             </Path>
         </Grid>
 
-    <Grid x:Key="TrashCanGraphic" Height="70" Width="90">
+    <Grid x:Key="TrashCanGraphic" Height="50" Width="60">
         <Ellipse Name="TrashRipple" Height="0" Width="0" Stroke="Black" StrokeThickness="5" Panel.ZIndex="1"/>
-        <Border BorderThickness="2" BorderBrush="Black" Background="#d61313"/>
+        <Border BorderThickness="2" BorderBrush="Black" Background="#d42f2f" Height="50" Width="60" CornerRadius="1"/>
         <Path Stroke="Black" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round">
             <Path.Data>
-                <LineGeometry StartPoint="10,10" EndPoint="30,60"/>
+                <LineGeometry StartPoint="10,10" EndPoint="20,40"/>
             </Path.Data>
         </Path>
         <Path Stroke="Black" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round" >
             <Path.Data>
-                <LineGeometry StartPoint="30,60" EndPoint="60,60" />
+                <LineGeometry StartPoint="20,40" EndPoint="40,40" />
             </Path.Data>
         </Path>
         <Path Stroke="Black" StrokeThickness="5" StrokeStartLineCap="Round" StrokeEndLineCap="Round">
             <Path.Data>
-                <LineGeometry StartPoint="60,60" EndPoint="80,10"/>
+                <LineGeometry StartPoint="40,40" EndPoint="50,10"/>
             </Path.Data>
         </Path>
         <Path Stroke="Black" StrokeThickness="5" 
-            Data="M 10,10 A 100,75 0 0 0 80,10"/>
+            Data="M 10,10 A 100,60 0 0 0 50,10"/>
         <Path Stroke="Black" StrokeThickness="2">
             <Path.Data>
-                <EllipseGeometry RadiusX="15" RadiusY="15" Center="45,37.5"/>
+                <EllipseGeometry RadiusX="10" RadiusY="10" Center="30,25.5"/>
             </Path.Data>
         </Path>
         <Path Stroke="Black" StrokeThickness="2.5">
             <Path.Data>
-                <LineGeometry StartPoint="35, 50" EndPoint="55, 25"/>
+                <LineGeometry StartPoint="23, 33" EndPoint="37, 17"/>
             </Path.Data>
         </Path>
     </Grid>

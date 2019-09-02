@@ -6,9 +6,9 @@
         MinHeight="465"
         MinWidth="850"
         WindowState="Maximized">
-    <Grid Name="MainGrid" Background="{StaticResource DarkGreyBrush}">
-       
-        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource MenuItemFill}">
+    <Grid Name="MainGrid" Background="{StaticResource WindowBackgroundBrush}">
+
+        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource LightGreyBrush}">
             <ScrollViewer>
                 <Grid>
                     <TextBlock FontSize="14" Foreground="{StaticResource MutedWhiteBrush}" DataContext="{DynamicResource Output}" Text="{Binding}"/>
@@ -18,6 +18,7 @@
         </Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="File">
+                <MenuItem Header="Open Database File"/>
                 <MenuItem Header="foo">
                     <MenuItem Header="bar"/>
                 </MenuItem>
@@ -27,32 +28,36 @@
                 <MenuItem Header="User Settings" Click="MenuUserSettings_Click"/>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="About Databases"/>
                 <MenuItem Header="Tutorial Mode"/>
+                <MenuItem Header="About DBBlocker"/>
             </MenuItem>
         </Menu>
-        <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,145" VerticalAlignment="Stretch" Background="{StaticResource LightGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
+        <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,145" VerticalAlignment="Stretch" Background="{StaticResource DarkGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
-                        <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Panel.ZIndex="1" Margin="0,0,5,5" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}"/>
-                        <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="74" Width="94" Margin="0,0,110,5" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}"/>
-                        <local:DesignerPanel x:Name="Designer" Background="{StaticResource LightGreyBrush}" 
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="98*"/>
+                            <RowDefinition Height="13*"/>
+                        </Grid.RowDefinitions>
+                        <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Panel.ZIndex="1" Margin="0,0,1,1" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}" Grid.RowSpan="2"/>
+                        <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Margin="0,0,71,1" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}" Grid.RowSpan="2"/>
+                        <local:DesignerPanel x:Name="Designer" Background="{StaticResource DarkGreyBrush}" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"
                           Drop="Designer_Drop"
                           AllowDrop="True"
                           Orientation="Horizontal"
-                          FlowDirection="LeftToRight"/>
+                          FlowDirection="LeftToRight" Grid.RowSpan="2"/>
                     </Grid>
                 </ScrollViewer>
             </TabItem>
             <TabItem Header="Database Viewer">
-                <WrapPanel Background="{StaticResource LightGreyBrush}" Margin="-2,-4,-2,0">
+                <WrapPanel Background="{StaticResource DarkGreyBrush}" Margin="-2,-4,-2,0">
                 </WrapPanel>
             </TabItem>
         </TabControl>
-        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{StaticResource NavyBlueBrush}" BorderBrush="{StaticResource  BorderBrush}" Margin="0,40,0,0">
+        <TabControl AllowDrop="True" Drop="ToolAndTrash_Drop" HorizontalAlignment="Left" VerticalAlignment="Stretch" Background="{StaticResource DarkGreyBrush}" BorderBrush="{StaticResource  BorderBrush}" Margin="0,40,0,0">
             <TabItem Header="Common"  BorderBrush="Transparent">
                 <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
                     <StackPanel Margin="0,0,25,0" HorizontalAlignment="Center">
@@ -62,11 +67,11 @@
                         <local:FromBlock/>
                         <local:FromNestBlock/>
                         <local:InNestBlock/>
+                        <local:CloseBracketBlock/>
                         <local:InnerJoinBlock/>
                         <local:OnBlock/>
                         <local:SortByBlock/>
                         <local:ColumnOrValueBlock/>
-                        <local:CloseBracketBlock/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
@@ -77,8 +82,8 @@
                         <local:UpdateBlock/>
                         <local:DeleteBlock/>
                         <local:ValuesBlock/>
-                        <local:SetBlock/>
                         <local:IntoBlock/>
+                        <local:SetBlock/>
                     </StackPanel>
                 </ScrollViewer>
             </TabItem>
@@ -88,10 +93,10 @@
                         <local:CreateTableBlock />
                         <local:AlterTableBlock />
                         <local:DropTableBlock />
+                        <local:TruncateBlock/>
                         <local:AddBlock />
                         <local:DropColumnBlock/>
                         <local:AlterColumnBlock/>
-                        <local:TruncateBlock/>
                         <local:ColumnBlock/>
                         <local:AddConstraintBlock/>
                         <local:ConstraintBlock/>
@@ -101,11 +106,11 @@
             <TabItem Header="Conditions">
                 <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="220">
                     <StackPanel Margin="0,0,25,0">
+                        <local:LikeBlock/>
                         <local:WhereBlock/>
                         <local:WhereExistsNestBlock/>
                         <local:WhereNotBlock/>
                         <local:BetweenBlock/>
-                        <local:LikeBlock/>
                         <local:AndBlock/>
                         <local:OrBlock/>
                     </StackPanel>

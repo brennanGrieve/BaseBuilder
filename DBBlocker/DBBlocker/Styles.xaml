@@ -7,12 +7,10 @@
     <!--#region ColorDefinitions-->
 
     <SolidColorBrush x:Key="LightGreyBrush" Color="#373737"/>
-    <SolidColorBrush x:Key="InitialBlockFill" Color="#FFB21D1D"/>
-    <SolidColorBrush x:Key="DeepBlueBlockFill" Color="#FF3636BB"/>
-    <SolidColorBrush x:Key="GreenBlockFill" Color="#FF3FA229"/>
-    <SolidColorBrush x:Key="PlumBlockFill" Color="#FFA03884"/>
-    <SolidColorBrush x:Key="VioletBlockFill" Color="#FF910CCF"/>
-    <SolidColorBrush x:Key="LemonBlockFill" Color="#FFD6D636"/>
+    <SolidColorBrush x:Key="InitialBlockFill" Color="#34ad44"/>
+    <SolidColorBrush x:Key="DeepBlueBlockFill" Color="#2f60d4"/>
+    <SolidColorBrush x:Key="PlumBlockFill" Color="#9f4ab0"/>
+    <SolidColorBrush x:Key="TurqoiseBlockFill" Color="#32a2a8"/>
     <SolidColorBrush x:Key="BorderBrush" Color="#3f3f46" />
     <SolidColorBrush x:Key="TabSelectedBrush" Color="#416fba" />
     <SolidColorBrush x:Key="MenuItemFill" Color="#0f0f0f"/>
@@ -21,6 +19,7 @@
     <SolidColorBrush x:Key="MutedWhiteBrush" Color="#FFE2D7D7"/>
     <SolidColorBrush x:Key="NavyBlueBrush" Color="#002652"/>
     <SolidColorBrush x:Key="ScrollBarBrush" Color="#888" />
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="#2d2d30"/>
 
     <!--#endregion-->
 
@@ -95,7 +94,7 @@
     </Style>
 
     <Style TargetType="Menu">
-        <Setter Property="Background" Value="{StaticResource DarkGreyBrush}"/>
+        <Setter Property="Background" Value="{StaticResource WindowBackgroundBrush}"/>
         <Setter Property="Foreground" Value="{StaticResource MutedWhiteBrush}"/>
     </Style>
 
