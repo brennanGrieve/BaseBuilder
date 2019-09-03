@@ -45,14 +45,16 @@
             Data="M 10,10 A 100,60 0 0 0 50,10"/>
         <Path Stroke="Black" StrokeThickness="2">
             <Path.Data>
-                <EllipseGeometry RadiusX="10" RadiusY="10" Center="30,25.5"/>
+                <EllipseGeometry RadiusX="8" RadiusY="8" Center="30,25.5"/>
             </Path.Data>
         </Path>
         <Path Stroke="Black" StrokeThickness="2.5">
             <Path.Data>
-                <LineGeometry StartPoint="23, 33" EndPoint="37, 17"/>
+                <LineGeometry StartPoint="23, 31" EndPoint="37, 20"/>
             </Path.Data>
         </Path>
     </Grid>
+    
+    
 
 </ResourceDictionary>

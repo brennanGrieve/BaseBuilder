@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Resources;
 
 namespace DBBlocker
 {
@@ -17,14 +18,6 @@ namespace DBBlocker
         public Point StartPoint { get => _startPoint; set => _startPoint = value; }
         public bool IsFirstBlock { get => isFirst; set => isFirst = value; }
 
-
-
-        protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            StartPoint = NativeMethods.GetMousePosition();
-        }
-
-
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (e.Handled == false)
@@ -33,7 +26,7 @@ namespace DBBlocker
                 Point _currentPos = NativeMethods.GetMousePosition();
                 if (e.LeftButton == MouseButtonState.Pressed)
                 {
-                    if (Math.Abs(_currentPos.X - StartPoint.X) > 10 || Math.Abs(_currentPos.Y - StartPoint.Y) > 10)
+                    if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
                     {                 
                         DataObject blockData = new DataObject();
                         blockData.SetData("QueryBlockBase", this);
@@ -51,14 +44,13 @@ namespace DBBlocker
                         AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
                     }
                 }
+                else{
+                    StartPoint = NativeMethods.GetMousePosition();
+                }
             }
         }
 
-        protected override void OnMouseEnter(MouseEventArgs e)
-        {
-            base.OnMouseEnter(e);
-            StartPoint = NativeMethods.GetMousePosition();
-        }
+
 
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
         {
@@ -72,7 +64,9 @@ namespace DBBlocker
 
                 if (e.Effects.HasFlag(DragDropEffects.Copy))
                 {
-                    Mouse.SetCursor(Cursors.Cross);
+                    StreamResourceInfo grabCurs = Application.GetResourceStream(new Uri("Shapes/grabCursor.cur", UriKind.Relative));
+                    Mouse.SetCursor(new Cursor(grabCurs.Stream));
+                    //Mouse.SetCursor(Cursors.Hand);
                 }
                 else
                 {
