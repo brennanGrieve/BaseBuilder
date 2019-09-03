@@ -8,7 +8,8 @@
         WindowState="Maximized">
     <Grid Name="MainGrid" Background="{StaticResource WindowBackgroundBrush}">
 
-        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource LightGreyBrush}">
+        <Grid HorizontalAlignment="Stretch"  VerticalAlignment="Bottom" Height="135" Margin="230,0,5,5" Background="{StaticResource DarkGreyBrush}">
+            <Border BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"/>
             <ScrollViewer>
                 <Grid>
                     <TextBlock FontSize="14" Foreground="{StaticResource MutedWhiteBrush}" DataContext="{DynamicResource Output}" Text="{Binding}"/>
@@ -117,6 +118,6 @@
                 </ScrollViewer>
             </TabItem>
         </TabControl>
-        <Label Content="Toolbox" HorizontalAlignment="Left" Margin="-16,18,0,0" VerticalAlignment="Top" Height="36" Width="93" FontSize="14" HorizontalContentAlignment="Center" Foreground="{StaticResource MutedWhiteBrush}" Background="{x:Null}"/>
+        <Label Content="Toolbox" HorizontalAlignment="Left" Margin="-18,17,0,0" VerticalAlignment="Top" Height="36" Width="93" FontSize="14" HorizontalContentAlignment="Center" Foreground="{StaticResource MutedWhiteBrush}" Background="{x:Null}"/>
     </Grid>
 </Window>
