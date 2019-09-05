@@ -17,6 +17,8 @@ namespace DBBlocker
         private bool isFirst = false;
         public Point StartPoint { get => _startPoint; set => _startPoint = value; }
         public bool IsFirstBlock { get => isFirst; set => isFirst = value; }
+       
+
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
@@ -40,7 +42,14 @@ namespace DBBlocker
 
                         Visual container = (Visual)Application.Current.MainWindow.Content;
                         AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
-                        DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
+                        try
+                        {
+                            DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
+                        }
+                        catch(Exception ex)
+                        {
+                            throw ex;
+                        }
                         AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
                     }
                 }
@@ -91,7 +100,7 @@ namespace DBBlocker
          */
 
         public string ExtractSQL() {
-            String blockSQL = "";
+            string blockSQL = "";
             foreach (UIElement element in contentGrid.Children)
             {
                 if (element is TextBlock tbEle)

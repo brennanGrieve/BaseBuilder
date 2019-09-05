@@ -21,9 +21,6 @@
             <MenuItem Header="File">
                 <MenuItem Header="New Database File" Click="NewFile_Click"/>
                 <MenuItem Header="Open Database File" Click="FileOpen_Click"/>
-                <MenuItem Header="foo">
-                    <MenuItem Header="bar"/>
-                </MenuItem>
                 <MenuItem Header="Exit" Click="MenuExit_Click"/>
             </MenuItem>
             <MenuItem Header="Settings">
@@ -38,10 +35,6 @@
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="98*"/>
-                            <RowDefinition Height="13*"/>
-                        </Grid.RowDefinitions>
                         <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Panel.ZIndex="1" Margin="0,0,1,1" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}" Grid.RowSpan="2"/>
                         <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Margin="0,0,71,1" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}" Grid.RowSpan="2"/>
                         <local:DesignerPanel x:Name="Designer" Background="{StaticResource DarkGreyBrush}" 
@@ -68,8 +61,8 @@
                         <local:SelectBlockAggregate/>
                         <local:FromBlock/>
                         <local:FromNestBlock/>
-                        <local:InNestBlock/>
                         <local:CloseBracketBlock/>
+                        <local:InNestBlock/>
                         <local:InnerJoinBlock/>
                         <local:OnBlock/>
                         <local:SortByBlock/>
