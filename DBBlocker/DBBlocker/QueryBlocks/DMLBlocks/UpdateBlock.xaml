@@ -2,7 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:DBBlocker"
-             Height="95" Width="150">
+             Height="95" Width="150"
+             AllowDrop="False">
     <Grid Margin="0,0,-25,0">
         <local:InitialBlock Fill="{StaticResource InitialBlockFill}" Stroke="Black"/>
         <local:SingleBoxBlockTextBlock Text="UPDATE"/>
