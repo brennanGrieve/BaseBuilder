@@ -12,9 +12,20 @@ namespace DBBlocker
     {
             protected static SQLiteConnection sandBoxDB;
 
-            protected static void InitDB()
+        private static string databaseName;
+
+        public static string DatabaseName { get => databaseName; set => databaseName = value; }
+
+        protected static void InitDB()
+            {
+            if (DatabaseName == null)
             {
                 sandBoxDB = new SQLiteConnection("Data Source= sandbox.db;Version=3;New=True;Compress=True");
+            }
+            else
+            {
+                sandBoxDB = new SQLiteConnection("Data Source= " + DatabaseName + ";Version=3;New=True;Compress=True");
+            }
                 try
                 {
                     sandBoxDB.Open();

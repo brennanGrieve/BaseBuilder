@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections;
 using System.Data;
 using System.Data.Linq;
@@ -154,6 +155,34 @@ namespace DBBlocker
         {
             SettingsWindow settings = new SettingsWindow();
             settings.ShowDialog();
+        }
+
+        private void FileOpen_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog
+            {
+                Filter = "Database Files |*.db"
+            };
+            openFile.ShowDialog();
+            if (openFile.FileName != null)
+            {
+                DatabaseHelper.DatabaseName = openFile.FileName;
+            }
+        }
+
+        private void NewFile_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog newDBDialog = new SaveFileDialog
+            {
+                Filter = "Database Files |*.db"
+            };
+
+            newDBDialog.ShowDialog();
+            if (newDBDialog.FileName != null)
+            {
+                DatabaseHelper.DatabaseName = newDBDialog.FileName;
+            }
+
         }
     }
 }
