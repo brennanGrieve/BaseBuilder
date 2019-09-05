@@ -19,7 +19,8 @@
         </Grid>
         <Menu Height="18" VerticalAlignment="Top">
             <MenuItem Header="File">
-                <MenuItem Header="Open Database File"/>
+                <MenuItem Header="New Database File" Click="NewFile_Click"/>
+                <MenuItem Header="Open Database File" Click="FileOpen_Click"/>
                 <MenuItem Header="foo">
                     <MenuItem Header="bar"/>
                 </MenuItem>
