@@ -184,5 +184,11 @@ namespace DBBlocker
             }
 
         }
+
+        private void AboutMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            AboutBox aboutDialog = new AboutBox();
+            aboutDialog.ShowDialog();
+        }
     }
 }

@@ -28,7 +28,7 @@
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem Header="Tutorial Mode"/>
-                <MenuItem Header="About DBBlocker"/>
+                <MenuItem Header="About DBBlocker" Click="AboutMenuItem_Click"/>
             </MenuItem>
         </Menu>
         <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,145" VerticalAlignment="Stretch" Background="{StaticResource DarkGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
