@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen"
         Background="{StaticResource DarkGreyBrush}">
     <Grid>
-        <Image HorizontalAlignment="Left" Height="150" Margin="10,15,0,0" VerticalAlignment="Top" Width="150" Source="Shapes/logo.png"/>
+        <Image HorizontalAlignment="Left" Height="150" Margin="10,15,0,0" VerticalAlignment="Top" Width="150" Source="/Shapes/logo.png"/>
             <StackPanel Margin="175,10,10,10">
                 <TextBlock VerticalAlignment="Top" Text="DBBlocker" Margin="5,5,0,0" Height="38" Foreground="{StaticResource MutedWhiteBrush}" FontSize="25"/>
             <TextBlock VerticalAlignment="Top" Text="Alpha Build" Margin="5,0,0,0" Foreground="{StaticResource MutedWhiteBrush}"/>
