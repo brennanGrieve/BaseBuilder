@@ -1,0 +1,27 @@
+﻿<Window x:Class="DBBlocker.AboutBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBBlocker"
+        mc:Ignorable="d"
+        Title="About DBBlocker" Height="200" Width="375"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="{StaticResource DarkGreyBrush}">
+    <Grid>
+        <Image HorizontalAlignment="Left" Height="150" Margin="10,15,0,0" VerticalAlignment="Top" Width="150" Source="Shapes/logo.png"/>
+            <StackPanel Margin="175,10,10,10">
+                <TextBlock VerticalAlignment="Top" Text="DBBlocker" Margin="5,5,0,0" Height="38" Foreground="{StaticResource MutedWhiteBrush}" FontSize="25"/>
+            <TextBlock VerticalAlignment="Top" Text="Alpha Build" Margin="5,0,0,0" Foreground="{StaticResource MutedWhiteBrush}"/>
+            <TextBlock Margin="5,0,0,0" VerticalAlignment="Top">
+                <TextBlock Foreground="{StaticResource MutedWhiteBrush}" Text="Check out the source on"/>
+                <Hyperlink NavigateUri="https://github.com/brennanGrieve/DBBlocker" RequestNavigate="GitHubHyperlink_RequestNavigate">
+                    Github.
+                </Hyperlink>
+            </TextBlock>
+            <TextBlock Margin="5,10,0,0" VerticalAlignment="Top" Foreground="{StaticResource MutedWhiteBrush}" Text="A application designed to assist with the learning of basic SQL and Database Logic." TextWrapping="Wrap" FontSize="10"/>
+            
+        </StackPanel>
+    </Grid>
+</Window>
