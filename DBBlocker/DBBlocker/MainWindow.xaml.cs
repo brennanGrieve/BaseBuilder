@@ -190,5 +190,6 @@ namespace DBBlocker
             AboutBox aboutDialog = new AboutBox();
             aboutDialog.ShowDialog();
         }
+
     }
 }

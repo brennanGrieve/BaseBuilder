@@ -6,30 +6,26 @@
         xmlns:local="clr-namespace:DBBlocker"
         xmlns:properties="clr-namespace:DBBlocker.Properties"
         mc:Ignorable="d"
-        Title="User Settings" Height="400" Width="250"
+        Title="User Settings" Height="500" Width="550"
         Background="{StaticResource DarkGreyBrush}"
         ResizeMode="NoResize">
     <Grid>
-        <ScrollViewer Margin="0,0,0,40">
-                <Grid>
+        <ScrollViewer Margin="0,0,0,0">
+            <Grid>
                 <StackPanel Name="SettingsPanel">
-                    <Label>
+                    <TextBlock Text="General Settings" Margin="10,10,0,10" Foreground="{StaticResource MutedWhiteBrush}" FontSize="24"/>
+                    <Separator/>
+                    <Label Margin="4,0,0,0">
                         <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight">
-                            <Label Content="Suppress Clear-All Warnings"/>
-                            <CheckBox Name="ClearAllBox" Margin="0,4,0,0" IsChecked="{Binding SuppressDeleteWarning, Mode=TwoWay, Source={x:Static properties:Settings.Default}, UpdateSourceTrigger=Explicit}"/>
+                            <Label Content="Suppress Clear-All Warnings" FontSize="14"/>
+                            <CheckBox Name="ClearAllBox" Margin="0,0,0,0" IsChecked="{Binding SuppressDeleteWarning, Mode=TwoWay, Source={x:Static properties:Settings.Default}, UpdateSourceTrigger=Explicit}" Height="15"/>
                         </StackPanel>
                     </Label>
-                    <Label Content="blah"/>
-                    <Separator/>
-                    <Label Content="blah"/>
-
-
-     
                 </StackPanel>
             </Grid>
         </ScrollViewer>
-        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10">
-            <Button Content="Cancel" Height="20" Width="70" Click="CancelBtn_Click"/>
+        <StackPanel Orientation="Horizontal" FlowDirection="LeftToRight" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10" Grid.Row="1" Height="20" Width="145">
+            <Button Content="Cancel" Height="20" Width="70" Click="CancelBtn_Click" Margin="0,0,5,0"/>
             <Button Content="Save" Height="20" Width="70" Click="SaveBtn_Click"/>
         </StackPanel>
     </Grid>

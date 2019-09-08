@@ -35,8 +35,8 @@
             <TabItem Header="Query Constructor">
                 <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Hidden">
                     <Grid>
-                        <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Panel.ZIndex="1" Margin="0,0,1,1" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}" Grid.RowSpan="2"/>
-                        <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Margin="0,0,71,1" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}" Grid.RowSpan="2"/>
+                        <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Panel.ZIndex="1" Margin="0,0,15,1" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}" Grid.RowSpan="2"/>
+                        <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Margin="0,0,81,1" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}" Grid.RowSpan="2"/>
                         <local:DesignerPanel x:Name="Designer" Background="{StaticResource DarkGreyBrush}" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"
