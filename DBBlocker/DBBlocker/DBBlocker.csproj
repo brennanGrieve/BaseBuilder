@@ -95,7 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="AboutBox.xaml.cs">
+    <Compile Include="PopUpWindows\AboutBox.xaml.cs">
       <DependentUpon>AboutBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="PopUpWindows\ErrorPopUp.xaml.cs">
@@ -231,7 +231,7 @@
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBlock.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxBlockTextBox.cs" />
     <Compile Include="ControlCategoryClasses\SingleBoxInitialBlockTextBox.cs" />
-    <Page Include="AboutBox.xaml">
+    <Page Include="PopUpWindows\AboutBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
