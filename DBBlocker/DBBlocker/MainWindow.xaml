@@ -27,7 +27,7 @@
                 <MenuItem Header="User Settings" Click="MenuUserSettings_Click"/>
             </MenuItem>
             <MenuItem Header="Help">
-                <MenuItem Header="Tutorial Mode"/>
+                <MenuItem Header="Tutorial Mode" Click="TutorialModeMenuItem_Click"/>
                 <MenuItem Header="About DBBlocker" Click="AboutMenuItem_Click"/>
             </MenuItem>
         </Menu>
@@ -37,6 +37,7 @@
                     <Grid>
                         <Button Name="ExecuteBtn" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Panel.ZIndex="1" Margin="0,0,15,1" Click="ExecuteBtn_Click" BorderBrush="Transparent"  Background="Transparent" Content="{StaticResource RunGraphic}" Grid.RowSpan="2"/>
                         <Button Name="TrashBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="54" Width="64" Margin="0,0,81,1" AllowDrop="True" Drop="ToolAndTrash_Drop" Background="Transparent" BorderBrush="Transparent" Click="Trash_Click" Content="{StaticResource TrashCanGraphic}" Grid.RowSpan="2"/>
+                        <Button Name="HintBtn" Panel.ZIndex="1" Style="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="54" Width="64" Margin="5,0,0,1" AllowDrop="False" Background="Transparent" BorderBrush="Transparent" Content="{StaticResource HintGraphic}" Click="HintBtn_Click" Visibility="Visible"/>
                         <local:DesignerPanel x:Name="Designer" Background="{StaticResource DarkGreyBrush}" 
                           Margin="10,0,10,0"
                           DragOver="Designer_DragOver"

@@ -1,0 +1,24 @@
+﻿<Window x:Class="DBBlocker.TutorialModeMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBBlocker"
+        mc:Ignorable="d"
+        Title="TutorialModeMenu" Height="300" Width="500"
+        ResizeMode="NoResize"
+        Background="{StaticResource DarkGreyBrush}">
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="Tutorial Mode" Margin="10,5,0,0" FontSize="24" Foreground="{StaticResource MutedWhiteBrush}"/>
+            <ComboBox Name="UserSelectionBox" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" >
+                <ComboBoxItem Content="Data Retrieval"/>
+                <ComboBoxItem Content="Table Creation and Deletion"/>
+                <ComboBoxItem Content="Table Data Definition"/>
+                <ComboBoxItem Content="Table Data Manipulation"/>
+            </ComboBox>
+        </StackPanel>
+        <Button Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Content="Begin" Click="BeginButton_Click"/>
+        <Button Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Content="Cancel" Click="CancelButton_Click"/>
+    </Grid>
+</Window>

@@ -15,10 +15,17 @@ namespace DBBlocker
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private TutorialModeHelper tutorial;
+
+        internal TutorialModeHelper Tutorial { get => tutorial; set => tutorial = value; }
+
         public MainWindow()
         {
             InitializeComponent();
+            Tutorial = new TutorialModeHelper();
         }
+
 
         private void Designer_DragOver(object sender, DragEventArgs e)
         {
@@ -83,8 +90,15 @@ namespace DBBlocker
                 return;
             }
             executableSQL += ";";
-            if (executableSQL.StartsWith("SELECT")) { DatabaseHelper.RunReaderSQL(executableSQL); }
-            else{ DatabaseHelper.RunSQL(executableSQL); }
+            if (tutorial.Active())
+            {
+                tutorial.CheckResult(executableSQL);
+            }
+            else
+            {
+                if (executableSQL.StartsWith("SELECT")) { DatabaseHelper.RunReaderSQL(executableSQL); }
+                else { DatabaseHelper.RunSQL(executableSQL); }
+            }
         }
 
         private void Trash_Click(object sender, RoutedEventArgs e)
@@ -191,5 +205,27 @@ namespace DBBlocker
             aboutDialog.ShowDialog();
         }
 
+        private void TutorialModeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            TutorialModeMenu TutorialPopup = new TutorialModeMenu();
+            TutorialPopup.ShowDialog();
+            tutorial.CurrentTutorialFlag = TutorialPopup.ReturnFlag;
+            if (tutorial.Active())
+            {
+                tutorial.PrepareTutorial(this);
+            }
+        }
+
+        private void HintBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button ele = (Button)sender;
+            PlayRippleAnim(ele, "HintRipple");
+            TutorialHintDialog hint = new TutorialHintDialog();
+            if (tutorial.Active())
+            {
+                hint.SetHintText(tutorial.GetCurrentHint());
+                hint.ShowDialog();
+            }
+        }
     }
 }
