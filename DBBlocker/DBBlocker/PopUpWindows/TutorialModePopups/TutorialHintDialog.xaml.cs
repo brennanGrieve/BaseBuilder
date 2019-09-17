@@ -28,5 +28,10 @@ namespace DBBlocker
         {
             Hint.Text = newText;
         }
+
+        private void OkBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

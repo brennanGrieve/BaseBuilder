@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace DBBlocker
 {
@@ -23,18 +24,22 @@ namespace DBBlocker
 
 
 
+
         public int CurrentTutorialFlag { get => currentTutorialFlag; set => currentTutorialFlag = value; }
 
-        public void CheckResult(string queryToCheck)
+        public void ProcessInput(string queryToCheck)
         {
+            TutorialAnswerDialog answerDialog = new TutorialAnswerDialog();
             if (queryToCheck == tutorialAnswers[tutorialSequence])
             {
-                //show an affirmative popup and move onto the next part of the tutorial
-                tutorialSequence++;
+                PrepareNextTutorialStep();
+                answerDialog.PrepareCorrectAnswerDialog(tutorialSequence, tutorialAnswers.Length);
+                answerDialog.ShowDialog();
             }
             else
             {
-                //show a popup that offers hints + optionally, the answer
+                answerDialog.PrepareIncorrectAnswerDialog(tutorialAnswers[tutorialSequence]);
+                answerDialog.ShowDialog();
             }
         }
 
@@ -43,11 +48,9 @@ namespace DBBlocker
             return (CurrentTutorialFlag >= 0);
         }
 
-        public void PrepareTutorial(Window mainWindow)
+        public void PrepareTutorial()
         {
             tutorialSequence = 0;
-            Button hintBtn = (Button)mainWindow.FindName("HintBtn");
-            hintBtn.Visibility = Visibility.Visible;
             //set expected query + hints arrays
             tutorialAnswers = (string[])Application.Current.Resources["Tutorial" + currentTutorialFlag + "Answers"];
             tutorialHints = (string[])Application.Current.Resources["Tutorial" + currentTutorialFlag + "Hints"];
@@ -55,12 +58,25 @@ namespace DBBlocker
 
         public void PrepareNextTutorialStep()
         {
+            tutorialSequence++;
+            if (tutorialSequence >= tutorialAnswers.Length)
+            {
+                currentTutorialFlag = -1;
 
+            }
+       
         }
 
         public string GetCurrentHint()
         {
-            return tutorialHints[tutorialSequence];
+            if (currentTutorialFlag >= 0)
+            {
+                return tutorialHints[tutorialSequence];
+            }
+            else
+            {
+                return "out of bounds";
+            }
         }
 
     }

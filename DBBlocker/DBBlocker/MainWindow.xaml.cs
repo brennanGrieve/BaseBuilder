@@ -92,7 +92,11 @@ namespace DBBlocker
             executableSQL += ";";
             if (tutorial.Active())
             {
-                tutorial.CheckResult(executableSQL);
+                tutorial.ProcessInput(executableSQL);
+                if (!tutorial.Active())
+                {
+                    HintBtn.Visibility = Visibility.Hidden;
+                }
             }
             else
             {
@@ -212,7 +216,9 @@ namespace DBBlocker
             tutorial.CurrentTutorialFlag = TutorialPopup.ReturnFlag;
             if (tutorial.Active())
             {
-                tutorial.PrepareTutorial(this);
+                tutorial.PrepareTutorial();
+                Button hintBtn = (Button)FindName("HintBtn");
+                hintBtn.Visibility = Visibility.Visible;
             }
         }
 

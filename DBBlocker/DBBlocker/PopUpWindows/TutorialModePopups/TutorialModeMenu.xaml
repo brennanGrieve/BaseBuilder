@@ -5,19 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBBlocker"
         mc:Ignorable="d"
-        Title="TutorialModeMenu" Height="300" Width="500"
+        Title="TutorialModeMenu" Height="225" Width="425"
         ResizeMode="NoResize"
         Background="{StaticResource DarkGreyBrush}">
     <Grid>
-        <StackPanel>
-            <TextBlock Text="Tutorial Mode" Margin="10,5,0,0" FontSize="24" Foreground="{StaticResource MutedWhiteBrush}"/>
-            <ComboBox Name="UserSelectionBox" Width="150" HorizontalAlignment="Left" Margin="10,0,0,0" >
+        <Grid Margin="170,-5,-5,-5">
+            <Border BorderBrush="{StaticResource TabSelectedBrush}" BorderThickness="1"/>
+            <TextBlock Text="Tutorial Mode" Margin="10,15,0,0" Height="30" VerticalAlignment="Top" FontSize="24" Foreground="{StaticResource MutedWhiteBrush}"/>
+            <ComboBox Name="UserSelectionBox" Width="150" Height="20" VerticalAlignment="Top"  Margin="5,55,0,0" >
                 <ComboBoxItem Content="Data Retrieval"/>
                 <ComboBoxItem Content="Table Creation and Deletion"/>
                 <ComboBoxItem Content="Table Data Definition"/>
                 <ComboBoxItem Content="Table Data Manipulation"/>
             </ComboBox>
-        </StackPanel>
+        </Grid>
+        <Image Source="/Shapes/hintIcon.png" Margin="0,10,10,75" HorizontalAlignment="Left"/>
         <Button Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Content="Begin" Click="BeginButton_Click"/>
         <Button Width="70" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,85,10" Content="Cancel" Click="CancelButton_Click"/>
     </Grid>
