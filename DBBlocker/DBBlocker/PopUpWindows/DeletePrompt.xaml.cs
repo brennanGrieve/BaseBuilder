@@ -12,7 +12,6 @@ namespace DBBlocker
     public partial class DeletePrompt : Window
     {
 
-        public bool result = false;
         
         public DeletePrompt()
         {
@@ -29,13 +28,12 @@ namespace DBBlocker
         private void Yes_Button_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.SuppressDeleteWarning = ShowAgainBox.IsChecked ?? false;
-            result = true;
-            Close();
+            DialogResult = true;
         }
         private void No_Button_Click(object sender, RoutedEventArgs e)
         {
             Properties.Settings.Default.SuppressDeleteWarning = ShowAgainBox.IsChecked ?? false;
-            Close();
+            DialogResult = false;
         }
     }
 }

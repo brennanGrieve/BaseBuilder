@@ -48,7 +48,7 @@ namespace DBBlocker
 
         private void OkBtn_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            DialogResult = true;
         }
 
         private void AnswerBtn_Click(object sender, RoutedEventArgs e)

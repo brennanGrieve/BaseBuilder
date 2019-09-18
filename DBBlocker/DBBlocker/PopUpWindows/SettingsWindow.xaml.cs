@@ -26,13 +26,13 @@ namespace DBBlocker
 
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            DialogResult = false;
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             UpdateSources(SettingsPanel);
-            Close();
+            DialogResult = true;
         }
 
 

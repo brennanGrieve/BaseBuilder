@@ -32,12 +32,12 @@ namespace DBBlocker
         private void BeginButton_Click(object sender, RoutedEventArgs e)
         {
             ReturnFlag = UserSelectionBox.SelectedIndex;
-            Close();
+            DialogResult = true;
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            DialogResult = false;
         }
     }
 }

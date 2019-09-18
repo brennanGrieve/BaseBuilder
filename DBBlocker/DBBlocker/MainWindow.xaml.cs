@@ -113,8 +113,7 @@ namespace DBBlocker
             if (!Properties.Settings.Default.SuppressDeleteWarning)
             {
                 DeletePrompt prompt = new DeletePrompt();
-                prompt.ShowDialog();
-                if (prompt.result == true)
+                if (prompt.ShowDialog() == true)
                 {
                     designer.Children.RemoveRange(0, designer.Children.Count);
                     DesignerPanelHelper.queryStarted = false;
@@ -212,13 +211,15 @@ namespace DBBlocker
         private void TutorialModeMenuItem_Click(object sender, RoutedEventArgs e)
         {
             TutorialModeMenu TutorialPopup = new TutorialModeMenu();
-            TutorialPopup.ShowDialog();
-            tutorial.CurrentTutorialFlag = TutorialPopup.ReturnFlag;
-            if (tutorial.Active())
+            if (TutorialPopup.ShowDialog() == true)
             {
-                tutorial.PrepareTutorial();
-                Button hintBtn = (Button)FindName("HintBtn");
-                hintBtn.Visibility = Visibility.Visible;
+                tutorial.CurrentTutorialFlag = TutorialPopup.ReturnFlag;
+                if (tutorial.Active())
+                {
+                    tutorial.PrepareTutorial();
+                    Button hintBtn = (Button)FindName("HintBtn");
+                    hintBtn.Visibility = Visibility.Visible;
+                }
             }
         }
 

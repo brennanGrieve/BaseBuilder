@@ -14,7 +14,7 @@
         <TextBlock x:Name="Feedback" Foreground="{StaticResource MutedWhiteBrush}" TextWrapping="Wrap" Width="330" Height="100" Margin="0,0,20,20" HorizontalAlignment="Right"/>
         <TextBlock x:Name="Answer" Foreground="{StaticResource MutedWhiteBrush}" TextWrapping="Wrap" Width="330" Height="100" Margin="0,0,20,20" HorizontalAlignment="Right" Visibility="Hidden"/>
 
-        <Button Content="Ok" Height="20" Width="70" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="OkBtn_Click"/>
+        <Button Content="Ok" Height="20" Width="70" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" IsDefault="True" Click="OkBtn_Click"/>
         <Button x:Name="AnswerBtn" Content="Show Answer" Height="20" Width="86" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,10" Click="AnswerBtn_Click" Visibility="Hidden"/>
     </Grid>
 </Window>
