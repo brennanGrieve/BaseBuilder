@@ -1,0 +1,20 @@
+﻿<Window x:Class="DBBlocker.TutorialAnswerDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBBlocker"
+        mc:Ignorable="d"
+        Title="Results" Height="180" Width="600"
+        Background="{StaticResource DarkGreyBrush}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid>
+        <Image x:Name="FeedbackImage" HorizontalAlignment="Left" Width="170" Margin="10,0,0,0"/>
+        <TextBlock x:Name="Feedback" Foreground="{StaticResource MutedWhiteBrush}" TextWrapping="Wrap" Width="330" Height="100" Margin="0,0,20,20" HorizontalAlignment="Right"/>
+        <TextBlock x:Name="Answer" Foreground="{StaticResource MutedWhiteBrush}" TextWrapping="Wrap" Width="330" Height="100" Margin="0,0,20,20" HorizontalAlignment="Right" Visibility="Hidden"/>
+
+        <Button Content="Ok" Height="20" Width="70" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" IsDefault="True" Click="OkBtn_Click"/>
+        <Button x:Name="AnswerBtn" Content="Show Answer" Height="20" Width="86" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,90,10" Click="AnswerBtn_Click" Visibility="Hidden"/>
+    </Grid>
+</Window>

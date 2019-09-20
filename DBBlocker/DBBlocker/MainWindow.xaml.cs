@@ -15,10 +15,17 @@ namespace DBBlocker
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private TutorialModeHelper tutorial;
+
+        internal TutorialModeHelper Tutorial { get => tutorial; set => tutorial = value; }
+
         public MainWindow()
         {
             InitializeComponent();
+            Tutorial = new TutorialModeHelper();
         }
+
 
         private void Designer_DragOver(object sender, DragEventArgs e)
         {
@@ -83,8 +90,19 @@ namespace DBBlocker
                 return;
             }
             executableSQL += ";";
-            if (executableSQL.StartsWith("SELECT")) { DatabaseHelper.RunReaderSQL(executableSQL); }
-            else{ DatabaseHelper.RunSQL(executableSQL); }
+            if (tutorial.Active())
+            {
+                tutorial.ProcessInput(executableSQL);
+                if (!tutorial.Active())
+                {
+                    HintBtn.Visibility = Visibility.Hidden;
+                }
+            }
+            else
+            {
+                if (executableSQL.StartsWith("SELECT")) { DatabaseHelper.RunReaderSQL(executableSQL); }
+                else { DatabaseHelper.RunSQL(executableSQL); }
+            }
         }
 
         private void Trash_Click(object sender, RoutedEventArgs e)
@@ -95,8 +113,7 @@ namespace DBBlocker
             if (!Properties.Settings.Default.SuppressDeleteWarning)
             {
                 DeletePrompt prompt = new DeletePrompt();
-                prompt.ShowDialog();
-                if (prompt.result == true)
+                if (prompt.ShowDialog() == true)
                 {
                     designer.Children.RemoveRange(0, designer.Children.Count);
                     DesignerPanelHelper.queryStarted = false;
@@ -191,5 +208,31 @@ namespace DBBlocker
             aboutDialog.ShowDialog();
         }
 
+        private void TutorialModeMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            TutorialModeMenu TutorialPopup = new TutorialModeMenu();
+            if (TutorialPopup.ShowDialog() == true)
+            {
+                tutorial.CurrentTutorialFlag = TutorialPopup.ReturnFlag;
+                if (tutorial.Active())
+                {
+                    tutorial.PrepareTutorial();
+                    Button hintBtn = (Button)FindName("HintBtn");
+                    hintBtn.Visibility = Visibility.Visible;
+                }
+            }
+        }
+
+        private void HintBtn_Click(object sender, RoutedEventArgs e)
+        {
+            Button ele = (Button)sender;
+            PlayRippleAnim(ele, "HintRipple");
+            TutorialHintDialog hint = new TutorialHintDialog();
+            if (tutorial.Active())
+            {
+                hint.SetHintText(tutorial.GetCurrentHint());
+                hint.ShowDialog();
+            }
+        }
     }
 }

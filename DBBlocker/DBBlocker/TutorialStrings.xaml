@@ -1,0 +1,82 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:DBBlocker"
+                    >
+
+    <sys:String x:Key="CorrectAnswerText">Well Done! You can now progress to the next stage of the tutorial.</sys:String>
+    <sys:String x:Key="IncorrectAnswerText">This answer is incorrect. Click OK to return to the Designer to try again, or click Show Answer to see the expected Answer.</sys:String>
+    <sys:String x:Key="TutorialFinishedText">Congratulations! You've completed this tutorial.</sys:String>
+    
+    <x:Array Type="sys:String" x:Key="Tutorial0Hints">
+        <sys:String>Build a Query that returns all pieces of data from a table named "ORCHARD"</sys:String>
+        <sys:String>Build a Query that returns the contents of a column named "APPLES" from a table named "ORCHARD"</sys:String>
+        <sys:String>Build a Query that returns the contents of two columns, named "LEMONS" and "ORANGES" from a table named "ORCHARD"
+        (Note; To SELECT from multiple columns, you must separate them with a comma.)</sys:String>
+        <sys:String>Build a Query that returns the contents of a columns FRUITORDERS.ORDER_NO and ORCHARD.ORCHARD_NAME where FRUITORDERS.ORCHARD_ID is equal to ORDHARD.ORCHARD_ID. (To perform this kind of comparison between two tables, and return all relevant results, use an INNER JOIN.)</sys:String>
+        <sys:String>Build a Query that returns the contents of the columns ORCHARD.NAME, FRUITORDERS.ORDER_NO, FRUITDELIVERIES.DELIVERY_NO from the tables ORCHARD, FRUITORDERS, and FRUITDELIVERIES.</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial0Answers">
+        <sys:String>SELECT * FROM ORCHARD ;</sys:String>
+        <sys:String>SELECT APPLES FROM ORCHARD ;</sys:String>
+        <sys:String>SELECT LEMONS, ORANGES FROM ORCHARD ;</sys:String>
+        <sys:String>SELECT FRUITORDERS.ORDER_NO, ORCHARD.ORCHARD_NAME FROM FRUITORDERS INNER JOIN ORCHARD ON FRUITORDERS.ORCHARD_ID = ORCHARD.ORCHARD_ID ;</sys:String>
+        <sys:String>SELECT ORCHARD.ORCHARD_NAME, FRUITORDERS.ORDER_NO, FRUITDELIVERIES.DELIVERY_NO FROM ORCHARD INNER JOIN FRUITORDERS ON ORCHARD.ORCHARD_ID = FRUITORDERS.ORCHARD_ID INNER JOIN FRUITDELIVEIRES ON FRUITDELIVERIES.DELIVERY_NO = FRUITORDERS.DELIVERY_NO ;</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial1Hints">
+        <sys:String>Build a query to create a table named EMPLOYEE.</sys:String>
+        <sys:String>Build a query to drop a table named ROTTEN.</sys:String>
+        <sys:String>Build a query to add a column named APPLES_PICKED to EMPLOYEE with an INT datatype.</sys:String>
+        <sys:String>Build a query to drop a column named PAPAYAS_PICKED from EMPLOYEE.</sys:String>
+        <sys:String>Build a query to change the data type of a column in EMPLOYEE named BIRTHDAY from String to Year.</sys:String>
+        <sys:String>Build a query that makes the column ID in EMPLOYEE a Primary Key named PK_EMPLOYEE.</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial1Answers">
+        <sys:String>CREATE TABLE EMPLOYEE ;</sys:String>
+        <sys:String>DROP TABLE ROTTEN ;</sys:String>
+        <sys:String>ALTER TABLE EMPLOYEE ADD APPLES_PICKED INT ;</sys:String>
+        <sys:String>ALTER TABLE EMPLOYEE DROP COLUMN PAPAYAS_PICKED ;</sys:String>
+        <sys:String>ALTER TABLE EMPLOYEE ALTER COLUMN BIRTHDAY YEAR ;</sys:String>
+        <sys:String>ALTER TABLE EMPLOYEE ADD CONSTRAINT PK_EMPLOYEE PRIMARY KEY (ID) ;</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial2Hints">
+        <sys:String>Build a query to Insert a new record into ORCHARD with the values 5, 'Green Valley Orchard', 10, and 20.  </sys:String>
+        <sys:String>Build a query to Update the column APPLES in ORCHARD, setting the value to 200 where ORCHARD_NO = 1</sys:String>
+        <sys:String>Build a query to Delete records from the ORCHARD table where ORCHARD_NO = 6</sys:String>
+        <sys:String>Build a Query to Delete all records from the ORCHARD table.</sys:String>
+        <sys:String>Build a Query to Truncate the ORCHARD table. (This functions similarly to Deleting All Records)</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial2Answers">
+        <sys:String>INSERT INTO ORCHARD VALUES (5, 'Green Valley Orchard', 10, 20) ;</sys:String>
+        <sys:String>UPDATE ORCHARD SET APPLES = 200 WHERE ORCHARD_NO = 1 ;</sys:String>
+        <sys:String>DELETE FROM ORCHARD WHERE ORCHARD_NO = 6 ;</sys:String>
+        <sys:String>DELETE FROM ORCHARD ;</sys:String>
+        <sys:String>TRUNCATE TABLE ORCHARD ;</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial3Hints">
+        <sys:String>Build a Query that updates EMPLOYEE.SALARY to 70000 where EMPLOYEE.SALARY is between 50000 and 60000.</sys:String>
+        <sys:String>Build a Query that updates EMPLOYEE.SALARY to 70000 where EMPLOYEE.VALUE is not "0"</sys:String>
+        <sys:String>Build a Query that updates EMPLOYEE.SALARY to 70000 where EMPLOYEE.SALARY is between 50000 and 60000, and not 55000.</sys:String>
+        <sys:String>Build a Query that updates EMPLOYEE.SALARY to 70000 where EMPLOYEE.SALARY is between 50000 and 60000, or 45000.</sys:String>
+        <sys:String>Build a Query that updates EMPLOYEE.GROUP to 1 where EMPLOYEE.FNAME starts with A.</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial3Answers">
+        <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE SALARY BETWEEN 50000 AND 60000 ;</sys:String>
+        <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE NOT VALUE = 0 ;</sys:String>
+        <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE SALARY BETWEEN 50000 AND 60000 AND NOT SALARY = 55000 ;</sys:String>
+        <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE SALARY BETWEEN 50000 AND 60000 OR SALARY = 45000 ;</sys:String>
+        <sys:String>UPDATE EMPLOYEE SET GROUP = 1 WHERE FNAME LIKE A% ;</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial4Hints">
+        <sys:String>Build a Query that selects the Max EMPLOYEE.SALARY.</sys:String>
+        <sys:String>Build a Query that returns the Number of Employees in Group 1.</sys:String>
+        <sys:String>Build a Query that returns the Sum of all Employee Salaries.</sys:String>
+        <sys:String>Build a Query that returns the Average of all Employee Salaries.</sys:String>
+    </x:Array>
+    <x:Array Type="sys:String" x:Key="Tutorial4Answers">
+        <sys:String>SELECT MAX( SALARY ) FROM EMPLOYEE ;</sys:String>
+        <sys:String>SELECT COUNT( GROUP ) FROM EMPLOYEE WHERE GROUP = 1 ;</sys:String>
+        <sys:String>SELECT SUM( SALARY ) FROM EMPLOYEE ;</sys:String>
+        <sys:String>SELECT AVG( SALARY ) FROM EMPLOYEE ;</sys:String>
+    </x:Array>
+</ResourceDictionary>

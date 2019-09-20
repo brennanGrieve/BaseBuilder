@@ -54,7 +54,27 @@
             </Path.Data>
         </Path>
     </Grid>
-    
+
+    <Grid x:Key="HintGraphic" Height="50" Width="60">
+        <Ellipse x:Name="HintRipple" Height="0" Width="0" Stroke="Black" StrokeThickness="5" Panel.ZIndex="1"/>
+        <Border BorderThickness="2" BorderBrush="White" Height="50" Width="60" CornerRadius="1" Background="Gray"/>
+        <Path Stroke="Black" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="25,13">
+                        <ArcSegment IsLargeArc="True"
+                                    Size="8,8"
+                                    Point="28,25"
+                                    SweepDirection="Clockwise"/>
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <Path Stroke="Black" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round"
+              Data="M 28,25 28,35"/>
+        <Path Stroke="Black" StrokeThickness="5" StrokeEndLineCap="Round" StrokeStartLineCap="Round"
+              Data="M 28,42 28, 42"/>
+    </Grid>
     
 
 </ResourceDictionary>

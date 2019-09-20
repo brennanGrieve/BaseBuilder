@@ -8,6 +8,7 @@
                 <ResourceDictionary x:Name="Graphics" Source="Shapes\Graphics.xaml"/>
                 <ResourceDictionary x:Name="Styles" Source="Styles.xaml"/>
                 <ResourceDictionary x:Name="Bindings" Source="DataBindings.xaml"/>
+                <ResourceDictionary x:Name="TutorialStrings" Source="TutorialStrings.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>
