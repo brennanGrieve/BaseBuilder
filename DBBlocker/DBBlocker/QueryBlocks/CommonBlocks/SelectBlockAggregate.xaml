@@ -8,13 +8,13 @@
         <local:InitialBlock Fill="{StaticResource InitialBlockFill}" Stroke="Black"/>
         <local:SingleBoxBlockTextBlock Text="SELECT"/>
         <ComboBox IsEnabled="False" HorizontalAlignment="Left" SelectedValuePath="Content" SelectedIndex="0" VerticalAlignment="Top" Width="73" FontSize="18" Margin="3,23,0,0" Height="30">
-            <ComboBoxItem Content="Max("/>
-            <ComboBoxItem Content="Min("/>
-            <ComboBoxItem Content="Sum("/>
-            <ComboBoxItem Content="Count("/>
+            <ComboBoxItem Content="MAX("/>
+            <ComboBoxItem Content="MIN("/>
+            <ComboBoxItem Content="SUM("/>
+            <ComboBoxItem Content="COUNT("/>
             <ComboBoxItem Content="AVG("/>
         </ComboBox>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" FontSize="18" VerticalAlignment="Top" Width="75" Margin="76,23,0,0" Foreground="Black"/>
-        <TextBlock IsEnabled="False" HorizontalAlignment="Left" Margin="155,23,0,0" TextWrapping="Wrap" Text=")" VerticalAlignment="Top" FontSize="18" Foreground="Black"/>
+        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" FontSize="14" VerticalAlignment="Top" Width="75" Margin="76,23,0,0" Foreground="Black"/>
+        <TextBlock IsEnabled="False" HorizontalAlignment="Left" Margin="155,25,0,0" TextWrapping="Wrap" Text=")" VerticalAlignment="Top" FontSize="18" Foreground="Black"/>
     </Grid>
 </local:InitialBlockBase>
