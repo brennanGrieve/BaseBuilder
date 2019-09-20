@@ -24,17 +24,19 @@ namespace DBBlocker
             InitializeComponent();
         }
 
-        public void PrepareCorrectAnswerDialog(int currentSequence, int totalSteps)
+        public bool PrepareCorrectAnswerDialog(int currentSequence, int totalSteps)
         {
-            if(currentSequence >= totalSteps)
+            FeedbackImage.Source = new BitmapImage(new Uri(@"/Shapes/correct.png", UriKind.Relative));
+            if (currentSequence >= totalSteps)
             {
                 Feedback.Text = (string)Application.Current.Resources["TutorialFinishedText"];
+                return true;
             }
             else
             {
                 Feedback.Text = (string)Application.Current.Resources["CorrectAnswerText"];
+                return false;
             }
-            FeedbackImage.Source = new BitmapImage(new Uri(@"/Shapes/correct.png", UriKind.Relative));
         }
 
         public void PrepareIncorrectAnswerDialog(string expectedAnswer)

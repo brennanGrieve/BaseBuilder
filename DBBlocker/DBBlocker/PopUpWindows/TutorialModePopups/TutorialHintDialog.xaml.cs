@@ -19,9 +19,10 @@ namespace DBBlocker
     /// </summary>
     public partial class TutorialHintDialog : Window
     {
-        public TutorialHintDialog()
+        public TutorialHintDialog(string hintText)
         {
             InitializeComponent();
+            SetHintText(hintText);
         }
         
         public void SetHintText(string newText)
