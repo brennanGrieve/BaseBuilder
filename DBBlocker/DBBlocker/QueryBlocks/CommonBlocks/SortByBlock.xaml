@@ -7,8 +7,8 @@
     <Grid Margin="0,0,-25,0">
         <local:SubBlock Fill="{StaticResource TurqoiseBlockFill}" Stroke="Black"/>
         <local:SingleBoxBlockTextBlock Text="SORT BY" />
-        <TextBox Name = "inputBox" IsEnabled="False" HorizontalAlignment="Left" Height="28" Margin="27,18,0,0" TextWrapping="Wrap" FontSize ="16" VerticalAlignment="Top" Width="136" Foreground="Black"/>
-        <ComboBox Name ="inputCBox" SelectedValuePath="Content" SelectedIndex="0" IsEnabled="False" HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Width="120" FontSize="16" Height="28" Foreground="Black">
+        <TextBox Name = "inputBox" IsEnabled="False" HorizontalAlignment="Left" Height="24" Margin="27,20,0,0" TextWrapping="Wrap" FontSize ="14" VerticalAlignment="Top" Width="136" Foreground="Black"/>
+        <ComboBox Name ="inputCBox" SelectedValuePath="Content" SelectedIndex="0" IsEnabled="False" HorizontalAlignment="Left" Margin="27,45,0,0" VerticalAlignment="Top" Width="100" FontSize="14" Height="24" Foreground="Black">
             <ComboBoxItem Content="Ascending"/>
             <ComboBoxItem Content="Descending"/>
         </ComboBox>

@@ -43,7 +43,6 @@ namespace DBBlocker
         {
             Feedback.Text = (string)Application.Current.Resources["IncorrectAnswerText"];
             FeedbackImage.Source = new BitmapImage(new Uri(@"/Shapes/incorrect.png", UriKind.Relative));
-            //load expected answer, but do not make it visible unless the show answer event is fired.
             Answer.Text = "The expected query is: " + expectedAnswer;
             AnswerBtn.Visibility = Visibility.Visible;
         }
