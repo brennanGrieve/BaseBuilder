@@ -7,6 +7,6 @@
     <Grid Margin="0,0,-25,0">
         <local:SubBlock Fill="{StaticResource DeepBlueBlockFill}" Stroke="Black"/>
         <local:SingleBoxBlockTextBlock Text="DROP COLUMN"/>
-        <local:SingleBoxBlockTextBox/>
+        <local:SingleBoxBlockTextBox Text="Only supported in tutorial mode."/>
     </Grid>
 </local:QueryBlockBase>
