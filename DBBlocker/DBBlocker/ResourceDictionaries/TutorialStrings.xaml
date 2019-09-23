@@ -42,14 +42,12 @@
         <sys:String>Build a query to Update the column APPLES in ORCHARD, setting the value to 200 where ORCHARD_NO = 1</sys:String>
         <sys:String>Build a query to Delete records from the ORCHARD table where ORCHARD_NO = 6</sys:String>
         <sys:String>Build a Query to Delete all records from the ORCHARD table.</sys:String>
-        <sys:String>Build a Query to Truncate the ORCHARD table. (This functions similarly to Deleting All Records. Technically, Truncate is a DDL Statement.)</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial2Answers">
         <sys:String>INSERT INTO ORCHARD VALUES( 5, 'Green Valley Orchard', 10, 20 ) ;</sys:String>
         <sys:String>UPDATE ORCHARD SET APPLES = 200 WHERE ORCHARD_NO = 1 ;</sys:String>
         <sys:String>DELETE FROM ORCHARD WHERE ORCHARD_NO = 6 ;</sys:String>
         <sys:String>DELETE FROM ORCHARD ;</sys:String>
-        <sys:String>TRUNCATE TABLE ORCHARD ;</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial3Hints">
         <sys:String>Build a Query that updates EMPLOYEE.SALARY to 70000 where EMPLOYEE.SALARY is between 50000 and 60000.</sys:String>

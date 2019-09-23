@@ -73,7 +73,7 @@ namespace DBBlocker
                 }
                 else
                 {
-                    Application.Current.Resources["ErrorOutput"] = "Please use a Red block (Select/Update/Add Etc.) to begin a Query.";
+                    Application.Current.Resources["ErrorOutput"] = "Please use a Green block (Select/Update/Add Etc.) to begin a Query.";
                     ErrorPopUp newInitialBlockError = new ErrorPopUp();
                     newInitialBlockError.ShowDialog();
                 }
