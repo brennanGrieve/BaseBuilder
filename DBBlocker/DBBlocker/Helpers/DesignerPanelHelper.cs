@@ -31,14 +31,18 @@ namespace DBBlocker
                         originalParent.Children.RemoveRange(0, originalParent.Children.Count);
                         return;
                     }
+                    else
+                    {
+                        int index = originalParent.Children.IndexOf(_eleBlock);
+                        originalParent.Children.RemoveRange(originalParent.Children.IndexOf(_eleBlock), originalParent.Children.Count - originalParent.Children.IndexOf(_eleBlock));
+                    }
                 }
 
                 //Refactor the following using inheritence/polymorphism
                 if (_eleBlock.GetType().Name.EndsWith("NestBlock"))
                 {
                     queryStarted = true;
-                    int index = originalParent.Children.IndexOf(_eleBlock);
-                    originalParent.Children.RemoveRange(index, originalParent.Children.Count - index);
+                    originalParent.Children.RemoveRange(originalParent.Children.IndexOf(_eleBlock), originalParent.Children.Count - originalParent.Children.IndexOf(_eleBlock));
                 }
                 originalParent.Children.Remove(_eleBlock);
             }
