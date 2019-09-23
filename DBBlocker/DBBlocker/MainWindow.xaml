@@ -78,7 +78,7 @@
                         <local:UpdateBlock/>
                         <local:DeleteBlock/>
                         <local:ValuesBlock/>
-                        <local:IntoBlock/>
+                        <local:AsNestBlock/>
                         <local:SetBlock/>
                     </StackPanel>
                 </ScrollViewer>
