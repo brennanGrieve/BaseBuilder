@@ -122,8 +122,8 @@
     <Compile Include="QueryBlocks\CommonBlocks\InBlock.xaml.cs">
       <DependentUpon>InBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\DMLBlocks\IntoBlock.xaml.cs">
-      <DependentUpon>IntoBlock.xaml</DependentUpon>
+    <Compile Include="QueryBlocks\DMLBlocks\AsNestBlock.cs">
+      <DependentUpon>AsNestBlock.xaml</DependentUpon>
     </Compile>
     <Compile Include="QueryBlocks\ConditionBlocks\LikeBlock.xaml.cs">
       <DependentUpon>LikeBlock.xaml</DependentUpon>
@@ -218,9 +218,6 @@
     <Compile Include="QueryBlocks\DMLBlocks\UpdateBlock.xaml.cs">
       <DependentUpon>UpdateBlock.xaml</DependentUpon>
     </Compile>
-    <Compile Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml.cs">
-      <DependentUpon>TruncateBlock.xaml</DependentUpon>
-    </Compile>
     <Compile Include="QueryBlocks\DMLBlocks\ValuesBlock.xaml.cs">
       <DependentUpon>ValuesBlock.xaml</DependentUpon>
     </Compile>
@@ -283,7 +280,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="QueryBlocks\DMLBlocks\IntoBlock.xaml">
+    <Page Include="QueryBlocks\DMLBlocks\AsNestBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -413,10 +410,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="QueryBlocks\DMLBlocks\UpdateBlock.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="QueryBlocks\DDLBlocks\TruncateBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

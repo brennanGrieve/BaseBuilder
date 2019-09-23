@@ -1,14 +1,13 @@
-﻿<local:QueryBlockBase x:Class="DBBlocker.IntoBlock"
+﻿<local:QueryBlockBase x:Class="DBBlocker.AsNestBlock"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DBBlocker"
-             Height="95" Width="150"
+             Height="95" Width="135"
              AllowDrop="False">
-    <Grid Margin="0,0,-25,0">
-        <local:SubBlock Stroke="Black" Fill="{StaticResource DeepBlueBlockFill}"/>
-        <local:SingleBoxBlockTextBlock Text="INTO"/>
-        <local:SingleBoxBlockTextBox/>
+    <Grid Margin="0,0,-35,0">
+        <local:NestableBlock Stroke="Black" Fill="{StaticResource DeepBlueBlockFill}"/>
+        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Height="27" TextWrapping="Wrap" VerticalAlignment="Center" Width="66" Foreground="Black" FontSize="20" Text="AS" Margin="60,23,44,45"></TextBlock>
     </Grid>
 </local:QueryBlockBase>
