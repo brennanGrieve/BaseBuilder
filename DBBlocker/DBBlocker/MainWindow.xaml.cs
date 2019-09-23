@@ -24,6 +24,12 @@ namespace DBBlocker
         {
             InitializeComponent();
             Tutorial = new TutorialModeHelper();
+            if (Properties.Settings.Default.FirstTimeStartup)
+            {
+                FirstTimePopup firstTime = new FirstTimePopup();
+                firstTime.ShowDialog();
+                Properties.Settings.Default.FirstTimeStartup = false;
+            }
         }
 
 

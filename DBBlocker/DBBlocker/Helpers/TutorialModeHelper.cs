@@ -11,8 +11,6 @@ namespace DBBlocker
 {
     class TutorialModeHelper
     {
-
-  
         
         private int currentTutorialFlag = -1;
 

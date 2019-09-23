@@ -14,14 +14,12 @@
         <sys:String>Build a Query that returns the contents of two columns, named "LEMONS" and "ORANGES" from a table named "ORCHARD"
         (Note; To SELECT from multiple columns, you must separate them with a comma.)</sys:String>
         <sys:String>Build a Query that returns the contents of a columns FRUITORDERS.ORDER_NO and ORCHARD.ORCHARD_NAME where FRUITORDERS.ORCHARD_ID is equal to ORDHARD.ORCHARD_ID. (To perform this kind of comparison between two tables, and return all relevant results, use an INNER JOIN.)</sys:String>
-        <sys:String>Build a Query that returns the contents of the columns ORCHARD.NAME, FRUITORDERS.ORDER_NO, FRUITDELIVERIES.DELIVERY_NO from the tables ORCHARD, FRUITORDERS, and FRUITDELIVERIES.</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial0Answers">
         <sys:String>SELECT * FROM ORCHARD ;</sys:String>
         <sys:String>SELECT APPLES FROM ORCHARD ;</sys:String>
         <sys:String>SELECT LEMONS, ORANGES FROM ORCHARD ;</sys:String>
         <sys:String>SELECT FRUITORDERS.ORDER_NO, ORCHARD.ORCHARD_NAME FROM FRUITORDERS INNER JOIN ORCHARD ON FRUITORDERS.ORCHARD_ID = ORCHARD.ORCHARD_ID ;</sys:String>
-        <sys:String>SELECT ORCHARD.ORCHARD_NAME, FRUITORDERS.ORDER_NO, FRUITDELIVERIES.DELIVERY_NO FROM ORCHARD INNER JOIN FRUITORDERS ON ORCHARD.ORCHARD_ID = FRUITORDERS.ORCHARD_ID INNER JOIN FRUITDELIVEIRES ON FRUITDELIVERIES.DELIVERY_NO = FRUITORDERS.DELIVERY_NO ;</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial1Hints">
         <sys:String>Build a query to create a table named EMPLOYEE.</sys:String>
@@ -44,10 +42,10 @@
         <sys:String>Build a query to Update the column APPLES in ORCHARD, setting the value to 200 where ORCHARD_NO = 1</sys:String>
         <sys:String>Build a query to Delete records from the ORCHARD table where ORCHARD_NO = 6</sys:String>
         <sys:String>Build a Query to Delete all records from the ORCHARD table.</sys:String>
-        <sys:String>Build a Query to Truncate the ORCHARD table. (This functions similarly to Deleting All Records)</sys:String>
+        <sys:String>Build a Query to Truncate the ORCHARD table. (This functions similarly to Deleting All Records. Technically, Truncate is a DDL Statement.)</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial2Answers">
-        <sys:String>INSERT INTO ORCHARD VALUES (5, 'Green Valley Orchard', 10, 20) ;</sys:String>
+        <sys:String>INSERT INTO ORCHARD VALUES( 5, 'Green Valley Orchard', 10, 20 ) ;</sys:String>
         <sys:String>UPDATE ORCHARD SET APPLES = 200 WHERE ORCHARD_NO = 1 ;</sys:String>
         <sys:String>DELETE FROM ORCHARD WHERE ORCHARD_NO = 6 ;</sys:String>
         <sys:String>DELETE FROM ORCHARD ;</sys:String>

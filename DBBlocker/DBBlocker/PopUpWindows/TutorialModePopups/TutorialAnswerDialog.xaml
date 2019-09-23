@@ -8,7 +8,10 @@
         Title="Results" Height="180" Width="600"
         Background="{StaticResource DarkGreyBrush}"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        BorderBrush="{StaticResource BorderBrush}"
+        BorderThickness="2">
     <Grid>
         <Image x:Name="FeedbackImage" HorizontalAlignment="Left" Width="170" Margin="10,0,0,0"/>
         <TextBlock x:Name="Feedback" Foreground="{StaticResource MutedWhiteBrush}" TextWrapping="Wrap" Width="330" Height="100" Margin="0,0,20,20" HorizontalAlignment="Right"/>

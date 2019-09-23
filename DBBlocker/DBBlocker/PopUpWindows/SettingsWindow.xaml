@@ -8,7 +8,8 @@
         mc:Ignorable="d"
         Title="User Settings" Height="500" Width="550"
         Background="{StaticResource DarkGreyBrush}"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl Background="Transparent" BorderBrush="{StaticResource TabSelectedBrush}" Margin="-1,0,-1,40">
             <TabItem Header="General Settings" Margin="2,0,0,0">

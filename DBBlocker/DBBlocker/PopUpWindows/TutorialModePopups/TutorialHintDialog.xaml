@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:DBBlocker"
         mc:Ignorable="d"
         Title="Tutorial Hint" Height="200" Width="500"
-        Background="{StaticResource DarkGreyBrush}">
+        Background="{StaticResource DarkGreyBrush}"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        BorderBrush="{StaticResource BorderBrush}"
+        BorderThickness="2">
     <Grid>
         <Image Source="/Shapes/hintIcon.png" Margin="0,10,300,20"/>
         <TextBlock x:Name="Hint" TextWrapping="Wrap" FontSize="12" Width="285" Margin="0,10,10,35" HorizontalAlignment="Right" Foreground="{StaticResource MutedWhiteBrush}"/>

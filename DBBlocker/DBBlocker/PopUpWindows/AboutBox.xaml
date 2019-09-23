@@ -5,10 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DBBlocker"
         mc:Ignorable="d"
-        Title="About DBBlocker" Height="200" Width="375"
+        Title="About DBBlocker" Height="180" Width="375"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Background="{StaticResource DarkGreyBrush}">
+        Background="{StaticResource DarkGreyBrush}"
+        WindowStyle="None"
+        BorderBrush="{StaticResource BorderBrush}"
+        BorderThickness="2">
     <Grid>
         <Image HorizontalAlignment="Left" Height="150" Margin="10,15,0,0" VerticalAlignment="Top" Width="150" Source="/Shapes/logo.png"/>
             <StackPanel Margin="175,10,10,10">
@@ -20,8 +23,8 @@
                     Github.
                 </Hyperlink>
             </TextBlock>
-            <TextBlock Margin="5,10,0,0" VerticalAlignment="Top" Foreground="{StaticResource MutedWhiteBrush}" Text="A application designed to assist with the learning of basic SQL and Database Logic." TextWrapping="Wrap" FontSize="10"/>
-            
+            <TextBlock Margin="5,10,5,0" VerticalAlignment="Top" Foreground="{StaticResource MutedWhiteBrush}" Text="A application designed to assist with the learning of basic SQL and Database Logic." TextWrapping="Wrap" TextAlignment="Justify" FontSize="10"/>
         </StackPanel>
+        <Button Width="70" Height="20" Content="Ok" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="OkBtn_Click" IsDefault="True"/>
     </Grid>
 </Window>
