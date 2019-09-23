@@ -9,8 +9,8 @@
     <Grid Margin="0,0,-25,0">
         <local:SubBlock Fill="{StaticResource DeepBlueBlockFill}" Stroke="Black"/>
         <TextBlock Foreground="Black" HorizontalAlignment="Center" FontWeight="Bold" Margin="-5,0,0,0" TextWrapping="Wrap" FontSize="16" Text="ALTER COLUMN" VerticalAlignment="Top"/>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="28,20,0,0" TextWrapping="Wrap" FontSize="14" VerticalAlignment="Top" Width="120" Text="[COLUMN_NAME]"/>
-        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="28,45,0,0" TextWrapping="Wrap" FontSize="14" VerticalAlignment="Top" Width="120" Text="[COLUMN_TYPE]"/>
+        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="28,20,0,0" TextWrapping="Wrap" FontSize="14" VerticalAlignment="Top" Width="120" Text="Only supported"/>
+        <TextBox IsEnabled="False" HorizontalAlignment="Left" Height="22" Margin="28,45,0,0" TextWrapping="Wrap" FontSize="14" VerticalAlignment="Top" Width="120" Text="In tutorial mode."/>
 
     </Grid>
 </local:QueryBlockBase>

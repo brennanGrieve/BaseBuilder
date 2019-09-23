@@ -11,8 +11,6 @@ namespace DBBlocker
 {
     class TutorialModeHelper
     {
-
-  
         
         private int currentTutorialFlag = -1;
 
@@ -33,8 +31,12 @@ namespace DBBlocker
             if (queryToCheck == tutorialAnswers[tutorialSequence])
             {
                 PrepareNextTutorialStep();
-                answerDialog.PrepareCorrectAnswerDialog(tutorialSequence, tutorialAnswers.Length);
+                bool tutFinished = answerDialog.PrepareCorrectAnswerDialog(tutorialSequence, tutorialAnswers.Length);
                 answerDialog.ShowDialog();
+                if (!tutFinished) {
+                    TutorialHintDialog nextHint = new TutorialHintDialog(GetCurrentHint());
+                    nextHint.ShowDialog();
+                }
             }
             else
             {

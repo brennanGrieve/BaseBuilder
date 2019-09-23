@@ -7,12 +7,15 @@
         mc:Ignorable="d"
         Title="TutorialModeMenu" Height="225" Width="425"
         ResizeMode="NoResize"
-        Background="{StaticResource DarkGreyBrush}">
+        Background="{StaticResource DarkGreyBrush}"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        BorderBrush="{StaticResource BorderBrush}"
+        BorderThickness="2">
     <Grid>
-        <Grid Margin="170,-5,-5,-5">
-            <Border BorderBrush="{StaticResource TabSelectedBrush}" BorderThickness="1"/>
+        <Grid Margin="190,-5,-5,-5">
             <TextBlock Text="Tutorial Mode" Margin="10,15,0,0" Height="30" VerticalAlignment="Top" FontSize="24" Foreground="{StaticResource MutedWhiteBrush}"/>
-            <ComboBox Name="UserSelectionBox" Width="150" Height="24" VerticalAlignment="Top"  Margin="5,55,0,0" SelectedIndex="0" >
+            <ComboBox Name="UserSelectionBox" Width="160" Height="24" VerticalAlignment="Top"  Margin="5,55,0,0" SelectedIndex="0" >
                 <ComboBoxItem Content="Data Retrieval"/>
                 <ComboBoxItem Content="Table Data Definition"/>
                 <ComboBoxItem Content="Table Data Manipulation"/>

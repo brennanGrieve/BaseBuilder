@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="Invalid Operation" Height="125" Width="400"
-        Background="{StaticResource DarkGreyBrush}">
+        Title="Invalid Operation" Height="90" Width="400"
+        Background="{StaticResource DarkGreyBrush}"
+        WindowStyle="None"
+        BorderBrush="{StaticResource BorderBrush}"
+        BorderThickness="2">
     <Grid>
         <Button Content="OK" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="75" IsDefault="True" Click="OK_Button_Click"/>
-        <TextBlock Foreground="{StaticResource MutedWhiteBrush}" HorizontalAlignment="Right" Padding="0" TextWrapping="Wrap" Text="{DynamicResource ErrorOutput}" VerticalAlignment="Top" Width="260" Margin="0,10,50,0" Height="50"/>
-        <Image Name="WarningImage" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="32" Margin="20,15,0,0"/>
+        <TextBlock Foreground="{StaticResource MutedWhiteBrush}" TextAlignment="Justify" HorizontalAlignment="Right" Padding="0" TextWrapping="Wrap" Text="{DynamicResource ErrorOutput}" VerticalAlignment="Center" Width="260" Margin="0,0,50,0" Height="40"/>
+        <Image Name="WarningImage" HorizontalAlignment="Left" Height="32" VerticalAlignment="Center" Width="32" Margin="30,0,0,0"/>
     </Grid>
 </Window>

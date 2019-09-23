@@ -24,6 +24,12 @@ namespace DBBlocker
         {
             InitializeComponent();
             Tutorial = new TutorialModeHelper();
+            if (Properties.Settings.Default.FirstTimeStartup)
+            {
+                FirstTimePopup firstTime = new FirstTimePopup();
+                firstTime.ShowDialog();
+                Properties.Settings.Default.FirstTimeStartup = false;
+            }
         }
 
 
@@ -219,6 +225,8 @@ namespace DBBlocker
                     tutorial.PrepareTutorial();
                     Button hintBtn = (Button)FindName("HintBtn");
                     hintBtn.Visibility = Visibility.Visible;
+                    TutorialHintDialog hint = new TutorialHintDialog(tutorial.GetCurrentHint());
+                    hint.ShowDialog();
                 }
             }
         }
@@ -227,10 +235,9 @@ namespace DBBlocker
         {
             Button ele = (Button)sender;
             PlayRippleAnim(ele, "HintRipple");
-            TutorialHintDialog hint = new TutorialHintDialog();
+            TutorialHintDialog hint = new TutorialHintDialog(tutorial.GetCurrentHint());
             if (tutorial.Active())
             {
-                hint.SetHintText(tutorial.GetCurrentHint());
                 hint.ShowDialog();
             }
         }

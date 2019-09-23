@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,22 +15,16 @@ using System.Windows.Shapes;
 namespace DBBlocker
 {
     /// <summary>
-    /// Interaction logic for AboutBox.xaml
+    /// Interaction logic for FirstTimePopup.xaml
     /// </summary>
-    public partial class AboutBox : Window
+    public partial class FirstTimePopup : Window
     {
-        public AboutBox()
+        public FirstTimePopup()
         {
             InitializeComponent();
         }
 
-        private void GitHubHyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
-        {
-            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
-            e.Handled = true;
-        }
-
-        private void OkBtn_Click(object sender, RoutedEventArgs e)
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
         }
