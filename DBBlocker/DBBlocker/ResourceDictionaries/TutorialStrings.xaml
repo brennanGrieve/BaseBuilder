@@ -22,7 +22,7 @@
         <sys:String>SELECT FRUITORDERS.ORDER_NO, ORCHARD.ORCHARD_NAME FROM FRUITORDERS INNER JOIN ORCHARD ON FRUITORDERS.ORCHARD_ID = ORCHARD.ORCHARD_ID ;</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial1Hints">
-        <sys:String>Build a query to create a table named EMPLOYEE.</sys:String>
+        <sys:String>Build a query to create a table named EMPLOYEE that has a single column called SALARY with a FLOAT datatype.</sys:String>
         <sys:String>Build a query to drop a table named ROTTEN.</sys:String>
         <sys:String>Build a query to add a column named APPLES_PICKED to EMPLOYEE with an INT datatype.</sys:String>
         <sys:String>Build a query to drop a column named PAPAYAS_PICKED from EMPLOYEE.</sys:String>
@@ -30,7 +30,7 @@
         <sys:String>Build a query that makes the column ID in EMPLOYEE a Primary Key named PK_EMPLOYEE.</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial1Answers">
-        <sys:String>CREATE TABLE EMPLOYEE ;</sys:String>
+        <sys:String>CREATE TABLE EMPLOYEE ( SALARY FLOAT ) ;</sys:String>
         <sys:String>DROP TABLE ROTTEN ;</sys:String>
         <sys:String>ALTER TABLE EMPLOYEE ADD APPLES_PICKED INT ;</sys:String>
         <sys:String>ALTER TABLE EMPLOYEE DROP COLUMN PAPAYAS_PICKED ;</sys:String>
