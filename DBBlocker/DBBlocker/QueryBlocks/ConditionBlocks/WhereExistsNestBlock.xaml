@@ -8,6 +8,6 @@
              AllowDrop="False">
     <Grid Margin="0,0,-35,0">
         <local:NestableBlock Fill="{StaticResource TurqoiseBlockFill}" Stroke="Black"></local:NestableBlock>
-        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Height="27" Margin="7,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Foreground="Black" FontSize="14" Text="WHERE EXISTS"></TextBlock>
+        <TextBlock HorizontalAlignment="Center" FontWeight="Bold" Height="27" Margin="7,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="115" Foreground="Black" FontSize="13" Text="WHERE EXISTS("></TextBlock>
     </Grid>
 </local:QueryBlockBase>

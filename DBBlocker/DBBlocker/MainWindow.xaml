@@ -89,7 +89,6 @@
                         <local:CreateTableBlock />
                         <local:AlterTableBlock />
                         <local:DropTableBlock />
-                        <local:TruncateBlock/>
                         <local:AddBlock />
                         <local:DropColumnBlock/>
                         <local:AlterColumnBlock/>
