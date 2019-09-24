@@ -6,7 +6,7 @@
              AllowDrop="False">
     <Grid Margin="0,0,-25,0">
         <local:SubBlock Fill="{StaticResource PlumBlockFill}" Stroke="Black"/>
-        <ComboBox IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="28,26,0,0" SelectedIndex="0">
+        <ComboBox IsEnabled="False" HorizontalAlignment="Left" SelectedValuePath="Content" VerticalAlignment="Top" Width="120" Margin="28,26,0,0" SelectedIndex="0">
             <ComboBoxItem Content="PRIMARY KEY"/>
             <ComboBoxItem Content="FOREIGN KEY"/>
             <ComboBoxItem Content="UNIQUE"/>
