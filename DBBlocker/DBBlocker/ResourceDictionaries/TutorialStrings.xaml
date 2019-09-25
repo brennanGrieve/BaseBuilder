@@ -30,7 +30,7 @@
         <sys:String>Build a query that makes the column ID in EMPLOYEE a Primary Key named PK_EMPLOYEE.</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial1Answers">
-        <sys:String>CREATE TABLE EMPLOYEE ( SALARY FLOAT ) ;</sys:String>
+        <sys:String>CREATE TABLE EMPLOYEE( SALARY FLOAT ) ;</sys:String>
         <sys:String>DROP TABLE ROTTEN ;</sys:String>
         <sys:String>ALTER TABLE EMPLOYEE ADD APPLES_PICKED INT ;</sys:String>
         <sys:String>ALTER TABLE EMPLOYEE DROP COLUMN PAPAYAS_PICKED ;</sys:String>
@@ -61,7 +61,7 @@
         <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE NOT VALUE = 0 ;</sys:String>
         <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE SALARY BETWEEN 50000 AND 60000 AND NOT SALARY = 55000 ;</sys:String>
         <sys:String>UPDATE EMPLOYEE SET SALARY = 70000 WHERE SALARY BETWEEN 50000 AND 60000 OR SALARY = 45000 ;</sys:String>
-        <sys:String>UPDATE EMPLOYEE SET GROUP = 1 WHERE FNAME LIKE A% ;</sys:String>
+        <sys:String>UPDATE EMPLOYEE SET GROUP = 1 WHERE FNAME LIKE 'A%' ;</sys:String>
     </x:Array>
     <x:Array Type="sys:String" x:Key="Tutorial4Hints">
         <sys:String>Build a Query that selects the Max EMPLOYEE.SALARY.</sys:String>
