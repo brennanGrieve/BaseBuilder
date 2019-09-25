@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:DBBlocker"
-        Title="DBBlocker" Height="465" Width="850"
+        Title="DBaseBlocks" Height="465" Width="850"
         MinHeight="465"
         MinWidth="850"
         WindowState="Maximized">
@@ -28,7 +28,7 @@
             </MenuItem>
             <MenuItem Header="Help">
                 <MenuItem Header="Tutorial Mode" Click="TutorialModeMenuItem_Click"/>
-                <MenuItem Header="About DBBlocker" Click="AboutMenuItem_Click"/>
+                <MenuItem Header="About DBaseBlocks" Click="AboutMenuItem_Click"/>
             </MenuItem>
         </Menu>
         <TabControl HorizontalAlignment="Stretch"  Margin="230,20,5,145" VerticalAlignment="Stretch" Background="{StaticResource DarkGreyBrush}" BorderBrush="{StaticResource  BorderBrush}">
