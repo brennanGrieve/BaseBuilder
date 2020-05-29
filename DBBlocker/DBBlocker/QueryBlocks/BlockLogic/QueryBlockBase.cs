@@ -24,37 +24,44 @@ namespace DBBlocker
         {
             if (e.Handled == false)
             {
-                e.Handled = true;
-                Point _currentPos = NativeMethods.GetMousePosition();
-                if (e.LeftButton == MouseButtonState.Pressed)
+                try
                 {
-                    if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
-                    {                 
-                        DataObject blockData = new DataObject();
-                        blockData.SetData("QueryBlockBase", this);
-                        blockData.SetData("Panel", Parent);
-                        blockAdorner = new DragAdorner(this, e.GetPosition(this));
-
-                        /*
-                         * Force GetAdornerLayer to find the highest possible AdornerLayer to render adorners ontop of all
-                         * UIElements in the Visual Tree. Then use that layer to show the Block Adorner.
-                         */
-
-                        Visual container = (Visual)Application.Current.MainWindow.Content;
-                        AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
-                        try
+                    e.Handled = true;
+                    Point _currentPos = NativeMethods.GetMousePosition();
+                    if (e.LeftButton == MouseButtonState.Pressed)
+                    {
+                        if (Math.Abs(_currentPos.X - StartPoint.X) > 15 || Math.Abs(_currentPos.Y - StartPoint.Y) > 15)
                         {
-                            DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
+                            DataObject blockData = new DataObject();
+                            blockData.SetData("QueryBlockBase", this);
+                            blockData.SetData("Panel", Parent);
+                            blockAdorner = new DragAdorner(this, e.GetPosition(this));
+
+                            /*
+                             * Force GetAdornerLayer to find the highest possible AdornerLayer to render adorners ontop of all
+                             * UIElements in the Visual Tree. Then use that layer to show the Block Adorner.
+                             */
+
+                            Visual container = (Visual)Application.Current.MainWindow.Content;
+                            AdornerLayer.GetAdornerLayer(container).Add(blockAdorner);
+                            try
+                            {
+                                DragDrop.DoDragDrop(this, blockData, DragDropEffects.Copy);
+                            }
+                            catch (Exception ex)
+                            {
+                                throw ex;
+                            }
+                            AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
                         }
-                        catch(Exception ex)
-                        {
-                            throw ex;
-                        }
-                        AdornerLayer.GetAdornerLayer(container).Remove(blockAdorner);
                     }
-                }
-                else{
-                    StartPoint = NativeMethods.GetMousePosition();
+                    else
+                    {
+                        StartPoint = NativeMethods.GetMousePosition();
+                    }
+                } catch(Exception ex)
+                {
+                    throw ex;
                 }
             }
         }
@@ -66,22 +73,28 @@ namespace DBBlocker
             base.OnGiveFeedback(e);
             if (e.Handled == false)
             {
-                if (blockAdorner != null)
+                try
                 {
-                    blockAdorner.UpdatePosition(NativeMethods.GetMousePosition(), this.TranslatePoint(new Point(0, 0), Application.Current.MainWindow));
-                }
+                    if (blockAdorner != null)
+                    {
+                        blockAdorner.UpdatePosition(NativeMethods.GetMousePosition(), this.TranslatePoint(new Point(0, 0), Application.Current.MainWindow));
+                    }
 
-                if (e.Effects.HasFlag(DragDropEffects.Copy))
+                    if (e.Effects.HasFlag(DragDropEffects.Copy))
+                    {
+                        StreamResourceInfo grabCurs = Application.GetResourceStream(new Uri("Shapes/grabCursor.cur", UriKind.Relative));
+                        Mouse.SetCursor(new Cursor(grabCurs.Stream));
+                        //Mouse.SetCursor(Cursors.Hand);
+                    }
+                    else
+                    {
+                        Mouse.SetCursor(Cursors.No);
+                    }
+                    e.Handled = true;
+                }catch(Exception ex)
                 {
-                    StreamResourceInfo grabCurs = Application.GetResourceStream(new Uri("Shapes/grabCursor.cur", UriKind.Relative));
-                    Mouse.SetCursor(new Cursor(grabCurs.Stream));
-                    //Mouse.SetCursor(Cursors.Hand);
+                    throw ex;
                 }
-                else
-                {
-                    Mouse.SetCursor(Cursors.No);
-                }
-                e.Handled = true;
             }
         }
 
@@ -100,24 +113,30 @@ namespace DBBlocker
          */
 
         public string ExtractSQL() {
-            string blockSQL = "";
-            foreach (UIElement element in contentGrid.Children)
+            try
             {
-                if (element is TextBlock tbEle)
+                string blockSQL = "";
+                foreach (UIElement element in contentGrid.Children)
                 {
-                    blockSQL += tbEle.Text + " ";
+                    if (element is TextBlock tbEle)
+                    {
+                        blockSQL += tbEle.Text + " ";
+                    }
+                    if (element is TextBox tboxEle)
+                    {
+                        blockSQL += tboxEle.Text + " ";
+                    }
+                    if (element is ComboBox cbEle)
+                    {
+                        blockSQL += cbEle.SelectedValue + " ";
+                    }
+
                 }
-                if (element is TextBox tboxEle)
-                {
-                    blockSQL += tboxEle.Text + " ";
-                }
-                if(element is ComboBox cbEle)
-                {
-                    blockSQL += cbEle.SelectedValue + " ";
-                }
-                
+                return blockSQL;
+            }catch(Exception ex)
+            {
+                throw ex;
             }
-            return blockSQL;
         }
 
         /* 
